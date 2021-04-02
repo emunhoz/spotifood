@@ -1,0 +1,52 @@
+{
+  "name": "monorepo-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:emunhoz/monorepo-boilerplate.git",
+  "author": "emunhoz <edermunhozsantos@gmail.com>",
+  "private": true,
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "publish:ci": "lerna publish from-package --yes --no-verify-registry --no-verify-access && git add -u .",
+    "version:ci": "lerna version --yes --conventional-commits --create-release github --message 'chore(release): publish'",
+    "watch:design-tokens": "yarn workspace @monorepo/design-tokens start",
+    "watch:tokens": "yarn workspace @monorepo/design-tokens start",
+    "watch:components": "yarn workspace @monorepo/ui-components start",
+    "test:components": "yarn workspace @monorepo/ui-components test",
+    "test:app": "yarn workspace @monorepo/cra test",
+    "postinstall": "yarn workspace @monorepo/design-tokens libbuild && yarn workspace @monorepo/ui-components libbuild",
+    "start": "yarn workspace @monorepo/cra start",
+    "build-app": "yarn workspace @monorepo/cra build",
+    "storybook": "yarn workspace @monorepo/ui-components storybook",
+    "build-storybook": "yarn workspace @monorepo/ui-components build-storybook",
+    "lint": "yarn workspace @monorepo/ui-components lint && yarn workspace @monorepo/cra lint",
+    "lint:css": "yarn workspace @monorepo/ui-components lint:css && yarn workspace @monorepo/cra lint:css",
+    "test:ci": "yarn workspace @monorepo/ui-components test:coverage && yarn workspace @monorepo/cra test:coverage"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "husky": "^4.0.6",
+    "commitizen": "^4.2.2",
+    "commitlint-config-monorepo": "^1.0.2",
+    "git-commit-msg": "^0.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commons/eslint-config": "*",
+    "@commons/stylelint-config": "*",
+    "typescript": "^4.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
