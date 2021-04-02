@@ -6,21 +6,21 @@ const BlockStyle = css`
 `
 
 const NegativeStyle = css`
-  color: ${({ theme }) => theme.palette.darkest};
+  color: ${({ theme }) => theme.palette.primary};
   background: ${({ theme }) => theme.palette.lightest};
-  border: 2px solid ${({ theme }) => theme.palette.darkest};
+  border: 2px solid ${({ theme }) => theme.palette.primary};
   :hover {
     color: ${({ theme }) => theme.palette.lightest};
-    background: ${({ theme }) => theme.palette.darkest};
+    background: ${({ theme }) => theme.palette.primary};
   }
 `
 
 const GhostStyle = css`
-  color: ${({ theme }) => theme.palette.darkest};
+  color: ${({ theme }) => theme.palette.primary};
   background: ${({ theme }) => theme.palette.lightest};
   :hover {
     color: ${({ theme }) => theme.palette.lightest};
-    background: ${({ theme }) => theme.palette.darkest};
+    background: ${({ theme }) => theme.palette.primary};
   }
 `
 
@@ -35,19 +35,19 @@ const BigStyle = css`
 `
 
 export const Button = styled.button<{ negative: boolean; ghost: boolean; size: string; block: boolean }>`
+  min-width: 200px;
   padding: 18px 40px;
-  font-size: ${({ theme }) => theme.typography.size.s2}px;
+  font-size: ${({ theme }) => theme.typography.size.s3}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   color: ${({ theme }) => theme.palette.lightest};
-  text-transform: uppercase;
   cursor: pointer;
-  background: ${({ theme }) => theme.palette.darkest};
+  background: ${({ theme }) => theme.palette.primary};
   border: none;
-  border-radius: ${({ theme }) => theme.attributes.borderRadius.small}px;
+  border-radius: ${({ theme }) => theme.attributes.borderRadius.xbig}px;
   transition: 0.3s;
 
   :hover {
-    filter: brightness(150%);
+    background: ${({ theme }) => theme.palette.primaryDark};
   }
 
   :disabled {
