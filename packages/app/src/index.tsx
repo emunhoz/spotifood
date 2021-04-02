@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
+import GlobalStyle from './styles/global'
 import createTheme from '@monorepo/design-tokens'
 import './index.css'
 import App from './App'
@@ -9,7 +10,8 @@ import reportWebVitals from './reportWebVitals'
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={createTheme}>
-      <App />
+      <GlobalStyle />
+      <Home />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
