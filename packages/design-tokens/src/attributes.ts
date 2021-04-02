@@ -3,6 +3,7 @@ export type Attributes = {
     small: number
     default: number
     big: number
+    xbig: number
   }
   boxShadow: {
     small: string
@@ -14,7 +15,8 @@ export const attributes: Attributes = {
   borderRadius: {
     small: 5,
     default: 10,
-    big: 20
+    big: 20,
+    xbig: 40
   },
   boxShadow: {
     small: '0 0 46px 0 rgba(0, 0, 0, 0.13)',
