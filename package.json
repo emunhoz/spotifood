@@ -1,8 +1,8 @@
 {
-  "name": "monorepo-boilerplate",
+  "name": "spotifood",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:emunhoz/monorepo-boilerplate.git",
+  "repository": "git@github.com:emunhoz/spotifood.git",
   "author": "emunhoz <edermunhozsantos@gmail.com>",
   "private": true,
   "workspaces": [
