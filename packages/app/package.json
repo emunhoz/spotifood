@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/cra",
+  "name": "@monorepo/spotifood",
   "version": "0.3.4",
   "private": true,
   "dependencies": {
