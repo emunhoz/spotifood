@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-04-02)
+
+
+### Features
+
+* add home page ([ec7cacc](https://github.com/emunhoz/spotifood/commit/ec7cacce56be36e4f07adc6876d5453ee2b023d0))
+
+
+
+
+
 ## 0.3.4 (2021-04-02)
 
 **Note:** Version bump only for package @monorepo/cra
