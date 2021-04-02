@@ -13,6 +13,7 @@ export interface Typography {
     s1: number
     s2: number
     s3: number
+    s4: number
     m1: number
     m2: number
     m3: number
@@ -38,6 +39,7 @@ export const typography: Typography = {
     s1: 12,
     s2: 14,
     s3: 16,
+    s4: 18,
     m1: 20,
     m2: 24,
     m3: 28,
