@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
 import createTheme from '@monorepo/design-tokens'
-import './index.css'
-import App from './App'
+import Home from './pages/home/Home'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
