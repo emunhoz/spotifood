@@ -8,7 +8,7 @@ function Home() {
   return (
     <S.Main>
       <S.Logo>
-        <S.SpotifoodLogo src={SpotifoodLogo} alt="Spotifood logo" />
+        <S.SpotifoodLogo src={SpotifoodLogo} alt="Spotifood logo" width="124" height="45" />
       </S.Logo>
       <S.Wrapper>
         <S.MainText>
@@ -20,7 +20,7 @@ function Home() {
         </S.ImageWrapper>
       </S.Wrapper>
       <S.CallToAction>
-        <S.SpotifyLogo src={SpotifyLogo} alt="Spotify logo" />
+        <S.SpotifyLogo src={SpotifyLogo} alt="Spotify logo" width="126" height="38" />
         <S.CallToActionText>Faça login com sua conta do spotify</S.CallToActionText>
         <Button onClick={() => window.location.href = SPOTIFY_LOGIN_URL}>Entrar</Button>
       </S.CallToAction>
