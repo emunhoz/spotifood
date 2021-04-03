@@ -1,6 +1,7 @@
 import { Button } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import SpotifyLogo from '../../images/spotify-logo.svg'
+import { SPOTIFY_LOGIN_URL } from '../../services/spotify'
 import * as S from './Home.style'
 
 function Home() {
@@ -21,7 +22,7 @@ function Home() {
       <S.CallToAction>
         <S.SpotifyLogo src={SpotifyLogo} alt="Spotify logo" />
         <S.CallToActionText>Faça login com sua conta do spotify</S.CallToActionText>
-        <Button>Entrar</Button>
+        <Button onClick={() => window.location.href = SPOTIFY_LOGIN_URL}>Entrar</Button>
       </S.CallToAction>
     </S.Main>
   )
