@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.4.0...@monorepo/spotifood@0.5.0) (2021-04-03)
+
+
+### Features
+
+* setup react-router-dom library ([a157078](https://github.com/emunhoz/spotifood/commit/a157078c1e24ac8bc1c4a275e47f39ae6942fb6e))
+
+
+
+
+
 # 0.4.0 (2021-04-02)
 
 

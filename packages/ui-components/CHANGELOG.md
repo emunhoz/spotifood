@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.3.0...@monorepo/ui-components@0.4.0) (2021-04-03)
+
+
+### Features
+
+* add Loading component ([b09fe25](https://github.com/emunhoz/spotifood/commit/b09fe25adfe11402455aae6edf9c349de29a1c67))
+
+
+
+
+
 # [0.3.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.2.1...@monorepo/ui-components@0.3.0) (2021-04-02)
 
 
