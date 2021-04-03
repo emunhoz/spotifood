@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: Loading render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ brzPUh"
+  >
+    <div
+      class="spinner"
+      data-testid="loading"
+    />
+  </div>
+</DocumentFragment>
+`;
