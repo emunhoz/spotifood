@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const Main = styled.main`
   display: grid;
   max-width: 1280px;
-  padding: 50px 38px;
+  padding: 26px;
   margin: 0 auto;
 `
 
@@ -19,7 +19,7 @@ export const ImageWrapper = styled.div``
 
 export const Title = styled.h1`
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: ${({ theme }) => theme.typography.size.l1}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   color: ${({ theme }) => theme.palette.darkest};
@@ -29,7 +29,7 @@ export const Divider = styled.span`
   display: inline-block;
   width: 54px;
   height: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background: ${({ theme }) => theme.palette.primary};
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
 `
@@ -39,7 +39,6 @@ const TextStyle = css`
   font-size: ${({ theme }) => theme.typography.size.s4}px;
   line-height: 36px;
   color: ${({ theme }) => theme.palette.darkest};
-  letter-spacing: 0.3px;
 `
 
 export const Paragraph = styled.p`
@@ -54,7 +53,7 @@ export const CallToAction = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding: 38px;
+  padding: 26px;
   text-align: center;
   background: ${({ theme }) => theme.palette.lighter};
   place-content: space-evenly;
