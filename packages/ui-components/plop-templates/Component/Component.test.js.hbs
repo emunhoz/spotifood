@@ -1,0 +1,10 @@
+import React from 'react'
+import { render } from '../../utils/test-utils'
+import { {{pascalCase name}} } from './{{pascalCase name}}'
+
+describe('[Component]: {{pascalCase name}}', () => {
+  test('render the component', () => {
+    const { asFragment } = render(<{{pascalCase name}} />)
+    expect(asFragment()).toMatchSnapshot()
+  })
+})

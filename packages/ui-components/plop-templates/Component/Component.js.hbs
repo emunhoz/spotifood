@@ -1,0 +1,12 @@
+import React from 'react'
+import * as S from './{{pascalCase name}}.style'
+
+interface I{{pascalCase name}} {
+  example?: string
+}
+
+export const {{pascalCase name}} = ({ example = 'example' }: I{{pascalCase name}}) => (
+  <S.{{pascalCase name}}>
+    My new {{pascalCase name}} component {example}
+  </S.{{pascalCase name}}>
+)
