@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.5.1...@monorepo/spotifood@0.6.0) (2021-04-09)
+
+
+### Features
+
+* add auth context to manipulate user session ([f92d023](https://github.com/emunhoz/spotifood/commit/f92d02353d73909cf0a04251e6e1ce29ca895da1))
+* add condition to render private and public routes ([f068fbe](https://github.com/emunhoz/spotifood/commit/f068fbe66ccfafefd9c15cf18fe75821b611bbdb))
+* add initial playlist page to render as private route ([120506b](https://github.com/emunhoz/spotifood/commit/120506b57f6ace841ccf05e22a61849badaf24d3))
+* add redirect page ([a1d3afe](https://github.com/emunhoz/spotifood/commit/a1d3afe3fc04b23d5a166385f98301789ee79a69))
+
+
+
+
+
 ## [0.5.1](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.5.0...@monorepo/spotifood@0.5.1) (2021-04-03)
 
 **Note:** Version bump only for package @monorepo/spotifood

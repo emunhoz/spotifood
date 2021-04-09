@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.4.0...@monorepo/ui-components@0.5.0) (2021-04-09)
+
+
+### Features
+
+* add search bar input component ([4392987](https://github.com/emunhoz/spotifood/commit/43929870548bd498b3d24f19a937c8f864c91dcb))
+
+
+
+
+
 # [0.4.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.3.0...@monorepo/ui-components@0.4.0) (2021-04-03)
 
 
