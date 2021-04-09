@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.5.0...@monorepo/ui-components@0.6.0) (2021-04-09)
+
+
+### Features
+
+* add playlist card component ([a351e4f](https://github.com/emunhoz/spotifood/commit/a351e4fbe326722eaf8b0d1c35fbd9dd124b0857))
+
+
+
+
+
 # [0.5.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.4.0...@monorepo/ui-components@0.5.0) (2021-04-09)
 
 
