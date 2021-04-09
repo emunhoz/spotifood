@@ -6,6 +6,7 @@ const ErrorStyle = css`
 
 export const SearchBar = styled.div`
   position: relative;
+  width: -webkit-fill-available;
 `
 
 export const SearchIcon = styled.div`
@@ -18,7 +19,7 @@ export const SearchIcon = styled.div`
 
 export const Input = styled.input<{ error?: boolean }>`
   width: -webkit-fill-available;
-  padding: 20px 50px;
+  padding: 20px 20px 20px 58px;
   font-family: 'Poppins', 'Helvetica Neue', sans-serif;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
   letter-spacing: 0.75px;
