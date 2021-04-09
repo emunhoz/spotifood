@@ -1,17 +1,12 @@
-import { lazy, Suspense } from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
-import { Loading } from '@monorepo/ui-components'
+import { useAuth } from '../contexts/auth'
 
-const Home = lazy(() => import('../pages/home/Home'))
+import PublicRoutes from './PublicRoutes'
+import AuthenticatedRoutes from './AuthenticatedRoutes'
 
-function Routes () {
-  return (
-    <Suspense fallback={<Loading />}>
-        <Router>
-          <Route exact path='/' component={Home} />
-        </Router>
-    </Suspense>
-  )
+const Routes = () => {
+  const { signed } = useAuth()
+
+  return signed ? <AuthenticatedRoutes /> : <PublicRoutes />
 }
 
 export default Routes
