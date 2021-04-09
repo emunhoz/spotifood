@@ -4,13 +4,16 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
 import Routes from './routes'
 import createTheme from '@monorepo/design-tokens'
+import { AuthProvider } from './contexts/auth'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={createTheme}>
       <GlobalStyle />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
