@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { PlaylistCard, IPlaylistCard } from './PlaylistCard'
+
+<Meta title="Components/PlaylistCard" component={ PlaylistCard } />
+
+# PlaylistCard
+
+This is the `PlaylistCard`
+
+```jsx
+import { PlaylistCard } from '@voodoo/ui-components'
+```
+
+<Preview withSource="open">
+  <Story name="Primary">
+    <PlaylistCard
+      owner="Spotify"
+      playlistName="Rain Sounds"
+      link="https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc"
+      imgUrl="https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de"
+    />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ PlaylistCard } />
