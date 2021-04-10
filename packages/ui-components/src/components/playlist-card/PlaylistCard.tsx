@@ -16,7 +16,7 @@ export const PlaylistCard = ({
 }: IPlaylistCard) => (
   <S.PlaylistCard>
     <S.PlaylistCardFigure>
-      <S.PlaylistCardImg src={imgUrl} alt='image name' />
+      <S.PlaylistCardImg src={imgUrl} alt='image name' loading='lazy' />
     </S.PlaylistCardFigure>
     <S.Footer>
       <S.PlaylistInfo>
