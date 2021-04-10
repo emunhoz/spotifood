@@ -1,12 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SearchBar, PlaylistCard, Button } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import { useAuth } from '../../contexts/auth'
+import { featuredPlaylist } from '../../services/spotify'
 import * as S from './Playlist.style'
+
+interface ResponseDataFromSpotifyPlaylist {
+  data: {
+    playlists: {
+      items: object
+    }
+  }
+}
 
 function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
+  const [data, setData] = useState<ResponseDataFromSpotifyPlaylist | any>({})
   const { signOut } = useAuth()
+
+  useEffect(() => {
+    getPlaylistData()
+  }, [])
+
+  async function getPlaylistData () {
+    try {
+      const { data } = await featuredPlaylist()
+      setData(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <S.Main>
@@ -62,42 +85,23 @@ function Playlist () {
           </div>
         </S.SearchWrapper>
         <S.PlayListWrapper>
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
-          <PlaylistCard
-            owner='Spotify'
-            playlistName='Rain Sounds'
-            link='https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc'
-            imgUrl='https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de'
-          />
+          {data?.playlists?.items?.map(
+            (playlist: {
+              id: string
+              owner: { display_name: string }
+              name: string
+              external_urls: { spotify: string }
+              images: [key: { url: string }]
+            }) => (
+              <PlaylistCard
+                key={playlist.id}
+                owner={playlist.owner.display_name}
+                playlistName={playlist.name}
+                link={playlist.external_urls.spotify}
+                imgUrl={playlist.images[0].url}
+              />
+            )
+          )}
         </S.PlayListWrapper>
       </S.Wrapper>
     </S.Main>
