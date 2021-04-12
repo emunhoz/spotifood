@@ -5,6 +5,8 @@ export const SelectInputWrapper = styled.div``
 export const SelectInput = styled.select`
   position: relative;
   width: -webkit-fill-available;
+  height: 100%;
+  max-height: 65px;
   padding: 20px;
   font-family: 'Poppins', 'Helvetica Neue', sans-serif;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
@@ -13,6 +15,7 @@ export const SelectInput = styled.select`
   border: none;
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
   transition: all 0.3s linear;
+  appearance: none;
 
   :focus {
     border-radius: none;

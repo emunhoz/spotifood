@@ -17,6 +17,8 @@ export const InputWrapper = styled.div`
 
 export const Input = styled.input<{ error: boolean }>`
   width: -webkit-fill-available;
+  height: 100%;
+  max-height: 65px;
   padding: 20px;
   font-family: 'Poppins', 'Helvetica Neue', sans-serif;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
@@ -24,7 +26,7 @@ export const Input = styled.input<{ error: boolean }>`
   background: ${({ theme }) => theme.palette.light};
   border: none;
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
-  -webkit-appearance: none;
+  appearance: none;
 
   :focus {
     border-radius: none;

@@ -83,6 +83,7 @@ export const CloseFilter = styled.div`
 `
 
 export const CloseIcon = styled.img`
+  width: 44px;
   max-height: 44px;
   padding: 20px;
   background: ${({ theme }) => theme.palette.light};
