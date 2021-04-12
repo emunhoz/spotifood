@@ -50,7 +50,22 @@ export const Filters = styled.div`
 
 export const PlayListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
   grid-gap: 3em;
   width: 100%;
   padding: 40px 0;
@@ -80,7 +95,7 @@ export const FilterContent = styled.div<{ toogleFilter?: boolean }>`
   display: block;
   width: 100%;
   height: 100%;
-  background: #ffffffe8;
+  background: #fff;
   transition: 0.4s;
 
   select,
