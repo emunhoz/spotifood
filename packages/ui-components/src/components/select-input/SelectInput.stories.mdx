@@ -1,0 +1,27 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { SelectInput, ISelectInput } from './SelectInput'
+
+<Meta title="Components/SelectInput" component={ SelectInput } />
+
+# SelectInput
+
+This is the `SelectInput`
+
+```jsx
+import { SelectInput } from '@voodoo/ui-components'
+```
+
+<Preview withSource="open">
+  <Story name="Primary">
+    <SelectInput label="Select example">
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </SelectInput>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ SelectInput } />
