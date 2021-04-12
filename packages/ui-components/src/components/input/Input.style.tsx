@@ -12,21 +12,18 @@ export const InputWrapper = styled.div`
   display: block;
   width: 100%;
   margin-bottom: 16px;
+  text-align: left;
 `
 
-export const Input = styled.input<{ error: boolean; }>`
-  box-sizing: border-box;
-  min-width: 100%;
-  height: 52px;
-  padding: 18px;
-  margin-bottom: 5px;
+export const Input = styled.input<{ error: boolean }>`
+  width: -webkit-fill-available;
+  padding: 20px;
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
-  font-weight: ${({ theme }) => theme.typography.weight.regular};
-  color: ${({ theme }) => theme.palette.darkest};
-  background: ${({ theme }) => theme.palette.lightest};
-  border: 2px solid ${({ theme }) => theme.palette.darkest};
-  border-radius: ${({ theme }) => theme.attributes.borderRadius.small}px;
-  transition: all .3s linear;
+  letter-spacing: 0.75px;
+  background: ${({ theme }) => theme.palette.light};
+  border: none;
+  border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
   -webkit-appearance: none;
 
   :focus {
@@ -39,12 +36,6 @@ export const Input = styled.input<{ error: boolean; }>`
   }
 
   ${({ error }) => error && ErrorStyle};
-`
-
-export const Label = styled.label`
-  display: block;
-  margin-bottom: 10px;
-  color: ${({ theme }) => theme.palette.darkest};
 `
 
 export const HelpMessage = styled.span<{ error: boolean }>`
