@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label } from '@monorepo/ui-components'
+import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import CloseIcon from '../../images/close-icon.svg'
 import { useAuth } from '../../contexts/auth'
@@ -20,17 +20,16 @@ function Playlist () {
   const [search, setSearch] = useState('')
   const [data, setData] = useState<ResponseDataFromSpotifyPlaylist | any>()
   const [filterDataResponse, setFilterDataResponse] = useState<any>()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { signOut } = useAuth()
   const maxCalendarDate = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]
   const [filterForm, setFilterForm] = useState({
     locale: '',
     country: '',
-    dateTime: '',
-    itemPerPage: '',
-    pageNumber: ''
+    timestamp:  '',
+    limit: '',
+    offset: ''
   })
-
-  console.log(toggleFilter, 'toggleFilter')
 
   useEffect(() => {
     getPlaylistData()
@@ -48,7 +47,7 @@ function Playlist () {
 
   async function getPlaylistData () {
     try {
-      const { data } = await featuredPlaylist()
+      const { data } = await featuredPlaylist({})
       setData(data?.playlists?.items)
     } catch (error) {
       console.error(error)
@@ -60,6 +59,19 @@ function Playlist () {
     if (toggleFilter) document.body.removeAttribute('style')
 
     return setToogleFilter(toggle)
+  }
+
+  async function applyFilterForm () {
+    setIsLoading(true)
+    try {
+      const { data } = await featuredPlaylist(filterForm)
+      setData(data?.playlists?.items)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+      handleToogleFilter(false)
+    }
   }
 
   const filteredPlaylist = data?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
@@ -102,22 +114,23 @@ function Playlist () {
                   </SelectInput>
 
                   <Input
-                    label={filterDataResponse[2].name} 
+                    label={filterDataResponse[2].name}
                     type='datetime-local'
-                    value={filterForm.dateTime} onChange={(e) => setFilterForm({ ...filterForm, dateTime: e.target.value })}
+                    onChange={(e) => setFilterForm({ ...filterForm, timestamp: new Date(e.target.value).toISOString() })}
                     min='2021-01-01T00:00'
                     max={maxCalendarDate}
                   />
 
-                  <Input placeholder="Informe uma quantidade de playlist para visualizar" label={filterDataResponse[3].name} type='text' value={filterForm.itemPerPage} onChange={(e) => setFilterForm({ ...filterForm, itemPerPage: e.target.value })} />
-                  <Input placeholder="Número de playlist por página" label={filterDataResponse[4].name} type='text' value={filterForm.pageNumber} onChange={(e) => setFilterForm({ ...filterForm, pageNumber: e.target.value })} />
+                  <Input placeholder="Informe uma quantidade de playlist para visualizar" label={filterDataResponse[3].name} type='text' value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
+                  <Input placeholder="Número de playlist por página" label={filterDataResponse[4].name} type='text' value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
                 </div>}
-                <S.FilterButtonWrapper><Button size="big">Aplicar</Button></S.FilterButtonWrapper>
+                <S.FilterButtonWrapper><Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button></S.FilterButtonWrapper>
               </S.FilterWrapper>
             </S.FilterContent>
           </div>
         </S.SearchWrapper>
         <S.PlayListWrapper>
+          {isLoading && <Loading />}
           {filteredPlaylist && filteredPlaylist.map(
             (playlist: {
               id: string
