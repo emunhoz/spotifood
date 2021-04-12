@@ -1,10 +1,10 @@
 {
   "name": "@monorepo/spotifood",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
   "dependencies": {
     "@monorepo/design-tokens": "^0.2.0",
-    "@monorepo/ui-components": "^0.6.1",
+    "@monorepo/ui-components": "^0.6.2",
     "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
