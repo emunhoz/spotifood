@@ -9,7 +9,6 @@ export const PlaylistCard = styled.div`
 export const PlaylistCardFigure = styled.figure`
   display: flex;
   width: 100%;
-  height: 300px;
   margin: 0;
 `
 
