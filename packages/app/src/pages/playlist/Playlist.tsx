@@ -3,6 +3,7 @@ import { SearchBar, PlaylistCard, Button } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import { useAuth } from '../../contexts/auth'
 import { featuredPlaylist } from '../../services/spotify'
+import { filterData } from '../../services/filters'
 import * as S from './Playlist.style'
 
 interface ResponseDataFromSpotifyPlaylist {
@@ -15,21 +16,35 @@ interface ResponseDataFromSpotifyPlaylist {
 
 function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
-  const [data, setData] = useState<ResponseDataFromSpotifyPlaylist | any>({})
+  const [search, setSearch] = useState('')
+  const [data, setData] = useState<ResponseDataFromSpotifyPlaylist | any>()
+  const [filterDataResponse, setFilterDataResponse] = useState<any>()
   const { signOut } = useAuth()
 
   useEffect(() => {
     getPlaylistData()
+    getFilter()
   }, [])
 
-  async function getPlaylistData () {
+  async function getFilter() {
     try {
-      const { data } = await featuredPlaylist()
-      setData(data)
+      const { data } = await filterData()
+      setFilterDataResponse(data?.filters)
     } catch (error) {
       console.error(error)
     }
   }
+
+  async function getPlaylistData () {
+    try {
+      const { data } = await featuredPlaylist()
+      setData(data?.playlists?.items)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const filteredPlaylist = data?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <S.Main>
@@ -44,9 +59,9 @@ function Playlist () {
       </S.Logo>
       <S.Wrapper>
         <S.SearchWrapper>
-          <SearchBar onChange={console.log} placeholder='Nome da playlist...' />
+          <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Nome da playlist...' />
           <div>
-            <S.Filters onClick={() => setToogleFilter(!toggleFilter)}>
+            <S.Filters style={{ display: 'none' }} onClick={() => setToogleFilter(!toggleFilter)}>
               Filtros
             </S.Filters>
             <S.FilterContent toogleFilter={toggleFilter}>
@@ -56,20 +71,19 @@ function Playlist () {
                 </S.CloseFilter>
                 <div>
                   <select>
-                    <option value=''>Locale</option>
-                    <option value=''>Teste</option>
-                    <option value=''>Teste</option>
+                    {filterDataResponse && filterDataResponse[0].values.map((item: { value: string, name: string }, key: number) => (
+                      <option key={key} value={item.value}>{item.name}</option>
+                    ))}
                   </select>
 
                   <select>
-                    <option value=''>País</option>
-                    <option value=''>Teste</option>
-                    <option value=''>Teste</option>
+                    {filterDataResponse && filterDataResponse[1].values.map((item: { value: string, name: string }, key: number) => (
+                      <option key={key} value={item.value}>{item.name}</option>
+                    ))}
                   </select>
 
                   <input
                     type='datetime-local'
-                    id='meeting-time'
                     name='meeting-time'
                     value='2018-06-12T19:30'
                     min='2018-06-07T00:00'
@@ -85,7 +99,7 @@ function Playlist () {
           </div>
         </S.SearchWrapper>
         <S.PlayListWrapper>
-          {data?.playlists?.items?.map(
+          {filteredPlaylist && filteredPlaylist.map(
             (playlist: {
               id: string
               owner: { display_name: string }
@@ -103,6 +117,7 @@ function Playlist () {
             )
           )}
         </S.PlayListWrapper>
+        {search && !filteredPlaylist?.length && <h2>Parece que não tem nada aqui =/</h2>}
       </S.Wrapper>
     </S.Main>
   )
