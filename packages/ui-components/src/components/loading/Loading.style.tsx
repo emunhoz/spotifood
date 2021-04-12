@@ -15,6 +15,7 @@ export const Loading = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  background: #fff;
   .spinner {
     width: 50px;
     height: 50px;
