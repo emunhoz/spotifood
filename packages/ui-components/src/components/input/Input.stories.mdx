@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+
+import { Input, IInput } from './Input'
+
+<Meta title="Components/Input" component={ Input } />
+
+export const Template = (args) => <Input {...args} />
+
+# Input
+
+This is the `Input`
+
+```jsx
+import { Input } from '@voodoo/ui-components'
+```
+
+<Story name="Primary" args={{ value: 'hello', label: 'Label example' }}>
+  {Template.bind({})}
+</Story>
+
+## Props
+
+<ArgsTable of={ Input } />

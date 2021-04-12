@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: Input render component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ cVoXpn"
+  >
+    <label
+      class="sc-dlfnbm hVIlGB"
+    />
+    <input
+      class="sc-gsTCUz jBTvsY"
+      value=""
+    />
+    <span
+      class="sc-hKgILt hJnXtF"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Input render component with error style 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ cVoXpn"
+  >
+    <label
+      class="sc-dlfnbm hVIlGB"
+    />
+    <input
+      class="sc-gsTCUz ihbfe"
+      value=""
+    />
+    <span
+      class="sc-hKgILt kjHBlJ"
+    >
+      Help message
+    </span>
+  </div>
+</DocumentFragment>
+`;
