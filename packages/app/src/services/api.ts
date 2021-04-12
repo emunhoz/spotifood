@@ -19,4 +19,14 @@ HTTP_CLIENT.interceptors.request.use(
   }
 )
 
+HTTP_CLIENT.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response.status === 401) {
+      localStorage.removeItem('@app:token')
+      window.location.href = '/'
+    }
+  }
+)
+
 export default HTTP_CLIENT
