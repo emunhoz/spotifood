@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.7.1...@monorepo/spotifood@0.8.0) (2021-04-12)
+
+
+### Features
+
+* add params to get featured playlist ([c22c20a](https://github.com/emunhoz/spotifood/commit/c22c20a92570baf63fd9510d2e65cff3504038e4))
+* filter list layout ([7f8756b](https://github.com/emunhoz/spotifood/commit/7f8756bfaac70b7edcb2cc83e95c871c0a69c26d))
+
+
+
+
+
 ## [0.7.1](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.7.0...@monorepo/spotifood@0.7.1) (2021-04-12)
 
 **Note:** Version bump only for package @monorepo/spotifood

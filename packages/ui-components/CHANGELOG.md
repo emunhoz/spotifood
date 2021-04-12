@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.6.2...@monorepo/ui-components@0.7.0) (2021-04-12)
+
+
+### Features
+
+* add input component ([73039ff](https://github.com/emunhoz/spotifood/commit/73039ff18278adaab947ae4c27103314292acdc1))
+* add label component ([7ac9060](https://github.com/emunhoz/spotifood/commit/7ac906057b4e303d475c1b81420ab5c4938d8f8c))
+* add select input component ([15e6ce5](https://github.com/emunhoz/spotifood/commit/15e6ce59c5f0dc2fa8bccd79de0085d6173cd9ff))
+
+
+
+
+
 ## [0.6.2](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.6.1...@monorepo/ui-components@0.6.2) (2021-04-12)
 
 **Note:** Version bump only for package @monorepo/ui-components
