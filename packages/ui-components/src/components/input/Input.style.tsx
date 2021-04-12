@@ -18,6 +18,7 @@ export const InputWrapper = styled.div`
 export const Input = styled.input<{ error: boolean }>`
   width: -webkit-fill-available;
   height: 100%;
+  min-height: 100%;
   max-height: 65px;
   padding: 20px;
   font-family: 'Poppins', 'Helvetica Neue', sans-serif;

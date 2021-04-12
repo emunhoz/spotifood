@@ -121,8 +121,8 @@ function Playlist () {
                     max={maxCalendarDate}
                   />
 
-                  <Input placeholder="Informe uma quantidade de playlist para visualizar" label={filterDataResponse[3].name} type='text' value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
-                  <Input placeholder="Número de playlist por página" label={filterDataResponse[4].name} type='text' value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
+                  <Input type="number" placeholder="Quantidade para visualizar na página" label={filterDataResponse[3].name} value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
+                  <Input type="number" placeholder="Número de playlist por página" label={filterDataResponse[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
                 </div>}
                 <S.FilterButtonWrapper><Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button></S.FilterButtonWrapper>
               </S.FilterWrapper>

@@ -14,6 +14,7 @@ export const PlaylistCardFigure = styled.figure`
 
 export const PlaylistCardImg = styled.img`
   width: inherit;
+  height: 100%;
   border-top-left-radius: ${({ theme }) =>
     theme.attributes.borderRadius.default}px;
   border-top-right-radius: ${({ theme }) =>
