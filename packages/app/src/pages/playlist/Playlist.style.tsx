@@ -40,12 +40,12 @@ export const SearchWrapper = styled.div`
   max-height: 65px;
 `
 
-export const Filters = styled.div`
+export const LabelWrapper = styled.div`
   margin-left: 10px;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.75px;
+
+  label {
+    margin: 0;
+  }
 `
 
 export const PlayListWrapper = styled.div`
@@ -76,16 +76,40 @@ const SlideToLeft = css`
 `
 
 export const CloseFilter = styled.div`
-  margin-bottom: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 40px;
+`
+
+export const CloseIcon = styled.img`
+  max-height: 44px;
+  padding: 20px;
+  background: ${({ theme }) => theme.palette.light};
+  border-radius: 100%;
+  opacity: 0.6;
+  transition: all 300ms;
+  transform: rotate(0);
+
+  :hover {
+    opacity: 1;
+    transform: rotate(90deg);
+  }
+`
+
+export const FilterButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const FilterWrapper = styled.div`
-  display: grid;
   align-content: space-between;
   max-width: 1280px;
   height: -webkit-fill-available;
   padding: 26px;
   margin: 0 auto;
+  overflow: scroll;
 `
 
 export const FilterContent = styled.div<{ toogleFilter?: boolean }>`
@@ -100,12 +124,7 @@ export const FilterContent = styled.div<{ toogleFilter?: boolean }>`
 
   select,
   input {
-    width: -webkit-fill-available;
-    padding: 18px;
     margin-bottom: 20px;
-    background: #fff;
-    border: 1px solid #5a5a5a;
-    box-shadow: none;
   }
 
   ${({ toogleFilter }) => toogleFilter && SlideToLeft}
