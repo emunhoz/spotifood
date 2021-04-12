@@ -7,4 +7,18 @@ const URL_REDIRECT =
 
 export const SPOTIFY_LOGIN_URL = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&response_type=token&redirect_uri=${URL_REDIRECT}`
 
-export const featuredPlaylist = () => HTTP_CLIENT.get('/featured-playlists')
+export const featuredPlaylist = (params: {
+  locale?: string
+  country?: string
+  timestamp?: string
+  limit?: string
+  offset?: string
+}) => {
+  let paramsWithValues = Object.fromEntries(
+    Object.entries(params).filter(([_, v]) => v !== '')
+  )
+
+  return HTTP_CLIENT.get('/featured-playlists', {
+    params: { ...paramsWithValues }
+  })
+}
