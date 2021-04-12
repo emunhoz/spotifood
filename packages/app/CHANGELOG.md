@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.6.1...@monorepo/spotifood@0.7.0) (2021-04-12)
+
+
+### Features
+
+* add debounce hook ([1daa483](https://github.com/emunhoz/spotifood/commit/1daa48350093c3a39684ec3ed159bb07101ca1c7))
+* add search playlist name ([25b3291](https://github.com/emunhoz/spotifood/commit/25b32911366f8ed3f44018f3cd4dc27f9285bd8c))
+* add service to get featured playlist from spotify api ([6f71ff5](https://github.com/emunhoz/spotifood/commit/6f71ff505df3609d7fa624883c4484ba306f03d2))
+* add service to get filters data ([603539b](https://github.com/emunhoz/spotifood/commit/603539b47ddc149ba28ac3dd562e6d82e9e67222))
+* move user to login page when token experied ([ea90fa2](https://github.com/emunhoz/spotifood/commit/ea90fa2e4b84de6a54b14d345953482d0f47c8b1))
+
+
+
+
+
 ## [0.6.1](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.6.0...@monorepo/spotifood@0.6.1) (2021-04-09)
 
 **Note:** Version bump only for package @monorepo/spotifood
