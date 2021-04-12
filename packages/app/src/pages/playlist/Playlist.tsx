@@ -100,7 +100,7 @@ function Playlist () {
                 {filterDataResponse && 
                 <div>
                   <SelectInput label={filterDataResponse[0].name} value={filterForm.locale} onChange={(e) => setFilterForm({ ...filterForm, locale: e.target.value })}>
-                    <option value="" disabled>Selecione um idioma da playlist desejada</option>
+                    <option value="" disabled>Selecione um idioma</option>
                     {filterDataResponse[0].values.map((item: { value: string, name: string }, key: number) => (
                       <option key={key} value={item.value}>{item.name}</option>
                     ))}
