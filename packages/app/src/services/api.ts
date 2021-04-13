@@ -24,7 +24,6 @@ HTTP_CLIENT.interceptors.response.use(
   error => {
     if (error.response.status === 401) {
       localStorage.removeItem('@app:token')
-      window.location.href = '/'
     }
   }
 )
