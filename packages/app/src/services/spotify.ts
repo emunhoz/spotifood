@@ -1,4 +1,5 @@
 import HTTP_CLIENT from './api'
+import objectWithValues from '../helpers/object-with-values'
 
 const URL_REDIRECT =
   process.env.NODE_ENV === 'development'
@@ -14,11 +15,7 @@ export const featuredPlaylist = (params: {
   limit?: string
   offset?: string
 }) => {
-  let paramsWithValues = Object.fromEntries(
-    Object.entries(params).filter(([_, v]) => v !== '')
-  )
-
   return HTTP_CLIENT.get('/featured-playlists', {
-    params: { ...paramsWithValues }
+    params: { ...objectWithValues(params) }
   })
 }
