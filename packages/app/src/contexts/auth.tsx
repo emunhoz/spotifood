@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect, useContext } from 'react'
+import toast from 'react-hot-toast'
 import HTTP_CLIENT from '../services/api'
 
 interface AuthContextData {
   signed: boolean
-  setToken: any
+  setToken(token: string): void
   signOut(): void
 }
 
@@ -33,7 +34,7 @@ const AuthProvider: React.FC = ({ children }) => {
   async function signOut () {
     setSigned(false)
     localStorage.removeItem('@app:token')
-    window.location.href = '/'
+    toast('Até mais!', { icon: '👋' })
   }
 
   return (

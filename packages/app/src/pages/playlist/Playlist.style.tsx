@@ -100,8 +100,13 @@ export const CloseIcon = styled.img`
 
 export const FilterButtonWrapper = styled.div`
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: space-between;
+
+  button:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `
 
 export const FilterWrapper = styled.div`

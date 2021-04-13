@@ -6,7 +6,10 @@ import { useAuth } from '../../contexts/auth'
 import { featuredPlaylist } from '../../services/spotify'
 import { filterData } from '../../services/filters'
 import objectWithValues from '../../helpers/object-with-values'
+import toast, { Toaster } from 'react-hot-toast'
 import * as S from './Playlist.style'
+
+const notify = () => toast('Here is your toast.');
 
 interface ResponseDataFromSpotifyPlaylist {
   data: {
@@ -67,7 +70,9 @@ function Playlist () {
     try {
       const { data } = await featuredPlaylist(filterForm)
       setData(data?.playlists?.items)
+      toast.success('Filtros aplicados!', { duration: 4000 })
     } catch (error) {
+      toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 4000 })
       console.error(error)
     } finally {
       setIsLoading(false)

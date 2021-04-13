@@ -1,17 +1,23 @@
 import { Button } from '@monorepo/ui-components'
+import { useEffect } from 'react'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import SpotifyLogo from '../../images/spotify-logo.svg'
 import { SPOTIFY_LOGIN_URL } from '../../services/spotify'
+import toast from 'react-hot-toast'
 import * as S from './Home.style'
 
 function Home () {
   function redirectToLogin () {
-    try {
-      return (window.location.href = SPOTIFY_LOGIN_URL)
-    } catch (error) {
-      console.error(error)
-    }
+    return (window.location.href = SPOTIFY_LOGIN_URL)
   }
+
+  useEffect(() => {
+    if (window.location.search === '?error=access_denied') {
+      toast.error('Não foi possível acessar sua conta do Spotify', {
+        duration: 4000
+      })
+    }
+  }, [])
 
   return (
     <S.Main>
