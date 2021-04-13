@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.8.3...@monorepo/spotifood@0.9.0) (2021-04-13)
+
+
+### Features
+
+* add button to clear selected filters ([9cfbf59](https://github.com/emunhoz/spotifood/commit/9cfbf59df850f73f467dbc2ded92d33fc48697bf))
+* add function to get user ([b75fbb6](https://github.com/emunhoz/spotifood/commit/b75fbb614d14269ab95ebb53f761ee34f0867702))
+* add hfunction to return only keys with value ([e6c3119](https://github.com/emunhoz/spotifood/commit/e6c3119f5bcf3fd0e0c5a5ac8cb5717db475f218))
+
+
+
+
+
 ## [0.8.3](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.8.2...@monorepo/spotifood@0.8.3) (2021-04-12)
 
 **Note:** Version bump only for package @monorepo/spotifood
