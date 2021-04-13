@@ -101,7 +101,7 @@ export const CloseIcon = styled.img`
 export const FilterButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 export const FilterWrapper = styled.div`

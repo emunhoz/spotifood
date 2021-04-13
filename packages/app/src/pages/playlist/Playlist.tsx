@@ -5,6 +5,7 @@ import CloseIcon from '../../images/close-icon.svg'
 import { useAuth } from '../../contexts/auth'
 import { featuredPlaylist } from '../../services/spotify'
 import { filterData } from '../../services/filters'
+import objectWithValues from '../../helpers/object-with-values'
 import * as S from './Playlist.style'
 
 interface ResponseDataFromSpotifyPlaylist {
@@ -75,6 +76,7 @@ function Playlist () {
   }
 
   const filteredPlaylist = data?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  let hasFilterParams = Object.entries(objectWithValues(filterForm)).length === 0
 
   return (
     <S.Main>
@@ -124,7 +126,16 @@ function Playlist () {
                   <Input type="number" placeholder="Quantidade para visualizar na página" label={filterDataResponse[3].name} value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
                   <Input type="number" placeholder="Número de playlist por página" label={filterDataResponse[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
                 </div>}
-                <S.FilterButtonWrapper><Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button></S.FilterButtonWrapper>
+                <S.FilterButtonWrapper>
+                  <Button ghost disabled={hasFilterParams} onClick={() => setFilterForm({
+                    locale: '',
+                    country: '',
+                    timestamp:  '',
+                    limit: '',
+                    offset: ''
+                  })}>Limpar</Button>
+                  <Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button>
+                </S.FilterButtonWrapper>
               </S.FilterWrapper>
             </S.FilterContent>
           </div>
