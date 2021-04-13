@@ -19,3 +19,5 @@ export const featuredPlaylist = (params: {
     params: { ...objectWithValues(params) }
   })
 }
+
+export const getUser = () => HTTP_CLIENT.get('/me')
