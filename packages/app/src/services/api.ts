@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const HTTP_CLIENT = axios.create({
-  baseURL: 'https://api.spotify.com/v1/browse'
+  baseURL: 'https://api.spotify.com/v1/'
 })
 
 HTTP_CLIENT.interceptors.request.use(

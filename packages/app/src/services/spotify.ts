@@ -15,7 +15,7 @@ export const featuredPlaylist = (params: {
   limit?: string
   offset?: string
 }) => {
-  return HTTP_CLIENT.get('/featured-playlists', {
+  return HTTP_CLIENT.get('/browse/featured-playlists', {
     params: { ...objectWithValues(params) }
   })
 }
