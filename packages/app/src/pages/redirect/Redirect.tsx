@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { Loading } from '@monorepo/ui-components'
 import { useAuth } from '../../contexts/auth'
 import { useHistory } from 'react-router-dom'
-
+import { getUser } from '../../services/spotify'
+import toast from 'react-hot-toast'
 interface MatchParams {
   match: {
     params: {
@@ -16,10 +17,12 @@ function Redirect ({ match }: MatchParams) {
   let history = useHistory()
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       try {
         setToken(match.params.access_token)
-        history.push('/playlist')
+        const { data } = await getUser()
+        toast.success(`Olá! ${data?.display_name}`, { icon: '🙌' })
+        history.push('/')
       } catch (error) {
         console.error(error)
       }
