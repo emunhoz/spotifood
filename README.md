@@ -1,4 +1,4 @@
-<h1 align="center">Monorepo micro frontend boilerplate</h1>
+<h1 align="center"><img src="docs/images/spotifood.svg" alt="Logo Spotifood" /></h1>
 
 <p align="center">
   <a href="https://lerna.js.org/">
@@ -11,6 +11,39 @@
 	  <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" />
   </a>
 </p>
+
+
+## Features
+
+- [x] Login page
+- [x] [Spotify Authorization Scopes](https://developer.spotify.com/documentation/general/guides/scopes/)
+- [x] Home page with Spotify featured playlist
+- [x] Search input
+- [x] Filter options
+- [x] Private Routes
+- [x] Mobile first
+
+## Todo
+
+- [ ] Integration tests
+- [ ] e2e tests
+
+## About this app
+
+I started building this app just following some business rules (#features) and the first thing that I decide to do was build pages, components, design tokens from scratch on Figma. [See the final implementation here](https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood?node-id=0%3A1).
+
+Everything that I design was thinking in the best way to build a modular code in the front end project.
+
+See design token object theme code here: [Design tokens](./packages/design-tokens)
+
+See components code here: [Componens](./packages/design-tokens)
+
+See pages code here: [Pages](./packages/app/src/pages)
+
+## Preview
+
+<img src="docs/previews/login.png" width="280" alt="Preview" /><img src="docs/previews/spotify.png" width="280" alt="Preview" /><img src="docs/previews/home.png" width="280" alt="Preview" /><img src="docs/previews/filter.png" width="280" alt="Preview" /><img src="docs/previews/applied-filters.png" width="280" alt="Preview" /><img src="docs/previews/signout.png" width="280" alt="Preview" />
+
 
 ## Getting started
 
@@ -26,15 +59,9 @@ This is a monorepo repository using [Lerna](https://lerna.js.org/), [Commitzen](
 
  ## 🌐 Links
 
-Storybook live demo ➡️  https://monorepo-boilerplate-storybook.vercel.app/?path=/docs/
+Storybook components: https://spotifood-components.vercel.app/?path=/docs/components-button--primary 
 
-![Storybook](docs/images/ui-components.png)
-
-Design tokens  live demo ➡️  https://monorepo-boilerplate-storybook.vercel.app/?path=/docs/design-system-colors--page
-
-![Design tokens](docs/images/design-tokens.png)
-
-Create React App live demo ➡️  https://monorepo-boilerplate-cra.vercel.app/
+Front end app: https://spotifood-ten.vercel.app
 
 ## ⚠️ Requirements
 
