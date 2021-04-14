@@ -6,10 +6,8 @@ import { useAuth } from '../../contexts/auth'
 import { featuredPlaylist } from '../../services/spotify'
 import { filterData } from '../../services/filters'
 import objectWithValues from '../../helpers/object-with-values'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import * as S from './Playlist.style'
-
-const notify = () => toast('Here is your toast.');
 
 interface ResponseDataFromSpotifyPlaylist {
   data: {
