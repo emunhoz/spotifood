@@ -15,7 +15,9 @@
 
 ## Demo
 
-https://spotifood-ten.vercel.app/#/
+Front end app: https://spotifood-ten.vercel.app/#/
+
+Storybook: https://spotifood-components.vercel.app/?path=/story/components-button--primary
 
 ## Features
 
