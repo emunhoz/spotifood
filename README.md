@@ -19,8 +19,6 @@ https://spotifood-ten.vercel.app/#/
 
 ## Features
 
-## Features
-
 - [x] Login page
 - [x] [Spotify Authorization Scopes](https://developer.spotify.com/documentation/general/guides/scopes/)
 - [x] Home page with Spotify featured playlist
