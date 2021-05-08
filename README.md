@@ -24,6 +24,7 @@ Storybook: https://spotifood-components.vercel.app/?path=/story/components-butto
 - [x] Login page
 - [x] [Spotify Authorization Scopes](https://developer.spotify.com/documentation/general/guides/scopes/)
 - [x] Home page with Spotify featured playlist
+- [x] SWR - HTTP cache invalidation strategy - See more at [SWR](https://swr.vercel.app/)
 - [x] Search input
 - [x] Filter options
 - [x] Private Routes
