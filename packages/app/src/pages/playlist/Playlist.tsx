@@ -1,28 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import CloseIcon from '../../images/close-icon.svg'
 import { useAuth } from '../../contexts/auth'
-import { featuredPlaylist } from '../../services/spotify'
-import { filterData } from '../../services/filters'
 import objectWithValues from '../../helpers/object-with-values'
+import encodeQueryData from '../../helpers/encode-query-data'
 import toast from 'react-hot-toast'
+import { useFetch } from '../../hooks/use-fetch'
 import * as S from './Playlist.style'
 
 interface ResponseDataFromSpotifyPlaylist {
-  data: {
-    playlists: {
-      items: object
-    }
+  playlists: {
+    items: any
   }
 }
 
 function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
   const [search, setSearch] = useState('')
-  const [data, setData] = useState<ResponseDataFromSpotifyPlaylist | any>()
-  const [filterDataResponse, setFilterDataResponse] = useState<any>()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { signOut } = useAuth()
   const maxCalendarDate = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]
   const [filterForm, setFilterForm] = useState({
@@ -33,28 +28,12 @@ function Playlist () {
     offset: ''
   })
 
-  useEffect(() => {
-    getPlaylistData()
-    getFilter()
-  }, [])
+  const params = objectWithValues(filterForm)
+  const { data: playlistData, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
+  const { data: filterData } = useFetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
 
-  async function getFilter() {
-    try {
-      const { data } = await filterData()
-      setFilterDataResponse(data?.filters)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  async function getPlaylistData () {
-    try {
-      const { data } = await featuredPlaylist({})
-      setData(data?.playlists?.items)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  
+  if (!playlistData) return <Loading />
 
   function handleToogleFilter (toggle: boolean) {
     if (!toggleFilter) document.body.style.overflow = 'hidden'
@@ -64,21 +43,17 @@ function Playlist () {
   }
 
   async function applyFilterForm () {
-    setIsLoading(true)
     try {
-      const { data } = await featuredPlaylist(filterForm)
-      setData(data?.playlists?.items)
-      toast.success('Filtros aplicados!', { duration: 4000 })
+      filterData && toast.success('Filtros aplicados!', { duration: 6000 })
     } catch (error) {
-      toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 4000 })
-      console.error(error)
+      playlistError && toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 6000 })
     } finally {
-      setIsLoading(false)
       handleToogleFilter(false)
     }
   }
 
-  const filteredPlaylist = data?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredPlaylist = playlistData.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  const filterDataObject = filterData?.filters
   let hasFilterParams = Object.entries(objectWithValues(filterForm)).length === 0
 
   return (
@@ -102,32 +77,32 @@ function Playlist () {
                 <S.CloseFilter onClick={() => handleToogleFilter(!toggleFilter)}>
                   <S.CloseIcon src={CloseIcon} alt="Fechar opções de filtros" /> Fechar
                 </S.CloseFilter>
-                {filterDataResponse && 
+                {filterDataObject && 
                 <div>
-                  <SelectInput label={filterDataResponse[0].name} value={filterForm.locale} onChange={(e) => setFilterForm({ ...filterForm, locale: e.target.value })}>
-                    <option value="" disabled>Selecione um idioma</option>
-                    {filterDataResponse[0].values.map((item: { value: string, name: string }, key: number) => (
+                  <SelectInput label={filterDataObject[0].name} value={filterForm.locale} onChange={(e) => setFilterForm({ ...filterForm, locale: e.target.value })}>
+                    <option value="" defaultValue=''>Selecione um idioma</option>
+                    {filterDataObject[0].values.map((item: { value: string, name: string }, key: number) => (
                       <option key={key} value={item.value}>{item.name}</option>
                     ))}
                   </SelectInput>
 
-                  <SelectInput label={filterDataResponse[1].name}  value={filterForm.country} onChange={(e) => setFilterForm({ ...filterForm, country: e.target.value })}>
-                    <option value="" disabled>Escolha o país de origem</option>
-                    {filterDataResponse[1].values.map((item: { value: string, name: string }, key: number) => (
+                  <SelectInput label={filterDataObject[1].name}  value={filterForm.country} onChange={(e) => setFilterForm({ ...filterForm, country: e.target.value })}>
+                    <option value="" defaultValue=''>Escolha o país de origem</option>
+                    {filterDataObject[1].values.map((item: { value: string, name: string }, key: number) => (
                       <option key={key} value={item.value}>{item.name}</option>
                     ))}
                   </SelectInput>
 
                   <Input
-                    label={filterDataResponse[2].name}
+                    label={filterDataObject[2].name}
                     type='datetime-local'
                     onChange={(e) => setFilterForm({ ...filterForm, timestamp: new Date(e.target.value).toISOString() })}
                     min='2021-01-01T00:00'
                     max={maxCalendarDate}
                   />
 
-                  <Input type="number" placeholder="Quantidade para visualizar na página" label={filterDataResponse[3].name} value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
-                  <Input type="number" placeholder="Número de playlist por página" label={filterDataResponse[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
+                  <Input type="number" placeholder="Quantidade para visualizar na página" label={filterDataObject[3].name} value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
+                  <Input type="number" placeholder="Número de playlist por página" label={filterDataObject[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
                 </div>}
                 <S.FilterButtonWrapper>
                   <Button ghost disabled={hasFilterParams} onClick={() => setFilterForm({
@@ -144,7 +119,7 @@ function Playlist () {
           </div>
         </S.SearchWrapper>
         <S.PlayListWrapper>
-          {isLoading && <Loading />}
+          {!playlistData && <Loading />}
           {filteredPlaylist && filteredPlaylist.map(
             (playlist: {
               id: string
