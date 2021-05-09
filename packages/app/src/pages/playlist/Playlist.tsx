@@ -18,6 +18,7 @@ interface ResponseDataFromSpotifyPlaylist {
 function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
   const [search, setSearch] = useState('')
+  const [handleParams, setHandleParams] = useState({})
   const { signOut } = useAuth()
   const maxCalendarDate = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]
   const [filterForm, setFilterForm] = useState({
@@ -28,7 +29,7 @@ function Playlist () {
     offset: ''
   })
 
-  const params = objectWithValues(filterForm)
+  const params = objectWithValues(handleParams)
   const { data: playlistData, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
   const { data: filterData } = useFetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
 
@@ -44,12 +45,26 @@ function Playlist () {
 
   async function applyFilterForm () {
     try {
+      setHandleParams(filterForm)
       filterData && toast.success('Filtros aplicados!', { duration: 6000 })
     } catch (error) {
       playlistError && toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 6000 })
     } finally {
       handleToogleFilter(false)
     }
+  }
+
+  function clearFilterForm () {
+    setFilterForm({
+      locale: '',
+      country: '',
+      timestamp:  '',
+      limit: '',
+      offset: ''
+    })
+    setHandleParams({})
+    handleToogleFilter(false)
+    toast.success('Filtros removidos!', { duration: 6000 })
   }
 
   const filteredPlaylist = playlistData.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
@@ -105,13 +120,7 @@ function Playlist () {
                   <Input type="number" placeholder="Número de playlist por página" label={filterDataObject[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
                 </div>}
                 <S.FilterButtonWrapper>
-                  <Button ghost disabled={hasFilterParams} onClick={() => setFilterForm({
-                    locale: '',
-                    country: '',
-                    timestamp:  '',
-                    limit: '',
-                    offset: ''
-                  })}>Limpar</Button>
+                  <Button ghost disabled={hasFilterParams} onClick={() => clearFilterForm()}>Limpar</Button>
                   <Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button>
                 </S.FilterButtonWrapper>
               </S.FilterWrapper>
