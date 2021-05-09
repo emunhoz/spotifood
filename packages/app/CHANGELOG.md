@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.10.0...@monorepo/spotifood@0.10.1) (2021-05-09)
+
+**Note:** Version bump only for package @monorepo/spotifood
+
+
+
+
+
 # [0.10.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.9.4...@monorepo/spotifood@0.10.0) (2021-05-08)
 
 
