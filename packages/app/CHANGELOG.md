@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.9.4...@monorepo/spotifood@0.10.0) (2021-05-08)
+
+
+### Features
+
+* add function to encode url params ([e9c651c](https://github.com/emunhoz/spotifood/commit/e9c651c4220ee090bbdbac6f76e38a2d7d3f983e))
+* add use fetch ([3160a54](https://github.com/emunhoz/spotifood/commit/3160a5475663a935607bce71ccb767d4eab15cd7))
+
+
+
+
+
 ## [0.9.4](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.9.3...@monorepo/spotifood@0.9.4) (2021-04-14)
 
 **Note:** Version bump only for package @monorepo/spotifood
