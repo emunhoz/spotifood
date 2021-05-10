@@ -17,6 +17,7 @@
     "watch:tokens": "yarn workspace @monorepo/design-tokens start",
     "watch:components": "yarn workspace @monorepo/ui-components start",
     "test:components": "yarn workspace @monorepo/ui-components test",
+    "test:update": "yarn workspace @monorepo/ui-components test:update && yarn workspace @monorepo/spotifood test:update",
     "test:app": "yarn workspace @monorepo/spotifood test",
     "postinstall": "yarn workspace @monorepo/design-tokens libbuild && yarn workspace @monorepo/ui-components libbuild",
     "start": "yarn workspace @monorepo/spotifood start",
