@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.7.3...@monorepo/ui-components@0.8.0) (2021-05-10)
+
+
+### Features
+
+* add empty state component ([cf1439c](https://github.com/emunhoz/spotifood/commit/cf1439cf41493b29e22d1116a5fdf4d9843d0a31))
+* add empty state component ([9262877](https://github.com/emunhoz/spotifood/commit/926287775b59db952f68918be8ed75dc2a910ec6))
+
+
+
+
+
 ## [0.7.3](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.7.2...@monorepo/ui-components@0.7.3) (2021-04-12)
 
 **Note:** Version bump only for package @monorepo/ui-components
