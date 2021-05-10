@@ -3,7 +3,7 @@
 exports[`[Component]: SearchBar render component with error style 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdfBwQ VfWiw"
+    class="sc-bdfBwQ gnqMWP"
   >
     <label
       class="sc-hKgILt bzdgky"
@@ -19,7 +19,7 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
       />
     </div>
     <input
-      class="sc-dlfnbm jLYWta"
+      class="sc-dlfnbm kdqyeT"
       type="text"
       value=""
     />
@@ -30,7 +30,7 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
 exports[`[Component]: SearchBar render the component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdfBwQ VfWiw"
+    class="sc-bdfBwQ gnqMWP"
   >
     <label
       class="sc-hKgILt bzdgky"
@@ -46,7 +46,7 @@ exports[`[Component]: SearchBar render the component 1`] = `
       />
     </div>
     <input
-      class="sc-dlfnbm loXvVA"
+      class="sc-dlfnbm gOrTrZ"
       type="text"
       value=""
     />

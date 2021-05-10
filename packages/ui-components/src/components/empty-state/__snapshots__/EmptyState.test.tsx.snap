@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: EmptyState render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ jvBlUQ"
+  >
+    <img
+      alt=""
+      class="sc-dlfnbm kecFzO"
+      src="test-file-stub"
+    />
+    <h2
+      class="sc-gsTCUz kbfwVB"
+    />
+    <p
+      class="sc-hKgILt gHfnnL"
+    />
+  </div>
+</DocumentFragment>
+`;

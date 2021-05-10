@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: PlaylistCard render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ jXCMpv"
+  >
+    <figure
+      class="sc-gsTCUz bCYJhM"
+    >
+      <img
+        alt="Rain Sounds"
+        class="sc-dlfnbm fSNnaC"
+        loading="lazy"
+        src="https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de"
+      />
+    </figure>
+    <footer
+      class="sc-hKgILt jPQFfy"
+    >
+      <div
+        class="sc-eCssSg gotgVw"
+      >
+        <h6
+          class="sc-jSgupP kFMjBk"
+        >
+          Rain Sounds
+        </h6>
+        <small
+          class="sc-gKsewC JaGrM"
+        >
+          por Spotify
+        </small>
+      </div>
+      <a
+        class="sc-iBPRYJ fJwNpH"
+        href="https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Escutar
+      </a>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
