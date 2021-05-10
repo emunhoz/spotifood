@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { EmptyState, IEmptyState } from './EmptyState'
+
+<Meta title="States/EmptyState" component={ EmptyState } />
+
+# EmptyState
+
+This is the `EmptyState`
+
+```jsx
+import { EmptyState } from '@monorepo/ui-components'
+```
+
+<Preview withSource="open">
+  <Story name="Primary">
+    <EmptyState title="Nenhum item encontrado" message="Tente pesquisar com outra palavra..." />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ EmptyState } />
