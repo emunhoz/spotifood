@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading } from '@monorepo/ui-components'
+import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading, EmptyState } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import CloseIcon from '../../images/close-icon.svg'
 import { useAuth } from '../../contexts/auth'
@@ -127,9 +127,9 @@ function Playlist () {
             </S.FilterContent>
           </div>
         </S.SearchWrapper>
+        {!playlistData && <Loading />}
         <S.PlayListWrapper>
-          {!playlistData && <Loading />}
-          {filteredPlaylist && filteredPlaylist.map(
+          {filteredPlaylist.map(
             (playlist: {
               id: string
               owner: { display_name: string }
@@ -147,7 +147,7 @@ function Playlist () {
             )
           )}
         </S.PlayListWrapper>
-        {search && !filteredPlaylist?.length && <h2>Parece que não tem nada aqui =/</h2>}
+        {search && !filteredPlaylist?.length && <EmptyState title="Nenhuma playlist encontrada!" message="Que tal pesquisar por outra palavra?" />}
       </S.Wrapper>
     </S.Main>
   )

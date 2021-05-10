@@ -38,6 +38,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   max-height: 65px;
+  margin-bottom: 40px;
 `
 
 export const LabelWrapper = styled.div`
@@ -68,7 +69,6 @@ export const PlayListWrapper = styled.div`
 
   grid-gap: 3em;
   width: 100%;
-  padding: 40px 0;
 `
 
 const SlideToLeft = css`
