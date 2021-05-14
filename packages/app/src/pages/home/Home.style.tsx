@@ -15,7 +15,16 @@ export const SpotifoodLogo = styled.img``
 
 export const Wrapper = styled.div``
 export const MainText = styled.div``
-export const ImageWrapper = styled.div``
+export const ImageWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 12em;
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    display: block;
+  }
+`
 
 export const Title = styled.h1`
   margin: 0;
@@ -60,8 +69,7 @@ export const CallToAction = styled.div`
 `
 
 export const ListenMusicImage = styled.img`
-  position: fixed;
-  bottom: 285px;
+  width: 769px;
 `
 
 export const SpotifyLogo = styled.img`

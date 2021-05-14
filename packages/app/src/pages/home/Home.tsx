@@ -2,6 +2,7 @@ import { Button } from '@monorepo/ui-components'
 import { useEffect } from 'react'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import SpotifyLogo from '../../images/spotify-logo.svg'
+import PeopleListeningMusic from '../../images/woman-listening-music.webp'
 import { SPOTIFY_LOGIN_URL } from '../../services/spotify'
 import toast from 'react-hot-toast'
 import * as S from './Home.style'
@@ -37,7 +38,12 @@ function Home () {
             Preparamos algumas playlists para você aproveitar com seu pedido :)
           </S.Paragraph>
         </S.MainText>
-        <S.ImageWrapper></S.ImageWrapper>
+        <S.ImageWrapper>
+          <S.ListenMusicImage
+            src={PeopleListeningMusic}
+            alt='Pessoa escutando música'
+          />
+        </S.ImageWrapper>
       </S.Wrapper>
       <S.CallToAction>
         <S.SpotifyLogo
