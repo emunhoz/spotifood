@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Loading } from '@monorepo/ui-components'
 import { useAuth } from '../../contexts/auth'
 import { useHistory } from 'react-router-dom'
-import { getUser } from '../../services/spotify'
 import toast from 'react-hot-toast'
 interface MatchParams {
   match: {
@@ -20,8 +19,7 @@ function Redirect ({ match }: MatchParams) {
     setTimeout(async () => {
       try {
         setToken(match.params.access_token)
-        const { data } = await getUser()
-        toast.success(`Olá! ${data?.display_name}`, { icon: '🙌' })
+        toast.success('Olá!')
         history.push('/')
       } catch (error) {
         console.error(error)
