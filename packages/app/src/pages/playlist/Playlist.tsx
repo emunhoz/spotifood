@@ -32,9 +32,13 @@ function Playlist () {
   const params = objectWithValues(handleParams)
   const { data: playlistData, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
   const { data: filterData } = useFetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
-
+  const { data: user } = useFetch('/me')
   
   if (!playlistData) return <Loading />
+
+  const filteredPlaylist = playlistData.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  const filterDataObject = filterData?.filters
+  const hasFilterParams = Object.entries(objectWithValues(filterForm)).length === 0
 
   function handleToogleFilter (toggle: boolean) {
     if (!toggleFilter) document.body.style.overflow = 'hidden'
@@ -44,9 +48,10 @@ function Playlist () {
   }
 
   async function applyFilterForm () {
+    if (hasFilterParams) return toast('É preciso adicionar alguma opção de filtro para aplicar na busca')
     try {
       setHandleParams(filterForm)
-      filterData && toast.success('Filtros aplicados!', { duration: 6000 })
+      toast.success('Filtros aplicados!', { duration: 6000 })
     } catch (error) {
       playlistError && toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 6000 })
     } finally {
@@ -67,10 +72,6 @@ function Playlist () {
     toast.success('Filtros removidos!', { duration: 6000 })
   }
 
-  const filteredPlaylist = playlistData.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
-  const filterDataObject = filterData?.filters
-  let hasFilterParams = Object.entries(objectWithValues(filterForm)).length === 0
-
   return (
     <S.Main>
       <S.Logo>
@@ -80,7 +81,13 @@ function Playlist () {
           width='124'
           height='45'
         />
-        <S.SignOutLink onClick={() => signOut()}>Sair</S.SignOutLink>
+        {user && <S.User>
+          <S.Name>
+            <span>{user?.display_name}</span>
+            <S.SignOutLink onClick={() => signOut()}>Sair</S.SignOutLink>
+          </S.Name>
+          <img src={user?.images[0]?.url} alt={user?.display_name} />
+        </S.User>}
       </S.Logo>
       <S.Wrapper>
         <S.SearchWrapper>
@@ -127,7 +134,6 @@ function Playlist () {
             </S.FilterContent>
           </div>
         </S.SearchWrapper>
-        {!playlistData && <Loading />}
         <S.PlayListWrapper>
           {filteredPlaylist.map(
             (playlist: {
