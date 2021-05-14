@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.10.3...@monorepo/spotifood@0.11.0) (2021-05-14)
+
+
+### Features
+
+* add service to get user on playlist page ([2dff527](https://github.com/emunhoz/spotifood/commit/2dff527f82fcaa5a73e379c25fb6551251ae1cf1))
+
+
+
+
+
 ## [0.10.3](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.10.2...@monorepo/spotifood@0.10.3) (2021-05-10)
 
 **Note:** Version bump only for package @monorepo/spotifood
