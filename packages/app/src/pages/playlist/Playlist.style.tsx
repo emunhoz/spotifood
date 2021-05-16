@@ -7,52 +7,9 @@ export const Main = styled.main`
   margin: 0 auto;
 `
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-`
-
-export const User = styled.div`
-  display: flex;
-  align-items: center;
-
-  img {
-    width: 44px;
-    height: 44px;
-    margin-left: 10px;
-    border-radius: 100%;
-  }
-`
-
-export const Name = styled.div`
-  display: flex;
-  flex-flow: column;
-
-  span {
-    margin-bottom: -5px;
-  }
-`
-
-export const SignOutLink = styled.span`
-  font-size: ${({ theme }) => theme.typography.size.s3}px;
-  color: ${({ theme }) => theme.palette.primary};
-
-  :hover {
-    cursor: pointer;
-  }
-`
-
-export const SpotifoodLogo = styled.img``
-
 export const Wrapper = styled.div``
 export const MainText = styled.div``
 export const ImageWrapper = styled.div``
-
-export const SpotifyLogo = styled.img`
-  margin-bottom: 10px;
-`
 
 export const SearchWrapper = styled.div`
   display: flex;

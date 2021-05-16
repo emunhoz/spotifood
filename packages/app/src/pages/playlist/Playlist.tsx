@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading, EmptyState } from '@monorepo/ui-components'
+import { Header, SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading, EmptyState } from '@monorepo/ui-components'
 import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import CloseIcon from '../../images/close-icon.svg'
 import { useAuth } from '../../contexts/auth'
@@ -73,25 +73,11 @@ function Playlist () {
 
   return (
     <S.Main>
-      <S.Logo>
-        <S.SpotifoodLogo
-          src={SpotifoodLogo}
-          alt='Spotifood logo'
-          width='124'
-          height='45'
-        />
-        {user && <S.User>
-          <S.Name>
-            <span>{user?.display_name}</span>
-            <S.SignOutLink onClick={() => signOut()}>Sair</S.SignOutLink>
-          </S.Name>
-          <img src={user?.images[0]?.url} alt={user?.display_name} />
-        </S.User>}
-      </S.Logo>
+      <Header user={user} signOut={() => signOut()} />
       <S.Wrapper>
         <S.SearchWrapper>
           <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Nome da playlist...' />
-          <div>
+          <>
             <S.LabelWrapper><Label value="Filtros" onClick={() => handleToogleFilter(!toggleFilter)} /></S.LabelWrapper>
             <S.FilterContent toogleFilter={toggleFilter}>
               <S.FilterWrapper>
@@ -131,7 +117,7 @@ function Playlist () {
                 </S.FilterButtonWrapper>
               </S.FilterWrapper>
             </S.FilterContent>
-          </div>
+          </>
         </S.SearchWrapper>
         <S.PlayListWrapper>
           {filteredPlaylist?.map(

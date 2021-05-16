@@ -7,12 +7,6 @@ export const Main = styled.main`
   margin: 0 auto;
 `
 
-export const Logo = styled.div`
-  margin-bottom: 20px;
-`
-
-export const SpotifoodLogo = styled.img``
-
 export const Wrapper = styled.div``
 export const MainText = styled.div``
 export const ImageWrapper = styled.div`

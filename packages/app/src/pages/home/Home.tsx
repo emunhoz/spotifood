@@ -1,6 +1,5 @@
-import { Button } from '@monorepo/ui-components'
+import { Header, Button } from '@monorepo/ui-components'
 import { useEffect } from 'react'
-import SpotifoodLogo from '../../images/spotifood-logo.svg'
 import SpotifyLogo from '../../images/spotify-logo.svg'
 import PeopleListeningMusic from '../../images/woman-listening-music.webp'
 import { SPOTIFY_LOGIN_URL } from '../../services/spotify'
@@ -22,14 +21,7 @@ function Home () {
 
   return (
     <S.Main>
-      <S.Logo>
-        <S.SpotifoodLogo
-          src={SpotifoodLogo}
-          alt='Spotifood logo'
-          width='124'
-          height='45'
-        />
-      </S.Logo>
+      <Header />
       <S.Wrapper>
         <S.MainText>
           <S.Title>Ei, temos uma novidade pra vc!</S.Title>
