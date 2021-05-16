@@ -16,15 +16,13 @@ function Redirect ({ match }: MatchParams) {
   let history = useHistory()
 
   useEffect(() => {
-    setTimeout(async () => {
-      try {
-        setToken(match.params.access_token)
-        toast.success('Olá!')
-        history.push('/')
-      } catch (error) {
-        console.error(error)
-      }
-    }, 1000)
+    try {
+      setToken(match.params.access_token)
+      toast.success('Olá!')
+      history.push('/')
+    } catch (error) {
+      console.error(error)
+    }
   }, [history, match, setToken])
 
   return <Loading />
