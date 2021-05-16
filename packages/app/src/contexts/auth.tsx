@@ -33,7 +33,16 @@ const AuthProvider: React.FC = ({ children }) => {
   const [signed, setSigned] = useState(false)
   const { data: user } = useFetch(signed ? '/me' : '')
 
+  function userDeniedLogin () {
+    if (window.location.search === '?error=access_denied') {
+      toast.error('Não foi possível acessar sua conta do Spotify', {
+        duration: 4000
+      })
+    }
+  }
+
   useEffect(() => {
+    userDeniedLogin()
     async function loadStorageData () {
       const storagedToken = await localStorage.getItem('@app:token')
 
