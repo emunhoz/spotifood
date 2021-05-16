@@ -34,6 +34,8 @@ const AuthProvider: React.FC = ({ children }) => {
   const { data: user } = useFetch(signed ? '/me' : '')
 
   function userDeniedLogin () {
+    if (window.location.search === '') return
+
     if (window.location.search === '?error=access_denied') {
       toast.error('Não foi possível acessar sua conta do Spotify', {
         duration: 4000

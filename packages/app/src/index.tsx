@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
 import Routes from './routes'
 import createTheme from '@monorepo/design-tokens'
-import { AuthProvider } from './contexts/auth'
+import { Providers } from './contexts'
 import { Toaster } from 'react-hot-toast'
 import reportWebVitals from './reportWebVitals'
 
@@ -13,9 +13,9 @@ ReactDOM.render(
     <ThemeProvider theme={createTheme}>
       <GlobalStyle />
       <Toaster />
-      <AuthProvider>
+      <Providers>
         <Routes />
-      </AuthProvider>
+      </Providers>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
