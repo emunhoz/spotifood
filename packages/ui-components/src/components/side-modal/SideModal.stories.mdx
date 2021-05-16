@@ -1,0 +1,36 @@
+import { useState } from 'react'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { SideModal, ISideModal } from './SideModal'
+
+<Meta title="Components/SideModal" component={ SideModal } />
+
+# SideModal
+
+This is the `SideModal`
+
+```jsx
+import { SideModal } from '@monorepo/ui-components'
+```
+
+export const SideModalExample = () => {
+  const [toggle, setToggle] = useState(false)
+  return (
+    <>
+      <button onClick={() => setToggle(!toggle)}>Open modal</button>
+      <SideModal show={toggle} close={() => setToggle(false)}>
+        <h1>Hello world</h1>
+      </SideModal>
+    </>
+  )
+}
+
+<Preview withSource="open">
+  <Story name="Primary">
+    <SideModalExample />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ SideModal } />
