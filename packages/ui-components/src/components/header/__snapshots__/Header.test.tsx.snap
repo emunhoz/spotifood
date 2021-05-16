@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: Header render the component 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bdfBwQ UmZdd"
+  >
+    <img
+      alt="Logo"
+      class="sc-gKsewC"
+      height="45"
+      src="test-file-stub"
+      width="124"
+    />
+    <div
+      class="sc-gsTCUz kforPu"
+    >
+      <div
+        class="sc-hKgILt dpgdw"
+      >
+        <span
+          class="sc-eCssSg cyVeBL"
+        >
+          Eder
+        </span>
+        <span
+          class="sc-jSgupP dhBAtF"
+        >
+          Sair
+        </span>
+      </div>
+      <img
+        alt="Eder"
+        class="sc-dlfnbm bSndZI"
+        src="https://i.scdn.co/image/ab6775700000ee85ffd83d8fd3711add44d62317"
+      />
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Header render the component without user info 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bdfBwQ UmZdd"
+  >
+    <img
+      alt="Logo"
+      class="sc-gKsewC"
+      height="45"
+      src="test-file-stub"
+      width="124"
+    />
+  </header>
+</DocumentFragment>
+`;

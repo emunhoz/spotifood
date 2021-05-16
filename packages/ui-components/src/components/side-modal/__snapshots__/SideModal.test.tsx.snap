@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: SideModal render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ jsrysC"
+  >
+    <div
+      class="sc-hKgILt fNPKWy"
+    >
+      <div
+        class="sc-gsTCUz gSOIIU"
+      >
+        <img
+          alt="Fechar"
+          class="sc-dlfnbm ifWcLe"
+          src="test-file-stub"
+        />
+        Fechar
+      </div>
+      <h1>
+        Hello world
+      </h1>
+    </div>
+  </div>
+</DocumentFragment>
+`;
