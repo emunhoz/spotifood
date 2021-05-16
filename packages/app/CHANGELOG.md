@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.11.0...@monorepo/spotifood@0.13.0) (2021-05-16)
+
+
+### Features
+
+* add bubbles filter ([baa912c](https://github.com/emunhoz/spotifood/commit/baa912c5e5e1528a4857ae430b469a9f47bcaeb9))
+
+
+
+
+
 # [0.12.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.11.0...@monorepo/spotifood@0.12.0) (2021-05-16)
 
 
