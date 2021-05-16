@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { Header, IHeader } from './Header'
+
+<Meta title="Components/Header" component={ Header } />
+
+# Header
+
+This is the `Header`
+
+```jsx
+import { Header } from '@monorepo/ui-components'
+```
+
+<Preview withSource="open">
+  <Story name="Primary">
+    <Header signOut={() => console.log('sair')} user={{ display_name: 'Eder', images: [{ url: 'https://i.scdn.co/image/ab6775700000ee85ffd83d8fd3711add44d62317' }] }}/>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ Header } />
