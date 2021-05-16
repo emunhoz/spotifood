@@ -30,13 +30,13 @@ function Playlist () {
   })
 
   const params = objectWithValues(handleParams)
-  const { data: playlistData, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
+  const { data: playlistData, isValidating, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
   const { data: filterData } = useFetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
   const { data: user } = useFetch('/me')
   
-  if (!playlistData) return <Loading />
+  if (isValidating) return <Loading />
 
-  const filteredPlaylist = playlistData.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredPlaylist = playlistData?.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
   const filterDataObject = filterData?.filters
   const hasFilterParams = Object.entries(objectWithValues(filterForm)).length === 0
 
@@ -49,17 +49,16 @@ function Playlist () {
 
   async function applyFilterForm () {
     if (hasFilterParams) return toast('É preciso adicionar alguma opção de filtro para aplicar na busca')
-    try {
-      setHandleParams(filterForm)
-      toast.success('Filtros aplicados!', { duration: 6000 })
-    } catch (error) {
-      playlistError && toast.error('Algo deu errado com os filtros! Tente novamente', { duration: 6000 })
-    } finally {
-      handleToogleFilter(false)
-    }
+
+    toast.success('Filtros aplicados!', { duration: 6000 })
+    
+    setHandleParams(filterForm)
+    handleToogleFilter(false)
   }
 
   function clearFilterForm () {
+    if (hasFilterParams) return toast('É preciso adicionar alguma opção para limpar os filtros')
+
     setFilterForm({
       locale: '',
       country: '',
@@ -100,7 +99,7 @@ function Playlist () {
                   <S.CloseIcon src={CloseIcon} alt="Fechar opções de filtros" /> Fechar
                 </S.CloseFilter>
                 {filterDataObject && 
-                <div>
+                <>
                   <SelectInput label={filterDataObject[0].name} value={filterForm.locale} onChange={(e) => setFilterForm({ ...filterForm, locale: e.target.value })}>
                     <option value="" defaultValue=''>Selecione um idioma</option>
                     {filterDataObject[0].values.map((item: { value: string, name: string }, key: number) => (
@@ -125,17 +124,17 @@ function Playlist () {
 
                   <Input type="number" placeholder="Quantidade para visualizar na página" label={filterDataObject[3].name} value={filterForm.limit} onChange={(e) => setFilterForm({ ...filterForm, limit: e.target.value })} />
                   <Input type="number" placeholder="Número de playlist por página" label={filterDataObject[4].name} value={filterForm.offset} onChange={(e) => setFilterForm({ ...filterForm, offset: e.target.value })} />
-                </div>}
+                </>}
                 <S.FilterButtonWrapper>
-                  <Button ghost disabled={hasFilterParams} onClick={() => clearFilterForm()}>Limpar</Button>
-                  <Button size="big" onClick={() => applyFilterForm()}>Aplicar</Button>
+                  <Button size="big" disabled={hasFilterParams} onClick={() => applyFilterForm()}>Aplicar</Button>
+                  <S.FilterButtonWrapperClear  onClick={() => clearFilterForm()}>Limpar</S.FilterButtonWrapperClear>
                 </S.FilterButtonWrapper>
               </S.FilterWrapper>
             </S.FilterContent>
           </div>
         </S.SearchWrapper>
         <S.PlayListWrapper>
-          {filteredPlaylist.map(
+          {filteredPlaylist?.map(
             (playlist: {
               id: string
               owner: { display_name: string }

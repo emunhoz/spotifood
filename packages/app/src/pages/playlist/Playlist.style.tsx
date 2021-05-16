@@ -124,9 +124,20 @@ export const FilterButtonWrapper = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: space-between;
+  margin-top: 44px;
 
-  button:not(:last-child) {
-    margin-bottom: 20px;
+  button {
+    margin-bottom: 40px;
+  }
+`
+
+export const FilterButtonWrapperClear = styled.div`
+  color: ${({ theme }) => theme.palette.primary};
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
   }
 `
 
