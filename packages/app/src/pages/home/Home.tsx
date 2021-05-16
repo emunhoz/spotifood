@@ -1,4 +1,4 @@
-import { Header, Button } from '@monorepo/ui-components'
+import { Button } from '@monorepo/ui-components'
 import { useEffect } from 'react'
 import SpotifyLogo from '../../images/spotify-logo.svg'
 import PeopleListeningMusic from '../../images/woman-listening-music.webp'
@@ -20,8 +20,7 @@ function Home () {
   }, [])
 
   return (
-    <S.Main>
-      <Header />
+    <>
       <S.Wrapper>
         <S.MainText>
           <S.Title>Ei, temos uma novidade pra vc!</S.Title>
@@ -49,7 +48,7 @@ function Home () {
         </S.CallToActionText>
         <Button onClick={() => redirectToLogin()}>Entrar</Button>
       </S.CallToAction>
-    </S.Main>
+    </>
   )
 }
 

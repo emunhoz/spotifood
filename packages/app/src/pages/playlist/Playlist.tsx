@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import { Header, SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading, EmptyState } from '@monorepo/ui-components'
-import SpotifoodLogo from '../../images/spotifood-logo.svg'
+import { SearchBar, PlaylistCard, Button, Input, SelectInput, Label, Loading, EmptyState } from '@monorepo/ui-components'
 import CloseIcon from '../../images/close-icon.svg'
-import { useAuth } from '../../contexts/auth'
 import objectWithValues from '../../helpers/object-with-values'
 import encodeQueryData from '../../helpers/encode-query-data'
 import toast from 'react-hot-toast'
@@ -19,7 +17,6 @@ function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
   const [search, setSearch] = useState('')
   const [handleParams, setHandleParams] = useState({})
-  const { signOut } = useAuth()
   const maxCalendarDate = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]
   const [filterForm, setFilterForm] = useState({
     locale: '',
@@ -32,7 +29,6 @@ function Playlist () {
   const params = objectWithValues(handleParams)
   const { data: playlistData, isValidating, error: playlistError } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
   const { data: filterData } = useFetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
-  const { data: user } = useFetch('/me')
   
   if (isValidating) return <Loading />
 
@@ -72,8 +68,7 @@ function Playlist () {
   }
 
   return (
-    <S.Main>
-      <Header user={user} signOut={() => signOut()} />
+    <>
       <S.Wrapper>
         <S.SearchWrapper>
           <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Nome da playlist...' />
@@ -140,7 +135,7 @@ function Playlist () {
         </S.PlayListWrapper>
         {search && !filteredPlaylist?.length && <EmptyState title="Nenhuma playlist encontrada!" message="Que tal pesquisar por outra palavra?" />}
       </S.Wrapper>
-    </S.Main>
+    </>
   )
 }
 

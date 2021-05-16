@@ -1,12 +1,5 @@
 import styled, { css } from 'styled-components'
 
-export const Main = styled.main`
-  display: grid;
-  max-width: 1280px;
-  padding: 26px;
-  margin: 0 auto;
-`
-
 export const Wrapper = styled.div``
 export const MainText = styled.div``
 export const ImageWrapper = styled.div``

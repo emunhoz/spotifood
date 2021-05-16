@@ -1,17 +1,37 @@
 import { createContext, useState, useEffect, useContext } from 'react'
+import { Header } from '@monorepo/ui-components'
 import toast from 'react-hot-toast'
 import HTTP_CLIENT from '../services/api'
+import { useFetch } from '../hooks/use-fetch'
+import styled from 'styled-components'
+
+export const Main = styled.main`
+  display: grid;
+  max-width: 1280px;
+  padding: 26px;
+  margin: 0 auto;
+`
 
 interface AuthContextData {
   signed: boolean
   setToken(token: string): void
   signOut(): void
+  user?: {
+    // eslint-disable-next-line camelcase
+    display_name: string
+    images: [
+      {
+        url: string
+      }
+    ]
+  }
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 const AuthProvider: React.FC = ({ children }) => {
   const [signed, setSigned] = useState(false)
+  const { data: user } = useFetch(signed ? '/me' : '')
 
   useEffect(() => {
     async function loadStorageData () {
@@ -38,8 +58,11 @@ const AuthProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signed, setToken, signOut }}>
-      {children}
+    <AuthContext.Provider value={{ signed, setToken, signOut, user }}>
+      <Main>
+        <Header user={user} signOut={() => signOut()} />
+        {children}
+      </Main>
     </AuthContext.Provider>
   )
 }
