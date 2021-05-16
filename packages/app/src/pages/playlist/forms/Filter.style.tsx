@@ -22,11 +22,4 @@ export const FilterButtonWrapperClear = styled.div`
   }
 `
 
-export const FilterWrapper = styled.form`
-  align-content: space-between;
-  max-width: 1280px;
-  height: -webkit-fill-available;
-  padding: 26px;
-  margin: 0 auto;
-  overflow: scroll;
-`
+export const FilterWrapper = styled.form``

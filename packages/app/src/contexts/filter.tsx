@@ -9,7 +9,8 @@ interface FilterContextData {
     offset: string
   }
   setFilterForm: any
-  clearFilter: any
+  clearFilter: () => void
+  translate: any
 }
 
 const FilterContext = createContext<FilterContextData>({} as FilterContextData)
@@ -23,6 +24,14 @@ const FilterProvider = ({ children }: any) => {
     offset: ''
   })
 
+  const translate = {
+    locale: 'Idioma',
+    country: 'País',
+    timestamp: 'Data',
+    limit: 'Items por página',
+    offset: 'Páginas'
+  }
+
   function clearFilter () {
     setFilterForm({
       locale: '',
@@ -34,7 +43,9 @@ const FilterProvider = ({ children }: any) => {
   }
 
   return (
-    <FilterContext.Provider value={{ filterForm, setFilterForm, clearFilter }}>
+    <FilterContext.Provider
+      value={{ filterForm, setFilterForm, clearFilter, translate }}
+    >
       {children}
     </FilterContext.Provider>
   )

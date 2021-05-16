@@ -23,7 +23,7 @@ interface ResponseDataFromSpotifyPlaylist {
 function Playlist () {
   const [toggleFilter, setToogleFilter] = useState(false)
   const [search, setSearch] = useState('')
-  const { filterForm } = useFilter()
+  const { filterForm, setFilterForm, translate } = useFilter()
 
   const params = objectWithValues(filterForm)
   const { data: playlistData, isValidating } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
@@ -51,6 +51,15 @@ function Playlist () {
           <FilterForm onCloseFilter={() => handleToogleFilter(false)}/>
         </SideModal>
       </S.SearchWrapper>
+      {Object.values(params).length !== 0 && <S.AppliedFilters>
+        <S.AppliedFiltersTitle>Filtros aplicados:</S.AppliedFiltersTitle>
+        <S.AppliedFilterWrapper>
+          {Object.entries(params).map((item: any) => 
+            <S.AppliedFilter key={item} onClick={() => setFilterForm({ ...filterForm, [item[0]]: '' })}>
+              {translate[item[0]]}: <strong>{item[1]}</strong>
+            </S.AppliedFilter>)}
+          </S.AppliedFilterWrapper>
+      </S.AppliedFilters>}
       <S.PlayListWrapper>
         {filteredPlaylist?.map(
           (playlist: {
@@ -70,7 +79,7 @@ function Playlist () {
           )
         )}
       </S.PlayListWrapper>
-      {search && !filteredPlaylist?.length && <EmptyState title="Nenhuma playlist encontrada!" message="Que tal pesquisar por outra palavra?" />}
+      {search && !filteredPlaylist?.length && <EmptyState title={`Nenhuma playlist encontrada com a palavra: ${search}!`}  message="Que tal pesquisar por outra palavra?" />}
     </S.Wrapper>
   )
 }
