@@ -63,15 +63,26 @@ export const AppliedFiltersTitle = styled.div`
 
 export const AppliedFilterWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
 `
 
 export const AppliedFilter = styled.div`
   padding: 10px;
-  margin-right: 20px;
+  margin: 6px;
+  margin-left: 0%;
   font-size: ${({ theme }) => theme.typography.size.s2}px;
   background: ${({ theme }) => theme.palette.lightest};
   border: 1px solid ${({ theme }) => theme.palette.light};
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    margin-right: 20px;
+  }
 
   &:hover {
     text-decoration: line-through;
