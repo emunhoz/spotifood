@@ -54,6 +54,9 @@ export const AppliedFilters = styled.div`
 export const AppliedFiltersTitle = styled.div`
   display: flex;
   margin-bottom: 10px;
+  font-size: ${({ theme }) => theme.typography.size.s2}px;
+  font-weight: ${({ theme }) => theme.typography.weight.bold};
+  color: ${({ theme }) => theme.palette.darkest};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     margin-right: 10px;
@@ -76,6 +79,7 @@ export const AppliedFilter = styled.div`
   margin: 6px;
   margin-left: 0%;
   font-size: ${({ theme }) => theme.typography.size.s2}px;
+  color: ${({ theme }) => theme.palette.darkest};
   background: ${({ theme }) => theme.palette.lightest};
   border: 1px solid ${({ theme }) => theme.palette.light};
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
@@ -87,5 +91,6 @@ export const AppliedFilter = styled.div`
   &:hover {
     text-decoration: line-through;
     cursor: pointer;
+    background: ${({ theme }) => theme.palette.light};
   }
 `
