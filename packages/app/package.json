@@ -1,6 +1,6 @@
 {
   "name": "@monorepo/spotifood",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "private": true,
   "dependencies": {
     "@monorepo/design-tokens": "^0.2.0",
