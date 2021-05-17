@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.8.1...@monorepo/ui-components@0.10.0) (2021-05-16)
+
+
+### Features
+
+* add header component ([d2e50a7](https://github.com/emunhoz/spotifood/commit/d2e50a739b6b17e050b8fce38a53ede8e7ecfb1f))
+* add side modal component ([2e7cefb](https://github.com/emunhoz/spotifood/commit/2e7cefb2936c4a703b8339b94c091be85e5ad623))
+
+
+
+
+
 # [0.9.0](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.8.1...@monorepo/ui-components@0.9.0) (2021-05-16)
 
 
