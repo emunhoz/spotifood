@@ -20,6 +20,7 @@ module.exports = {
     'string-quotes': 'single',
     'number-leading-zero': null,
     'no-descending-specificity': null,
-    'declaration-colon-newline-after': null
+    'declaration-colon-newline-after': null,
+    'value-list-comma-newline-after': null
   }
 }
