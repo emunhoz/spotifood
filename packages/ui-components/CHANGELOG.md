@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.10.1...@monorepo/ui-components@0.10.2) (2021-05-18)
+
+
+### Performance Improvements
+
+* improvement lighthouses score ([7a2128a](https://github.com/emunhoz/spotifood/commit/7a2128a5c6bf9406a5f4d7172a4329568d553505))
+
+
+
+
+
 ## [0.10.1](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.10.0...@monorepo/ui-components@0.10.1) (2021-05-17)
 
 **Note:** Version bump only for package @monorepo/ui-components

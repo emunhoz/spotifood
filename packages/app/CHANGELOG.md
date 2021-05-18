@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.3](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.13.2...@monorepo/spotifood@0.13.3) (2021-05-18)
+
+
+### Performance Improvements
+
+* improvement lighthouses score ([7a2128a](https://github.com/emunhoz/spotifood/commit/7a2128a5c6bf9406a5f4d7172a4329568d553505))
+
+
+
+
+
 ## [0.13.2](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.13.1...@monorepo/spotifood@0.13.2) (2021-05-17)
 
 **Note:** Version bump only for package @monorepo/spotifood
