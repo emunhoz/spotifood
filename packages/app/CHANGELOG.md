@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.13.3...@monorepo/spotifood@0.14.0) (2021-05-18)
+
+
+### Features
+
+* setup pwa init ([5351954](https://github.com/emunhoz/spotifood/commit/5351954331dbbc2983772e9ff09f46063da3aa4a))
+
+
+
+
+
 ## [0.13.3](https://github.com/emunhoz/spotifood/compare/@monorepo/spotifood@0.13.2...@monorepo/spotifood@0.13.3) (2021-05-18)
 
 
