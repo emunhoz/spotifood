@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react'
+import toast from 'react-hot-toast'
 
 interface FilterContextData {
   filterForm: {
@@ -10,12 +11,16 @@ interface FilterContextData {
   }
   setFilterForm: any
   clearFilter: () => void
-  translate: any
+  removeFilterByItem: (filterName: string) => void
+  handleToogleFilter: (toggle: boolean) => void
+  toggleFilter: boolean
+  translate: { [key: string]: string }
 }
 
 const FilterContext = createContext<FilterContextData>({} as FilterContextData)
 
 const FilterProvider = ({ children }: any) => {
+  const [toggleFilter, setToogleFilter] = useState(false)
   const [filterForm, setFilterForm] = useState({
     locale: '',
     country: '',
@@ -24,12 +29,24 @@ const FilterProvider = ({ children }: any) => {
     offset: ''
   })
 
-  const translate = {
+  const translate: { [key: string]: string } = {
     locale: 'Idioma',
     country: 'País',
     timestamp: 'Data',
     limit: 'Items por página',
     offset: 'Páginas'
+  }
+
+  function removeFilterByItem (filterName: string) {
+    toast.success(`Filtro ${translate[filterName]} foi removido!`)
+    return setFilterForm({ ...filterForm, [filterName]: '' })
+  }
+
+  function handleToogleFilter (toggle: boolean) {
+    if (!toggleFilter) document.body.style.overflow = 'hidden'
+    if (toggleFilter) document.body.removeAttribute('style')
+
+    return setToogleFilter(toggle)
   }
 
   function clearFilter () {
@@ -44,7 +61,15 @@ const FilterProvider = ({ children }: any) => {
 
   return (
     <FilterContext.Provider
-      value={{ filterForm, setFilterForm, clearFilter, translate }}
+      value={{
+        filterForm,
+        setFilterForm,
+        clearFilter,
+        removeFilterByItem,
+        handleToogleFilter,
+        toggleFilter,
+        translate
+      }}
     >
       {children}
     </FilterContext.Provider>

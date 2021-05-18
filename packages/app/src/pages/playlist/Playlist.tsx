@@ -21,9 +21,8 @@ interface ResponseDataFromSpotifyPlaylist {
 }
 
 function Playlist () {
-  const [toggleFilter, setToogleFilter] = useState(false)
   const [search, setSearch] = useState('')
-  const { filterForm, setFilterForm, translate } = useFilter()
+  const { filterForm, removeFilterByItem, translate, handleToogleFilter, toggleFilter } = useFilter()
 
   const params = objectWithValues(filterForm)
   const { data: playlistData, isValidating } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
@@ -31,13 +30,6 @@ function Playlist () {
   if (isValidating) return <Loading />
 
   const filteredPlaylist = playlistData?.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
-
-  function handleToogleFilter (toggle: boolean) {
-    if (!toggleFilter) document.body.style.overflow = 'hidden'
-    if (toggleFilter) document.body.removeAttribute('style')
-
-    return setToogleFilter(toggle)
-  }
 
   return (
     <S.Wrapper>
@@ -55,7 +47,7 @@ function Playlist () {
         <S.AppliedFiltersTitle>Filtros aplicados:</S.AppliedFiltersTitle>
         <S.AppliedFilterWrapper>
           {Object.entries(params).map((item: any) => 
-            <S.AppliedFilter key={item} onClick={() => setFilterForm({ ...filterForm, [item[0]]: '' })}>
+            <S.AppliedFilter key={item} onClick={() => removeFilterByItem(item[0])}>
               {translate[item[0]]}: <strong>{item[1]}</strong>
             </S.AppliedFilter>)}
           </S.AppliedFilterWrapper>
