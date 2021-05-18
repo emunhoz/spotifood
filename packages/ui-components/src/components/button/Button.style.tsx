@@ -34,10 +34,15 @@ const BigStyle = css`
   font-size: ${({ theme }) => theme.typography.size.s3}px;
 `
 
-export const Button = styled.button<{ negative: boolean; ghost: boolean; size: string; block: boolean }>`
+export const Button = styled.button<{
+  negative: boolean
+  ghost: boolean
+  size: string
+  block: boolean
+}>`
   min-width: 200px;
   padding: 18px 40px;
-  font-size: ${({ theme }) => theme.typography.size.s3}px;
+  font-size: ${({ theme }) => theme.typography.size.m1}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   color: ${({ theme }) => theme.palette.lightest};
   cursor: pointer;

@@ -42,20 +42,18 @@ export const PlaylistInfoTitle = styled.h6`
   margin: 0;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
-  color: ${({ theme }) => theme.palette.darkGrey};
+  color: ${({ theme }) => theme.palette.darkest};
 `
 
 export const PlaylistInfoSubtitle = styled.small`
   font-size: ${({ theme }) => theme.typography.size.s2}px;
   font-weight: ${({ theme }) => theme.typography.weight.regular};
-  color: ${({ theme }) => theme.palette.darkGrey};
+  color: ${({ theme }) => theme.palette.darkest};
   letter-spacing: 0.75px;
 `
 
 export const Link = styled.a`
-  font-size: ${({ theme }) => theme.typography.size.s2}px;
+  font-size: ${({ theme }) => theme.typography.size.s3}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
-  color: ${({ theme }) => theme.palette.primary};
-  text-decoration: none;
-  letter-spacing: 0.75px;
+  color: ${({ theme }) => theme.palette.darkest};
 `

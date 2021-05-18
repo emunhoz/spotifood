@@ -13,7 +13,9 @@ export const FilterButtonWrapper = styled.div`
 `
 
 export const FilterButtonWrapperClear = styled.div`
-  color: ${({ theme }) => theme.palette.primary};
+  font-size: ${({ theme }) => theme.typography.size.s4}px;
+  font-weight: ${({ theme }) => theme.typography.weight.bold};
+  color: ${({ theme }) => theme.palette.darkest};
   text-decoration: underline;
 
   &:hover {

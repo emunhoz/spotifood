@@ -120,9 +120,7 @@ function FilterForm ({ onCloseFilter }: any) {
         </>
       )}
       <S.FilterButtonWrapper>
-        <Button size='big' disabled={hasFilterParams}>
-          Aplicar
-        </Button>
+        <Button disabled={hasFilterParams}>Aplicar</Button>
         <S.FilterButtonWrapperClear onClick={() => clearFilterForm()}>
           Limpar
         </S.FilterButtonWrapperClear>

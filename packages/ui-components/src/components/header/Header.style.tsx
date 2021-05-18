@@ -22,17 +22,21 @@ export const Avatar = styled.img`
 export const NameWrapper = styled.div`
   display: flex;
   flex-flow: column;
+  align-items: flex-end;
+  color: ${({ theme }) => theme.palette.darkest};
 `
 
 export const DisplayName = styled.span`
-  margin-bottom: -5px;
+  font-weight: ${({ theme }) => theme.typography.weight.regular};
 `
 
 export const SignOutLink = styled.span`
   font-size: ${({ theme }) => theme.typography.size.s3}px;
-  color: ${({ theme }) => theme.palette.primary};
+  font-weight: ${({ theme }) => theme.typography.weight.bold};
+  text-decoration: underline;
 
-  :hover {
+  &:hover {
+    text-decoration: none;
     cursor: pointer;
   }
 `

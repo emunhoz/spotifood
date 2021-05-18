@@ -3,7 +3,7 @@
 exports[`[Component]: Button render component disabled 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ fIJaZi"
+    class="sc-bdfBwQ itKjNf"
     disabled=""
   >
     Hello world
@@ -14,7 +14,7 @@ exports[`[Component]: Button render component disabled 1`] = `
 exports[`[Component]: Button render component with big size style 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ hJvuMX"
+    class="sc-bdfBwQ kziUou"
   >
     Hello world
   </button>
@@ -24,7 +24,7 @@ exports[`[Component]: Button render component with big size style 1`] = `
 exports[`[Component]: Button render component with small size style 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ fdxWyO"
+    class="sc-bdfBwQ jHOwBr"
   >
     Hello world
   </button>
@@ -34,7 +34,7 @@ exports[`[Component]: Button render component with small size style 1`] = `
 exports[`[Component]: Button render ghost style 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ ljIJrW"
+    class="sc-bdfBwQ bRMZab"
   >
     Hello world
   </button>
@@ -44,7 +44,7 @@ exports[`[Component]: Button render ghost style 1`] = `
 exports[`[Component]: Button render negative style 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ bMkSsV"
+    class="sc-bdfBwQ kwhPKY"
   >
     Hello world
   </button>
@@ -54,7 +54,7 @@ exports[`[Component]: Button render negative style 1`] = `
 exports[`[Component]: Button render the component 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ fIJaZi"
+    class="sc-bdfBwQ itKjNf"
   >
     Hello world
   </button>

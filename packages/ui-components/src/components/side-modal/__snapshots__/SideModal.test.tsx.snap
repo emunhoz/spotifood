@@ -14,7 +14,9 @@ exports[`[Component]: SideModal render the component 1`] = `
         <img
           alt="Fechar"
           class="sc-dlfnbm ifWcLe"
+          height="44"
           src="test-file-stub"
+          width="44"
         />
         Fechar
       </div>

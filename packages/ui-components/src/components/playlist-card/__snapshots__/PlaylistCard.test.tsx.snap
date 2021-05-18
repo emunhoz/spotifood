@@ -22,18 +22,18 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
         class="sc-eCssSg gotgVw"
       >
         <h6
-          class="sc-jSgupP kFMjBk"
+          class="sc-jSgupP gsULiZ"
         >
           Rain Sounds
         </h6>
         <small
-          class="sc-gKsewC JaGrM"
+          class="sc-gKsewC twEvR"
         >
           por Spotify
         </small>
       </div>
       <a
-        class="sc-iBPRYJ fJwNpH"
+        class="sc-iBPRYJ iSORBR"
         href="https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc"
         rel="noreferrer"
         target="_blank"
