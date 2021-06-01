@@ -1,10 +1,10 @@
 {
   "name": "@monorepo/spotifood",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "private": true,
   "dependencies": {
     "@monorepo/design-tokens": "^0.2.0",
-    "@monorepo/ui-components": "^0.10.2",
+    "@monorepo/ui-components": "^0.10.3",
     "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:update": "react-scripts test --u --colors --watchAll=false",
-    "test:coverage": "react-scripts test --coverage --watchAll=false --verbose=true",
+    "test:coverage": "SKIP_PREFLIGHT_CHECK=true react-scripts test --coverage --watchAll=false --verbose=true",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "lint:css": "stylelint 'src/**/*.tsx' -f verbose --color"

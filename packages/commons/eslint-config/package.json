@@ -1,6 +1,6 @@
 {
   "name": "@commons/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": ".eslintrc.js",
   "license": "MIT",
   "devDependencies": {
