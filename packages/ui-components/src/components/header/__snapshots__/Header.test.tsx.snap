@@ -3,35 +3,35 @@
 exports[`[Component]: Header render the component 1`] = `
 <DocumentFragment>
   <header
-    class="sc-bdfBwQ UmZdd"
+    class="sc-bdnxRM hjGVAm"
   >
     <img
       alt="Logo"
-      class="sc-gKsewC"
+      class="sc-gKAaRy"
       height="45"
       src="test-file-stub"
       width="124"
     />
     <div
-      class="sc-gsTCUz kforPu"
+      class="sc-gtsrHT ljPrYI"
     >
       <div
-        class="sc-hKgILt khUhdE"
+        class="sc-hKFxyN ikhIOv"
       >
         <span
-          class="sc-eCssSg kzyBYm"
+          class="sc-eCApnc jfAvdG"
         >
           Eder
         </span>
         <span
-          class="sc-jSgupP eNgNTs"
+          class="sc-jSFjdj cjDpPs"
         >
           Sair
         </span>
       </div>
       <img
         alt="Eder"
-        class="sc-dlfnbm bSndZI"
+        class="sc-dlnjwi jXpYGt"
         src="https://i.scdn.co/image/ab6775700000ee85ffd83d8fd3711add44d62317"
       />
     </div>
@@ -42,11 +42,11 @@ exports[`[Component]: Header render the component 1`] = `
 exports[`[Component]: Header render the component without user info 1`] = `
 <DocumentFragment>
   <header
-    class="sc-bdfBwQ UmZdd"
+    class="sc-bdnxRM hjGVAm"
   >
     <img
       alt="Logo"
-      class="sc-gKsewC"
+      class="sc-gKAaRy"
       height="45"
       src="test-file-stub"
       width="124"
