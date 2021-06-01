@@ -1,60 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Component]: Button render component disabled 1`] = `
-<DocumentFragment>
-  <button
-    class="sc-bdfBwQ itKjNf"
-    disabled=""
-  >
-    Hello world
-  </button>
-</DocumentFragment>
-`;
-
-exports[`[Component]: Button render component with big size style 1`] = `
-<DocumentFragment>
-  <button
-    class="sc-bdfBwQ kziUou"
-  >
-    Hello world
-  </button>
-</DocumentFragment>
-`;
-
-exports[`[Component]: Button render component with small size style 1`] = `
-<DocumentFragment>
-  <button
-    class="sc-bdfBwQ jHOwBr"
-  >
-    Hello world
-  </button>
-</DocumentFragment>
-`;
-
-exports[`[Component]: Button render ghost style 1`] = `
-<DocumentFragment>
-  <button
-    class="sc-bdfBwQ bRMZab"
-  >
-    Hello world
-  </button>
-</DocumentFragment>
-`;
-
-exports[`[Component]: Button render negative style 1`] = `
-<DocumentFragment>
-  <button
-    class="sc-bdfBwQ kwhPKY"
-  >
-    Hello world
-  </button>
-</DocumentFragment>
-`;
-
 exports[`[Component]: Button render the component 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdfBwQ itKjNf"
+    class="sc-bdnxRM fgxDDw"
+  >
+    Hello world
+  </button>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Button render the component 2`] = `
+<DocumentFragment>
+  <button
+    class="sc-bdnxRM dSYVDM"
+  >
+    Hello world
+  </button>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Button render the component 3`] = `
+<DocumentFragment>
+  <button
+    class="sc-bdnxRM gpdbnf"
   >
     Hello world
   </button>
