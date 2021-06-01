@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.10.2...@monorepo/ui-components@0.10.3) (2021-06-01)
+
+**Note:** Version bump only for package @monorepo/ui-components
+
+
+
+
+
 ## [0.10.2](https://github.com/emunhoz/spotifood/compare/@monorepo/ui-components@0.10.1...@monorepo/ui-components@0.10.2) (2021-05-18)
 
 
