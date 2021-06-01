@@ -1,0 +1,18 @@
+{
+  "name": "@commons/i18n",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "global.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ./src",
+    "start": "tsc -p . --watch",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "libbuild": "tsc -p . && yarn add-assets -w",
+    "add-assets": "copyfiles -u 1 'src/**/!(*.js|*.mdx|*.jsx|*.map|*.ts|*.tsx)' dist/src/"
+  },
+  "dependencies": {
+    "i18next": "^20.2.4",
+    "react-i18next": "^11.8.15"
+  }
+}
