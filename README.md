@@ -19,6 +19,8 @@ Front end app: https://spotifood-ten.vercel.app/#/
 
 Storybook: https://spotifood-components.vercel.app/?path=/story/components-button--primary
 
+Figma (Design by me): https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood
+
 ## Features
 
 - [x] Login page
