@@ -24,7 +24,7 @@
     "@types/node": "^15.6.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/styled-components": "^5.1.7"
+    "@types/styled-components": "5.1.10"
   },
   "scripts": {
     "start": "react-scripts start",
