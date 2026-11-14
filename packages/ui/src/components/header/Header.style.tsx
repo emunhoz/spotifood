@@ -41,4 +41,11 @@ export const SignOutLink = styled.span`
   }
 `
 
-export const SpotifoodLogo = styled.img``
+// The SVG is a mask so the logo follows the primary token instead of its baked-in fill.
+export const SpotifoodLogo = styled.span<{ $src: string }>`
+  display: block;
+  width: 124px;
+  height: 45px;
+  background-color: ${({ theme }) => theme.palette.primary};
+  mask: url(${({ $src }) => $src}) no-repeat center / contain;
+`

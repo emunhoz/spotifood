@@ -17,7 +17,7 @@ interface IHeader {
 
 export const Header = ({ user, signOut }: IHeader) => (
   <S.Header>
-    <S.SpotifoodLogo src={logo} alt='Logo' width='124' height='45' />
+    <S.SpotifoodLogo role='img' aria-label='Spotifood' $src={logo} />
     {user && (
       <S.User>
         <S.NameWrapper>

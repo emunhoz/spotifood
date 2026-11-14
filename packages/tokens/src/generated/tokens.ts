@@ -2,8 +2,8 @@
 export const tokens = {
   "palette": {
     "primary": "#D9122A",
-    "primaryLight": "#FF7B85",
-    "primaryDark": "#AA000C",
+    "primaryLight": "#E8717F",
+    "primaryDark": "#9E0D1F",
     "lightest": "#FCFCFC",
     "lighter": "#F7F7FC",
     "light": "#EFF0F6",
