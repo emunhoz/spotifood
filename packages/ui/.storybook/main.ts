@@ -16,7 +16,7 @@ const config: StorybookConfig = {
       ...viteConfig.build,
       commonjsOptions: {
         ...viteConfig.build?.commonjsOptions,
-        include: [/design-tokens/, /node_modules/]
+        include: [/packages\/tokens/, /node_modules/]
       }
     }
   })

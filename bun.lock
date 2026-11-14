@@ -15,7 +15,7 @@
         "typescript": "^5.6.3",
       },
     },
-    "packages/app": {
+    "apps/web": {
       "name": "@monorepo/spotifood",
       "version": "0.14.2",
       "dependencies": {
@@ -42,42 +42,11 @@
         "vitest": "^2.1.8",
       },
     },
-    "packages/commons/eslint-config": {
-      "name": "@commons/eslint-config",
-      "version": "1.0.5",
-      "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.15.0",
-        "@typescript-eslint/parser": "^4.15.0",
-        "eslint": "^7.27.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-config-prettier-standard": "^4.0.0",
-        "eslint-config-standard": "^16.0.2",
-        "eslint-import-resolver-typescript": "^2.3.0",
-        "eslint-plugin-import": "^2.23.3",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^3.3.1",
-        "eslint-plugin-promise": "^5.1.0",
-        "eslint-plugin-react": "^7.22.0",
-        "prettier": "^2.2.1",
-      },
-    },
-    "packages/commons/stylelint-config": {
-      "name": "@commons/stylelint-config",
-      "version": "1.0.10",
-      "devDependencies": {
-        "stylelint": "^13.8.0",
-        "stylelint-config-prettier": "^8.0.2",
-        "stylelint-config-recommended": "^5.0.0",
-        "stylelint-config-styled-components": "^0.1.1",
-        "stylelint-config-twbs-bootstrap": "^2.1.0",
-        "stylelint-processor-styled-components": "^1.10.0",
-      },
-    },
-    "packages/design-tokens": {
+    "packages/tokens": {
       "name": "@monorepo/design-tokens",
       "version": "0.2.0",
     },
-    "packages/ui-components": {
+    "packages/ui": {
       "name": "@monorepo/ui-components",
       "version": "0.10.4",
       "devDependencies": {
@@ -110,6 +79,37 @@
         "react": ">=17",
         "react-dom": ">=17",
         "styled-components": "^5.2.1",
+      },
+    },
+    "tooling/eslint-config": {
+      "name": "@commons/eslint-config",
+      "version": "1.0.5",
+      "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.15.0",
+        "@typescript-eslint/parser": "^4.15.0",
+        "eslint": "^7.27.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-prettier-standard": "^4.0.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-import-resolver-typescript": "^2.3.0",
+        "eslint-plugin-import": "^2.23.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-react": "^7.22.0",
+        "prettier": "^2.2.1",
+      },
+    },
+    "tooling/stylelint-config": {
+      "name": "@commons/stylelint-config",
+      "version": "1.0.10",
+      "devDependencies": {
+        "stylelint": "^13.8.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-recommended": "^5.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-config-twbs-bootstrap": "^2.1.0",
+        "stylelint-processor-styled-components": "^1.10.0",
       },
     },
   },
@@ -212,9 +212,9 @@
 
     "@commitlint/types": ["@commitlint/types@21.2.3", "", { "dependencies": { "conventional-commits-parser": "^7.0.0", "picocolors": "^1.1.1" } }, "sha512-sGEA473TlCvhCGNoTBY9OXZVWdscIXdGt0dm8EpB+2MRfmt8LNh/X56P/T3nCtEB+eH5qGEa3odphSAoUxSfSQ=="],
 
-    "@commons/eslint-config": ["@commons/eslint-config@workspace:packages/commons/eslint-config"],
+    "@commons/eslint-config": ["@commons/eslint-config@workspace:tooling/eslint-config"],
 
-    "@commons/stylelint-config": ["@commons/stylelint-config@workspace:packages/commons/stylelint-config"],
+    "@commons/stylelint-config": ["@commons/stylelint-config@workspace:tooling/stylelint-config"],
 
     "@csstools/color-helpers": ["@csstools/color-helpers@5.1.0", "", {}, "sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA=="],
 
@@ -332,11 +332,11 @@
 
     "@mdx-js/react": ["@mdx-js/react@3.1.1", "", { "dependencies": { "@types/mdx": "^2.0.0" }, "peerDependencies": { "@types/react": ">=16", "react": ">=16" } }, "sha512-f++rKLQgUVYDAtECQ6fn/is15GkEH9+nZPM3MS0RcxVqoTfawHvDlSCH7JbMhAM6uJ32v3eXLvLmLvjGu7PTQw=="],
 
-    "@monorepo/design-tokens": ["@monorepo/design-tokens@workspace:packages/design-tokens"],
+    "@monorepo/design-tokens": ["@monorepo/design-tokens@workspace:packages/tokens"],
 
-    "@monorepo/spotifood": ["@monorepo/spotifood@workspace:packages/app"],
+    "@monorepo/spotifood": ["@monorepo/spotifood@workspace:apps/web"],
 
-    "@monorepo/ui-components": ["@monorepo/ui-components@workspace:packages/ui-components"],
+    "@monorepo/ui-components": ["@monorepo/ui-components@workspace:packages/ui"],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
 

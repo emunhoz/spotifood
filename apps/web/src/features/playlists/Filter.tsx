@@ -1,8 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { Button, SelectInput } from '@monorepo/ui-components'
 import toast from 'react-hot-toast'
-import { useFilter, EMPTY_FILTER, FILTER_LABELS, type FilterName } from '../../../contexts/filter'
-import { uniqueValues, type Playlist } from '../../../features/playlists/filter-playlists'
+import { useFilter, EMPTY_FILTER, FILTER_LABELS, type FilterName } from './filter-context'
+import { uniqueValues, type Playlist } from './filter-playlists'
 import * as S from './Filter.style'
 
 interface FilterFormProps {

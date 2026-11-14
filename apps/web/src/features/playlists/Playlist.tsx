@@ -1,12 +1,12 @@
 import { useState, lazy, Suspense } from 'react'
 import { SearchBar, PlaylistCard, Label, Loading, EmptyState, SideModal } from '@monorepo/ui-components'
-import { useFilter, FILTER_LABELS, type FilterName } from '../../contexts/filter'
-import { usePlaylists } from '../../features/playlists/use-playlists'
-import { filterPlaylists, type Playlist as PlaylistItem } from '../../features/playlists/filter-playlists'
-import { coverDataUrl, listenUrl } from '../../features/playlists/cover'
+import { useFilter, FILTER_LABELS, type FilterName } from './filter-context'
+import { usePlaylists } from './use-playlists'
+import { filterPlaylists, type Playlist as PlaylistItem } from './filter-playlists'
+import { coverDataUrl, listenUrl } from './cover'
 import * as S from './Playlist.style'
 
-const FilterForm = lazy(() => import('./forms/Filter'))
+const FilterForm = lazy(() => import('./Filter'))
 
 function Playlist () {
   const [search, setSearch] = useState('')

@@ -1,7 +1,7 @@
 import { Header } from '@monorepo/ui-components'
 import styled from 'styled-components'
-import { FilterProvider } from './contexts/filter'
-import Playlist from './pages/playlist/Playlist'
+import { FilterProvider } from './features/playlists/filter-context'
+import Playlist from './features/playlists/Playlist'
 
 const Main = styled.main`
   display: grid;

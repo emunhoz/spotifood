@@ -12,9 +12,16 @@
 
 I designed the pages, components and design tokens in [Figma](https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood) first, then built them as three packages:
 
-- [`design-tokens`](./packages/design-tokens): palette, typography, spacing and breakpoints as a typed theme object
-- [`ui-components`](./packages/ui-components): the component library, documented in Storybook
-- [`app`](./packages/app): the playlist browser (search, filter by genre and occasion, applied-filter chips, empty and error states)
+- [`design-tokens`](./packages/tokens): palette, typography, spacing and breakpoints as a typed theme object
+- [`ui-components`](./packages/ui): the component library, documented in Storybook
+- [`app`](./apps/web): the playlist browser (search, filter by genre and occasion, applied-filter chips, empty and error states)
+
+## Structure
+
+- `apps/web`: the playlist browser app (Vite + React), organized by feature
+- `packages/ui`: the component library and its Storybook
+- `packages/tokens`: design tokens consumed by the app and the components
+- `tooling/*`: shared ESLint and Stylelint configs
 
 ## Design decisions
 
@@ -58,13 +65,13 @@ bun run storybook  # component docs
 | Command | Description |
 | --- | --- |
 | `bun run start` | Run the app |
-| `bun run build-app` | Build the app to `packages/app/dist` |
+| `bun run build-app` | Build the app to `apps/web/dist` |
 | `bun run test:ci` | Run all tests with coverage |
 | `bun run lint` / `bun run lint:css` | ESLint / Stylelint |
 | `bun run storybook` | Run Storybook |
-| `bun run build-storybook` | Build Storybook to `packages/ui-components/public` |
+| `bun run build-storybook` | Build Storybook to `packages/ui/public` |
 | `bun run watch:tokens` / `bun run watch:components` | Rebuild packages on change |
 
 ## Code standards
 
-[JavaScript Standard Style](https://standardjs.com/), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/) and [Conventional Commits](https://conventionalcommits.org), with shared configs in [`packages/commons`](./packages/commons).
+[JavaScript Standard Style](https://standardjs.com/), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/) and [Conventional Commits](https://conventionalcommits.org), with shared configs in [`tooling`](./tooling).

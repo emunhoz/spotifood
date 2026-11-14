@@ -1,7 +1,7 @@
 import { vi } from 'vitest'
 import { render, screen, fireEvent } from '../../utils/test-utils'
-import { FilterProvider } from '../../contexts/filter'
-import type { Playlist as PlaylistItem } from '../../features/playlists/filter-playlists'
+import { FilterProvider } from './filter-context'
+import type { Playlist as PlaylistItem } from './filter-playlists'
 import Playlist from './Playlist'
 
 const playlists: PlaylistItem[] = [
