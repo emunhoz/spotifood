@@ -15,7 +15,7 @@ export const SearchBar = styled.label`
 export const SearchIcon = styled.div`
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 18px;
   display: flex;
   pointer-events: none;
   transform: translateY(-50%);
@@ -24,9 +24,12 @@ export const SearchIcon = styled.div`
 export const Input = styled.input<{ error?: boolean }>`
   box-sizing: border-box;
   width: 100%;
-  padding: 18px 20px 18px 58px;
+  height: 52px;
+  padding: 0 18px 0 50px;
+  margin: 0;
   font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
+  line-height: normal;
   color: ${({ theme }) => theme.palette.darkest};
   background: ${({ theme }) => theme.palette.surface};
   border: 2px solid transparent;

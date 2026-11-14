@@ -10,9 +10,11 @@ const rise = keyframes`
 `
 
 export const PlaylistCard = styled.article`
+  box-sizing: border-box;
   display: flex;
   flex-flow: column;
   gap: 14px;
+  height: 100%;
   padding: 12px;
   background: ${({ theme }) => theme.palette.surface};
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
@@ -69,6 +71,7 @@ export const Duration = styled.span`
 
 export const Body = styled.div`
   display: flex;
+  flex: 1;
   gap: 12px;
   align-items: center;
   justify-content: space-between;
@@ -98,8 +101,11 @@ export const Owner = styled.span`
 `
 
 export const Pairs = styled.span`
+  overflow: hidden;
   font-size: ${({ theme }) => theme.typography.size.s1}px;
   color: ${({ theme }) => theme.palette.textMuted};
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   strong {
     font-weight: ${({ theme }) => theme.typography.weight.medium};

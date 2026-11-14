@@ -43,7 +43,7 @@ export const SearchBar = ({
   <S.SearchBar>
     <S.Label>{labelName}</S.Label>
     <S.SearchIcon>
-      <img width='24' height='24' src={SearchIcon} alt='' />
+      <img width='20' height='20' src={SearchIcon} alt='' />
     </S.SearchIcon>
     <S.Input
       type='text'

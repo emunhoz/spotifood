@@ -9,17 +9,17 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
       class="sc-fqkvVR hbUBct"
     />
     <div
-      class="sc-gEvEer gssCvd"
+      class="sc-gEvEer EpBCm"
     >
       <img
         alt=""
-        height="24"
+        height="20"
         src="test-file-stub"
-        width="24"
+        width="20"
       />
     </div>
     <input
-      class="sc-eqUAAy dNlnQD"
+      class="sc-eqUAAy kcIKOm"
       type="text"
       value=""
     />
@@ -36,17 +36,17 @@ exports[`[Component]: SearchBar render the component 1`] = `
       class="sc-fqkvVR hbUBct"
     />
     <div
-      class="sc-gEvEer gssCvd"
+      class="sc-gEvEer EpBCm"
     >
       <img
         alt=""
-        height="24"
+        height="20"
         src="test-file-stub"
-        width="24"
+        width="20"
       />
     </div>
     <input
-      class="sc-eqUAAy gLdCNX"
+      class="sc-eqUAAy glzDSe"
       type="text"
       value=""
     />
