@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: PlaylistCardSkeleton render the component hidden from assistive tech 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="sc-aXZVg boKkqf"
+  >
+    <span
+      class="sc-gEvEer ckNCeC"
+    />
+    <span
+      class="sc-gEvEer kgRucC"
+    />
+    <span
+      class="sc-gEvEer cwROQE"
+    />
+  </div>
+</DocumentFragment>
+`;

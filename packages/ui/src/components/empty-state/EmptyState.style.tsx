@@ -23,5 +23,5 @@ export const EmptyStateImage = styled.img`
 
 export const EmptyStateMessage = styled.p`
   font-size: ${({ theme }) => theme.typography.size.s3}px;
-  color: ${({ theme }) => theme.palette.darkest};
+  color: ${({ theme }) => theme.palette.textMuted};
 `
