@@ -10,7 +10,7 @@
   },
   "files": [
     "src",
-    "tokens",
+    "tokens.json",
     "dist"
   ],
   "scripts": {

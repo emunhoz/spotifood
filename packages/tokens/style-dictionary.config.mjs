@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 import StyleDictionary from 'style-dictionary'
 
-const HEADER = 'Generated from tokens/*.json — do not edit'
+const HEADER = 'Generated from tokens.json — do not edit'
+// Tokens Studio single-file format: one top-level key per token set.
+const sets = JSON.parse(readFileSync('tokens.json', 'utf8'))
 const THEME_KEYS = { color: 'palette' }
 const PX_TYPES = new Set(['dimension'])
 
@@ -32,7 +34,7 @@ function cssBlock(selector, declarations, indent) {
   return `${pad}${selector} {\n${lines}\n${pad}}`
 }
 
-// Tokens Studio keeps each theme in its own set; dark.json only overrides colors.
+// The dark set only overrides colors, so it becomes a CSS override block.
 function flatten(node, path = []) {
   return Object.entries(node)
     .filter(([key]) => !key.startsWith('$'))
@@ -42,8 +44,7 @@ function flatten(node, path = []) {
 }
 
 function darkDeclarations() {
-  const dark = JSON.parse(readFileSync('tokens/dark.json', 'utf8'))
-  return flatten(dark).map((token) => `${cssName(token)}: ${token.value};`)
+  return flatten(sets.dark).map((token) => `${cssName(token)}: ${token.value};`)
 }
 
 StyleDictionary.registerFormat({
@@ -69,7 +70,7 @@ StyleDictionary.registerFormat({
 })
 
 export default {
-  source: ['tokens/light.json', 'tokens/core.json'],
+  tokens: { ...sets.light, ...sets.core },
   platforms: {
     ts: {
       transforms: ['name/kebab'],
