@@ -1,12 +1,16 @@
 /// <reference types="vitest" />
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // design-tokens ships CommonJS and is symlinked by the workspace, so Rollup must be told to convert it
-  optimizeDeps: { include: ['@monorepo/design-tokens'] },
-  build: { commonjsOptions: { include: [/design-tokens/, /node_modules/] } },
+  resolve: {
+    // Consume token source, not the CJS dist: Vite pre-bundles linked dist and never notices it changed
+    alias: {
+      '@monorepo/design-tokens': fileURLToPath(new URL('../design-tokens/src/index.ts', import.meta.url))
+    }
+  },
   test: {
     environment: 'jsdom',
     globals: true,
