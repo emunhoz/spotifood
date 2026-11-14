@@ -156,10 +156,14 @@ export const Listen = styled.a`
   color: ${({ theme }) => theme.palette.onPrimary};
   background: ${({ theme }) => theme.palette.primary};
   border-radius: 50%;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.15s;
 
   &:hover {
     background: ${({ theme }) => theme.palette.primaryDark};
+  }
+
+  &:active {
+    transform: scale(0.92);
   }
 
   &:focus-visible {

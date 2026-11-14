@@ -1,4 +1,15 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+// Scroll range (px) over which the toolbar gains its edge: roughly when it reaches the top and sticks.
+// ponytail: fixed range, swap for a view-timeline on the hero if the hero height starts to vary a lot
+const LIFT_START = 160
+const LIFT_END = 240
+
+const lift = keyframes`
+  to {
+    box-shadow: 0 1px 0 var(--toolbar-edge), 0 16px 28px -22px var(--toolbar-shadow);
+  }
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -38,6 +49,31 @@ export const Subline = styled.p`
   margin: 0;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
   color: ${({ theme }) => theme.palette.textMuted};
+`
+
+export const Toolbar = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+  padding: 12px 26px;
+  margin: -12px -26px 0;
+  background: color-mix(in srgb, ${({ theme }) => theme.palette.lightest} 88%, transparent);
+  backdrop-filter: blur(12px) saturate(1.4);
+
+  --toolbar-edge: ${({ theme }) => theme.palette.light};
+  --toolbar-shadow: color-mix(in srgb, ${({ theme }) => theme.palette.darkest} 40%, transparent);
+
+  /* Scroll-driven: the edge fades in as the page scrolls, no scroll listener. Unsupported browsers keep a flat bar. */
+  @supports (animation-timeline: scroll()) {
+    animation: ${lift} linear both;
+    /* stylelint-disable-next-line property-no-unknown -- scroll-driven animations postdate this stylelint */
+    animation-timeline: scroll();
+    /* stylelint-disable-next-line property-no-unknown -- scroll-driven animations postdate this stylelint */
+    animation-range: ${LIFT_START}px ${LIFT_END}px;
+  }
 `
 
 export const Filters = styled.div`

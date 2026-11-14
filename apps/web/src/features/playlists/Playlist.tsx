@@ -66,17 +66,17 @@ function Playlist () {
         <S.Subline>Music to go with your food order.</S.Subline>
       </S.Hero>
 
-      <SearchBar
-        ref={searchInput}
-        onChange={(event) => filters.setQuery(event.target.value)}
-        onClear={filters.clearSearch}
-        value={filters.query}
-        labelName='Search playlists'
-        placeholder='Search playlists, people or dishes...'
-        shortcutHint={SEARCH_SHORTCUT}
-      />
-
-      <S.Filters>
+      {/* Search and the meal row stay reachable while scrolling; genres scroll away to save height */}
+      <S.Toolbar>
+        <SearchBar
+          ref={searchInput}
+          onChange={(event) => filters.setQuery(event.target.value)}
+          onClear={filters.clearSearch}
+          value={filters.query}
+          labelName='Search playlists'
+          placeholder='Search playlists, people or dishes...'
+          shortcutHint={SEARCH_SHORTCUT}
+        />
         <S.ChipRow role='group' aria-label='Occasion'>
           <Chip
             active={criteria.occasion === ''}
@@ -99,6 +99,9 @@ function Playlist () {
             </Chip>
           ))}
         </S.ChipRow>
+      </S.Toolbar>
+
+      <S.Filters>
         <S.ChipRow role='group' aria-label='Genre'>
           {genres.map(value => (
             <Chip

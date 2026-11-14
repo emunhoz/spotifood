@@ -1,4 +1,10 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const ping = keyframes`
+  to {
+    box-shadow: 0 0 0 6px transparent;
+  }
+`
 
 export const Chip = styled.button<{ $active: boolean }>`
   display: inline-flex;
@@ -53,6 +59,12 @@ export const NowDot = styled.span`
   height: 6px;
   background: ${({ theme }) => theme.palette.brand};
   border-radius: 50%;
+
+  /* Two pings on load to draw the eye once, then it stays quiet */
+  @media (prefers-reduced-motion: no-preference) {
+    box-shadow: 0 0 0 0 ${({ theme }) => theme.palette.brand};
+    animation: ${ping} 1.2s ease-out 0.6s 2;
+  }
 `
 
 export const VisuallyHidden = styled.span`

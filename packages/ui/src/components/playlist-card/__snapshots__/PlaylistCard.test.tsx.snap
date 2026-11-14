@@ -48,7 +48,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
       </div>
       <a
         aria-label="Listen to Ramen at 2AM on Spotify"
-        class="sc-dhKdcB fVcSqe"
+        class="sc-dhKdcB hYRuDw"
         href="https://open.spotify.com/search/Ramen"
         rel="noreferrer"
         target="_blank"
