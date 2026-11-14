@@ -4,6 +4,32 @@ import StyleDictionary from 'style-dictionary'
 const HEADER = 'Generated from tokens.json — do not edit'
 // Tokens Studio single-file format: one top-level key per token set.
 const sets = JSON.parse(readFileSync('tokens.json', 'utf8'))
+
+// Tokens Studio color modifiers: only "mix" in sRGB is used (primaryDark/Light follow primary).
+const REFERENCE = /^\{color\.(\w+)\}$/
+const toRgb = (hex) => [1, 3, 5].map((i) => Number.parseInt(hex.slice(i, i + 2), 16))
+const toHex = (rgb) => `#${rgb.map((c) => Math.round(c).toString(16).padStart(2, '0')).join('').toUpperCase()}`
+
+function mix(hex, otherHex, amount) {
+  const other = toRgb(otherHex)
+  return toHex(toRgb(hex).map((channel, i) => channel + (other[i] - channel) * amount))
+}
+
+function resolveColor(token, colors) {
+  const ref = REFERENCE.exec(token.$value)?.[1]
+  if (!ref) return token
+  const modify = token.$extensions?.['studio.tokens']?.modify
+  const base = colors[ref].$value
+  return { ...token, $value: modify ? mix(base, modify.color, Number(modify.value)) : base }
+}
+
+// O(n) over the color group
+function resolveColors(set) {
+  const entries = Object.entries(set.color).map(([key, token]) =>
+    key.startsWith('$') ? [key, token] : [key, resolveColor(token, set.color)]
+  )
+  return { ...set, color: Object.fromEntries(entries) }
+}
 const THEME_KEYS = { color: 'palette' }
 const PX_TYPES = new Set(['dimension'])
 
@@ -44,7 +70,7 @@ function flatten(node, path = []) {
 }
 
 function darkDeclarations() {
-  return flatten(sets.dark).map((token) => `${cssName(token)}: ${token.value};`)
+  return flatten(resolveColors(sets.dark)).map((token) => `${cssName(token)}: ${token.value};`)
 }
 
 StyleDictionary.registerFormat({
@@ -70,7 +96,7 @@ StyleDictionary.registerFormat({
 })
 
 export default {
-  tokens: { ...sets.light, ...sets.core },
+  tokens: { ...resolveColors(sets.light), ...sets.core },
   platforms: {
     ts: {
       transforms: ['name/kebab'],
