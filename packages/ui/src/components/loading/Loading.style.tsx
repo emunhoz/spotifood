@@ -20,7 +20,7 @@ export const Loading = styled.div`
     width: 50px;
     height: 50px;
     border: 5px solid ${({ theme }) => theme.palette.light};
-    border-left-color: ${({ theme }) => theme.palette.primary};
+    border-left-color: ${({ theme }) => theme.palette.brand};
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
   }

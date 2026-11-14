@@ -7,7 +7,7 @@ exports[`[Component]: Header render the component 1`] = `
   >
     <span
       aria-label="Spotifood"
-      class="sc-gsFSXq guiBFI"
+      class="sc-gsFSXq cSwebq"
       role="img"
     />
     <div
@@ -44,7 +44,7 @@ exports[`[Component]: Header render the component without user info 1`] = `
   >
     <span
       aria-label="Spotifood"
-      class="sc-gsFSXq guiBFI"
+      class="sc-gsFSXq cSwebq"
       role="img"
     />
   </header>
