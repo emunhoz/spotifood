@@ -3,7 +3,7 @@
 exports[`[Component]: PlaylistCard render the component 1`] = `
 <DocumentFragment>
   <article
-    class="sc-aXZVg gDWGjS"
+    class="sc-aXZVg EpTzI"
     style="--i: 0;"
   >
     <figure
@@ -33,12 +33,12 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
           Ramen at 2AM
         </h3>
         <span
-          class="sc-kAyceB eMQMOR"
+          class="sc-imWYAI ckfnRs"
         >
           by Spotifood
         </span>
         <span
-          class="sc-imWYAI jFpNbZ"
+          class="sc-jXbUNg izhvtT"
         >
           Pairs with 
           <strong>
@@ -48,7 +48,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
       </div>
       <a
         aria-label="Listen to Ramen at 2AM on Spotify"
-        class="sc-jXbUNg lcyDQN"
+        class="sc-dhKdcB fVcSqe"
         href="https://open.spotify.com/search/Ramen"
         rel="noreferrer"
         target="_blank"

@@ -1,3 +1,8 @@
+export interface Track {
+  title: string
+  artist: string
+}
+
 export interface Playlist {
   id: string
   name: string
@@ -7,6 +12,8 @@ export interface Playlist {
   tracks: number
   minutes: number
   pairsWith: string
+  mood: string
+  tracklist: Track[]
   cover: [string, string]
 }
 

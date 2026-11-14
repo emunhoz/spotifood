@@ -1,10 +1,10 @@
 import { filterPlaylists, uniqueValues, facetCounts, type Playlist } from './filter-playlists'
 
 const playlists: Playlist[] = [
-  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 100, pairsWith: 'Eggs Benedict', cover: ['#000', '#fff'] },
-  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 100, pairsWith: 'Pizza', cover: ['#000', '#fff'] },
-  { id: '3', name: 'Lunch Beats', owner: 'Spotifood', genre: 'Electronic', occasion: 'Lunch', tracks: 25, minutes: 100, pairsWith: 'Poke', cover: ['#000', '#fff'] },
-  { id: '4', name: 'Jazz Dinner', owner: 'Leo', genre: 'Jazz', occasion: 'Dinner', tracks: 50, minutes: 100, pairsWith: 'Ramen', cover: ['#000', '#fff'] }
+  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 100, pairsWith: 'Eggs Benedict', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] },
+  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 100, pairsWith: 'Pizza', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] },
+  { id: '3', name: 'Lunch Beats', owner: 'Spotifood', genre: 'Electronic', occasion: 'Lunch', tracks: 25, minutes: 100, pairsWith: 'Poke', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] },
+  { id: '4', name: 'Jazz Dinner', owner: 'Leo', genre: 'Jazz', occasion: 'Dinner', tracks: 50, minutes: 100, pairsWith: 'Ramen', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] }
 ]
 
 const noCriteria = { search: '', genre: '', occasion: '' }

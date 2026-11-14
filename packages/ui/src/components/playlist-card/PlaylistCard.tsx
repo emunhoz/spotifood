@@ -9,6 +9,10 @@ interface IPlaylistCard {
   minutes?: number
   pairsWith?: string
   index?: number
+  /** Makes the whole card open the playlist; the Listen link stays a separate target */
+  onOpen?: () => void
+  /** Lets the app name the cover for a shared-element view transition */
+  coverStyle?: CSSProperties
 }
 
 const MINUTES_PER_HOUR = 60
@@ -20,15 +24,17 @@ export function formatDuration (minutes: number): string {
   return rest === 0 ? `${hours} h` : `${hours} h ${rest} min`
 }
 
-export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairsWith, index = 0 }: IPlaylistCard) => (
+export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairsWith, index = 0, onOpen, coverStyle }: IPlaylistCard) => (
   <S.PlaylistCard style={{ '--i': index } as CSSProperties}>
-    <S.Cover>
+    <S.Cover style={coverStyle}>
       <S.CoverImg src={imgUrl} alt='' loading='lazy' />
       {minutes !== undefined && <S.Duration>{formatDuration(minutes)}</S.Duration>}
     </S.Cover>
     <S.Body>
       <S.Info>
-        <S.Title>{playlistName}</S.Title>
+        <S.Title>
+          {onOpen ? <S.OpenButton type='button' onClick={onOpen}>{playlistName}</S.OpenButton> : playlistName}
+        </S.Title>
         <S.Owner>by {owner}</S.Owner>
         {pairsWith && <S.Pairs>Pairs with <strong>{pairsWith}</strong></S.Pairs>}
       </S.Info>
