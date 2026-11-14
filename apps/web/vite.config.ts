@@ -6,13 +6,17 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    // Consume token source, not the CJS dist: Vite pre-bundles linked dist and never notices it changed
+    // Consume workspace source, not the compiled dist: dist only rebuilds on install, so dev and
+    // tests would silently run stale components (and Vite pre-bundles it, never noticing changes)
     alias: {
-      '@monorepo/design-tokens': fileURLToPath(new URL('../../packages/tokens/src/index.ts', import.meta.url))
+      '@monorepo/design-tokens': fileURLToPath(new URL('../../packages/tokens/src/index.ts', import.meta.url)),
+      '@monorepo/ui-components': fileURLToPath(new URL('../../packages/ui/src/index.ts', import.meta.url))
     }
   },
   test: {
     environment: 'jsdom',
+    // e2e/ holds Playwright specs; Vitest owns unit and component tests only
+    include: ['src/**/*.test.{ts,tsx}'],
     globals: true,
     setupFiles: './src/setupTests.ts'
   }

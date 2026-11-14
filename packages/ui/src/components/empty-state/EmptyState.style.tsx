@@ -1,4 +1,11 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const appear = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+`
 
 export const EmptyState = styled.div`
   display: flex;
@@ -7,6 +14,10 @@ export const EmptyState = styled.div`
   justify-content: center;
   height: 100%;
   text-align: center;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${appear} 0.4s ease backwards;
+  }
 `
 
 export const EmptyStateTitle = styled.h2`
@@ -23,5 +34,5 @@ export const EmptyStateImage = styled.img`
 
 export const EmptyStateMessage = styled.p`
   font-size: ${({ theme }) => theme.typography.size.s3}px;
-  color: ${({ theme }) => theme.palette.darkest};
+  color: ${({ theme }) => theme.palette.textMuted};
 `

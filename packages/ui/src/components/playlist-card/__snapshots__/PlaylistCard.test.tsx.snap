@@ -2,45 +2,70 @@
 
 exports[`[Component]: PlaylistCard render the component 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-aXZVg kgvzpl"
+  <article
+    class="sc-aXZVg EpTzI"
+    style="--i: 0;"
   >
     <figure
-      class="sc-gEvEer kGVkG"
+      class="sc-gEvEer gdVcPU"
     >
       <img
-        alt="Rain Sounds"
-        class="sc-eqUAAy cPcfh"
+        alt=""
+        class="sc-eqUAAy fxAvdZ"
         loading="lazy"
-        src="https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de"
+        src="data:image/svg+xml,"
       />
+      <span
+        class="sc-fqkvVR CBVkp"
+      >
+        3 h 2 min
+      </span>
     </figure>
-    <footer
-      class="sc-fqkvVR jdpZnZ"
+    <div
+      class="sc-dcJsrY yzlaY"
     >
       <div
-        class="sc-dcJsrY dqMqXb"
+        class="sc-iGgWBj iZDeKS"
       >
-        <h6
-          class="sc-iGgWBj cnPRgM"
+        <h3
+          class="sc-gsFSXq kDljKV"
         >
-          Rain Sounds
-        </h6>
-        <small
-          class="sc-gsFSXq jSDddn"
+          Ramen at 2AM
+        </h3>
+        <span
+          class="sc-imWYAI ckfnRs"
         >
-          by Spotify
-        </small>
+          by Spotifood
+        </span>
+        <span
+          class="sc-jXbUNg izhvtT"
+        >
+          Pairs with 
+          <strong>
+            Ramen
+          </strong>
+        </span>
       </div>
       <a
-        class="sc-kAyceB cnpMqQ"
-        href="https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc"
+        aria-label="Listen to Ramen at 2AM on Spotify"
+        class="sc-dhKdcB hYRuDw"
+        href="https://open.spotify.com/search/Ramen"
         rel="noreferrer"
         target="_blank"
       >
-        Listen
+        <svg
+          aria-hidden="true"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+        >
+          <path
+            d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"
+            fill="currentColor"
+          />
+        </svg>
       </a>
-    </footer>
-  </div>
+    </div>
+  </article>
 </DocumentFragment>
 `;

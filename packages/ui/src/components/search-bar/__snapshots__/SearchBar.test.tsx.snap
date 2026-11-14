@@ -2,54 +2,54 @@
 
 exports[`[Component]: SearchBar render component with error style 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-aXZVg bgHufR"
+  <label
+    class="sc-aXZVg deLxUb"
   >
-    <label
-      class="sc-fqkvVR hbUBct"
+    <span
+      class="sc-iGgWBj bNJOhh"
     />
     <div
-      class="sc-gEvEer LwDFE"
+      class="sc-gEvEer EpBCm"
     >
       <img
         alt=""
-        height="24"
+        height="20"
         src="test-file-stub"
-        width="24"
+        width="20"
       />
     </div>
     <input
-      class="sc-eqUAAy hnpazK"
+      class="sc-eqUAAy heUytg"
       type="text"
       value=""
     />
-  </div>
+  </label>
 </DocumentFragment>
 `;
 
 exports[`[Component]: SearchBar render the component 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-aXZVg bgHufR"
+  <label
+    class="sc-aXZVg deLxUb"
   >
-    <label
-      class="sc-fqkvVR hbUBct"
+    <span
+      class="sc-iGgWBj bNJOhh"
     />
     <div
-      class="sc-gEvEer LwDFE"
+      class="sc-gEvEer EpBCm"
     >
       <img
         alt=""
-        height="24"
+        height="20"
         src="test-file-stub"
-        width="24"
+        width="20"
       />
     </div>
     <input
-      class="sc-eqUAAy dywrZK"
+      class="sc-eqUAAy ibAfEI"
       type="text"
       value=""
     />
-  </div>
+  </label>
 </DocumentFragment>
 `;

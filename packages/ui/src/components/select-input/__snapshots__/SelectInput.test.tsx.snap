@@ -3,19 +3,19 @@
 exports[`[Component]: SelectInput render the component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bmzYkS"
+    class="sc-dSCufp"
   >
     <div
-      class="sc-dtBdUo cSXkT"
+      class="sc-hIUJlX iPJJnV"
     >
       <label
-        class="sc-dLMFU dTzXzH"
+        class="sc-JrDLc jNQcXm"
         for="Select example"
       >
         Select example
       </label>
       <select
-        class="sc-iHGNWf jjgfGP"
+        class="sc-fxwrCY kixhfn"
         name="Select example"
       />
     </div>

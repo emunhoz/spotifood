@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: PlaylistDetail render the component 1`] = `
+<DocumentFragment>
+  <article
+    class="sc-kpDqfm fPqUhg"
+  >
+    <div
+      class="sc-dAlyuH dKGXSL"
+    >
+      <img
+        alt=""
+        class="sc-jlZhew khspNN"
+        src=""
+      />
+      <button
+        aria-label="Close"
+        class="sc-cwHptR igYzAF"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          height="14"
+          viewBox="0 0 14 14"
+          width="14"
+        >
+          <path
+            d="M2 2l10 10M12 2L2 12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="sc-jEACwC dhEZtX"
+    >
+      <p
+        class="sc-cPiKLX gDfDAM"
+      >
+        Lo-fi · Late night
+      </p>
+      <h2
+        class="sc-dLMFU cUgKQX"
+      >
+        Ramen at 2AM
+      </h2>
+      <p
+        class="sc-eDPEul fTanti"
+      >
+        by Spotifood · 52 tracks · 3 h 2 min
+      </p>
+      <div
+        class="sc-eldPxv bIdqaA"
+      >
+        <div
+          class="sc-fPXMVe eHjywy"
+        >
+          <span
+            class="sc-gFqAkR ingZyI"
+          >
+            Pairs with
+          </span>
+          <strong
+            class="sc-ikkxIA bDxrdv"
+          >
+            Ramen
+          </strong>
+        </div>
+        <div
+          class="sc-fPXMVe eHjywy"
+        >
+          <span
+            class="sc-gFqAkR ingZyI"
+          >
+            Mood
+          </span>
+          <strong
+            class="sc-ikkxIA bDxrdv"
+          >
+            Dreamy
+          </strong>
+        </div>
+      </div>
+      <h3
+        class="sc-dAbbOL KitEH"
+      >
+        Tracklist
+      </h3>
+      <ol
+        class="sc-feUZmu cihdNQ"
+      >
+        <li
+          class="sc-fUnMCh gKlWwr"
+          style="--i: 0;"
+        >
+          <span
+            aria-hidden="true"
+            class="sc-hzhJZQ efVDcV"
+          >
+            1
+          </span>
+          <span
+            class="sc-fHjqPf eicluU"
+          >
+            <span
+              class="sc-hmdomO myjoP"
+            >
+              Broth at 2AM
+            </span>
+            <span
+              class="sc-bXCLTC ietnwW"
+            >
+              Neon Noodle
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-fUnMCh gKlWwr"
+          style="--i: 1;"
+        >
+          <span
+            aria-hidden="true"
+            class="sc-hzhJZQ efVDcV"
+          >
+            2
+          </span>
+          <span
+            class="sc-fHjqPf eicluU"
+          >
+            <span
+              class="sc-hmdomO myjoP"
+            >
+              Soft Egg
+            </span>
+            <span
+              class="sc-bXCLTC ietnwW"
+            >
+              Midnight Miso
+            </span>
+          </span>
+        </li>
+      </ol>
+      <p
+        class="sc-jsJBEP hUZBnN"
+      >
+        + 50 more tracks
+      </p>
+      <a
+        class="sc-eeDRCY fUppV"
+        href="https://open.spotify.com/search/Ramen"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <svg
+          aria-hidden="true"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+        >
+          <path
+            d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"
+            fill="currentColor"
+          />
+        </svg>
+        Listen on Spotify
+      </a>
+    </div>
+  </article>
+</DocumentFragment>
+`;

@@ -1,0 +1,21 @@
+name: Lighthouse
+
+# Audits the production build served statically. Accessibility is a hard gate;
+# performance and the rest warn, since shared CI runners make those scores noisy.
+on:
+  pull_request:
+
+jobs:
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run build-app
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./apps/web/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

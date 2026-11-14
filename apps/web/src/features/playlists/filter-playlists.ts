@@ -1,3 +1,8 @@
+export interface Track {
+  title: string
+  artist: string
+}
+
 export interface Playlist {
   id: string
   name: string
@@ -7,6 +12,8 @@ export interface Playlist {
   tracks: number
   minutes: number
   pairsWith: string
+  mood: string
+  tracklist: Track[]
   cover: [string, string]
 }
 
@@ -34,4 +41,12 @@ export function filterPlaylists (playlists: Playlist[], { search, genre, occasio
 
 export function uniqueValues (playlists: Playlist[], field: FacetField): string[] {
   return [...new Set(playlists.map(playlist => playlist[field]))].toSorted()
+}
+
+// O(n): filter by every criterion except `field`, then count. That is what each chip would show if picked.
+export function facetCounts (playlists: Playlist[], criteria: PlaylistCriteria, field: FacetField): Map<string, number> {
+  const others = filterPlaylists(playlists, { ...criteria, [field]: '' })
+  const counts = new Map<string, number>()
+  for (const playlist of others) counts.set(playlist[field], (counts.get(playlist[field]) ?? 0) + 1)
+  return counts
 }
