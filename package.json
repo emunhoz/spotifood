@@ -13,7 +13,7 @@
   "scripts": {
     "commit": "git-cz",
     "watch:tokens": "bun --filter @monorepo/design-tokens start",
-    "build:tokens": "bun --filter @monorepo/design-tokens build:tokens",
+    "build:tokens": "bun --filter @monorepo/design-tokens libbuild",
     "watch:components": "bun --filter @monorepo/ui-components start",
     "test:components": "bun --filter @monorepo/ui-components test",
     "test:update": "bun --filter @monorepo/ui-components test:update && bun --filter @monorepo/spotifood test:update",
