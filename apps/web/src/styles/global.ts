@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     background: ${createTheme.palette.lightest};
   }
 
+  /* A modal dialog does not stop the page behind it from scrolling; this does, without JS */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   /* One curve for every view transition: cards glide, the count and active chips morph */
   ::view-transition-group(*) {
     animation-duration: 0.35s;

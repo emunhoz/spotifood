@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { SearchBar, PlaylistCard, PlaylistCardSkeleton, EmptyState, Chip, Button } from '@monorepo/ui-components'
 import { usePlaylists } from './use-playlists'
 import { usePlaylistFilters } from './use-playlist-filters'
+import { usePlaylistDetail } from './use-playlist-detail'
+import PlaylistDialog from './PlaylistDialog'
 import { filterPlaylists, uniqueValues, facetCounts } from './filter-playlists'
 import { OCCASIONS, occasionForHour, greetingForHour, describeSelection } from './time-of-day'
 import { coverDataUrl, listenUrl } from './cover'
@@ -24,6 +26,7 @@ function Playlist () {
   const [hour] = useState(() => new Date().getHours())
   const searchInput = useRef<HTMLInputElement>(null)
   const filters = usePlaylistFilters()
+  const detail = usePlaylistDetail()
   const playlistsState = usePlaylists()
   const suggestedOccasion = occasionForHour(hour)
   const { criteria } = filters
@@ -51,6 +54,7 @@ function Playlist () {
   const allOccasionsCount = [...occasionCounts.values()].reduce((sum, count) => sum + count, 0)
   const hasFilters = filters.query !== '' || criteria.genre !== '' || criteria.occasion !== ''
   const hasNoResults = !isLoading && visiblePlaylists.length === 0
+  const openPlaylist = playlists.find(playlist => playlist.id === detail.openId) ?? null
 
   return (
     <S.Wrapper>
@@ -123,10 +127,15 @@ function Playlist () {
               imgUrl={coverDataUrl(playlist)}
               minutes={playlist.minutes}
               pairsWith={playlist.pairsWith}
+              onOpen={() => detail.open(playlist.id)}
+              // The open playlist's cover lives in the dialog; one name per frame or the transition aborts
+              coverStyle={{ viewTransitionName: playlist.id === detail.openId ? undefined : `cover-${playlist.id}` } as CSSProperties}
             />
           </S.CardSlot>
         ))}
       </S.Grid>
+
+      <PlaylistDialog playlist={openPlaylist} onClose={detail.close} />
 
       {hasNoResults && (
         <EmptyState

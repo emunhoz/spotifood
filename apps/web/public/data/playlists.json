@@ -8,6 +8,33 @@
     "tracks": 42,
     "minutes": 147,
     "pairsWith": "Eggs Benedict",
+    "mood": "Slow Sunday",
+    "tracklist": [
+      {
+        "title": "Hollandaise Blues",
+        "artist": "The Poached Quartet"
+      },
+      {
+        "title": "Sunday Paper",
+        "artist": "Mila Arden"
+      },
+      {
+        "title": "Second Cup",
+        "artist": "Joe Brass Trio"
+      },
+      {
+        "title": "Mimosa Swing",
+        "artist": "The Brunch Club"
+      },
+      {
+        "title": "Late Breakfast",
+        "artist": "Nora Vale"
+      },
+      {
+        "title": "Toast & Brushes",
+        "artist": "Kenji Ito Trio"
+      }
+    ],
     "cover": [
       "#F6D365",
       "#FDA085"
@@ -22,6 +49,33 @@
     "tracks": 35,
     "minutes": 123,
     "pairsWith": "Croissants",
+    "mood": "Sunny",
+    "tracklist": [
+      {
+        "title": "Café da Manhã",
+        "artist": "Lia Moreno"
+      },
+      {
+        "title": "Butter Croissant",
+        "artist": "Tom Saudade"
+      },
+      {
+        "title": "Rua Calma",
+        "artist": "Bela Nunes"
+      },
+      {
+        "title": "Morning Steam",
+        "artist": "Duo Areia"
+      },
+      {
+        "title": "Pão de Queijo",
+        "artist": "Caio Lemos"
+      },
+      {
+        "title": "Golden Hour",
+        "artist": "Marina Alves"
+      }
+    ],
     "cover": [
       "#FCE38A",
       "#F38181"
@@ -36,6 +90,33 @@
     "tracks": 50,
     "minutes": 175,
     "pairsWith": "Pancakes",
+    "mood": "Bright",
+    "tracklist": [
+      {
+        "title": "Stack It High",
+        "artist": "Juniper"
+      },
+      {
+        "title": "Maple Kiss",
+        "artist": "The Fluffies"
+      },
+      {
+        "title": "Flip Side",
+        "artist": "Rae Sun"
+      },
+      {
+        "title": "Blueberry Skies",
+        "artist": "Coco Lane"
+      },
+      {
+        "title": "Syrup Drip",
+        "artist": "Neon Diner"
+      },
+      {
+        "title": "Saturday Batter",
+        "artist": "Lola Park"
+      }
+    ],
     "cover": [
       "#FFDEE9",
       "#B5FFFC"
@@ -50,6 +131,33 @@
     "tracks": 28,
     "minutes": 98,
     "pairsWith": "Açaí bowl",
+    "mood": "Fresh",
+    "tracklist": [
+      {
+        "title": "Purple Rush",
+        "artist": "Kora"
+      },
+      {
+        "title": "Granola Groove",
+        "artist": "Tidal Fruit"
+      },
+      {
+        "title": "Frozen Berries",
+        "artist": "Sola"
+      },
+      {
+        "title": "Beach Bowl",
+        "artist": "Wave Theory"
+      },
+      {
+        "title": "Morning Run",
+        "artist": "Pulse & Palm"
+      },
+      {
+        "title": "Tropic Drift",
+        "artist": "Rafa Costa"
+      }
+    ],
     "cover": [
       "#A18CD1",
       "#FBC2EB"
@@ -64,6 +172,33 @@
     "tracks": 60,
     "minutes": 210,
     "pairsWith": "Burrito bowl",
+    "mood": "Focused",
+    "tracklist": [
+      {
+        "title": "Inbox Zero",
+        "artist": "Desk Plants"
+      },
+      {
+        "title": "Rice & Beans",
+        "artist": "lofi kitchen"
+      },
+      {
+        "title": "Standup Notes",
+        "artist": "Quiet Monitor"
+      },
+      {
+        "title": "Steam Rising",
+        "artist": "Paper Lantern"
+      },
+      {
+        "title": "One More Bite",
+        "artist": "Sleepy Cursor"
+      },
+      {
+        "title": "Afternoon Sync",
+        "artist": "Tape Loop"
+      }
+    ],
     "cover": [
       "#84FAB0",
       "#8FD3F4"
@@ -78,6 +213,33 @@
     "tracks": 44,
     "minutes": 154,
     "pairsWith": "Poke",
+    "mood": "Chill",
+    "tracklist": [
+      {
+        "title": "Shoyu Breeze",
+        "artist": "Koi Pond"
+      },
+      {
+        "title": "Sesame Rain",
+        "artist": "Mochi Beats"
+      },
+      {
+        "title": "Island Hour",
+        "artist": "Leo Tanaka"
+      },
+      {
+        "title": "Salmon Sunset",
+        "artist": "Kai Wave"
+      },
+      {
+        "title": "Soft Rice",
+        "artist": "Lantern Room"
+      },
+      {
+        "title": "Wasabi Dreams",
+        "artist": "Low Tide"
+      }
+    ],
     "cover": [
       "#43E97B",
       "#38F9D7"
@@ -92,6 +254,33 @@
     "tracks": 32,
     "minutes": 112,
     "pairsWith": "Cheeseburger",
+    "mood": "Loud",
+    "tracklist": [
+      {
+        "title": "Double Patty",
+        "artist": "The Grill Kings"
+      },
+      {
+        "title": "Fries on the Side",
+        "artist": "Ketchup Riot"
+      },
+      {
+        "title": "Smash It",
+        "artist": "Brioche Boys"
+      },
+      {
+        "title": "Lunch Rush",
+        "artist": "Medium Rare"
+      },
+      {
+        "title": "Extra Cheese",
+        "artist": "The Melts"
+      },
+      {
+        "title": "Drive-Thru Anthem",
+        "artist": "Neon Pickles"
+      }
+    ],
     "cover": [
       "#FA709A",
       "#FEE140"
@@ -106,6 +295,33 @@
     "tracks": 38,
     "minutes": 133,
     "pairsWith": "Caesar salad",
+    "mood": "Light",
+    "tracklist": [
+      {
+        "title": "Crunchy Greens",
+        "artist": "Leaf Society"
+      },
+      {
+        "title": "Vinaigrette",
+        "artist": "Ana Ribeiro"
+      },
+      {
+        "title": "Crouton Kisses",
+        "artist": "Garden Pop"
+      },
+      {
+        "title": "Lemon Zest",
+        "artist": "Citrine"
+      },
+      {
+        "title": "Light Lunch",
+        "artist": "Rocket & Pear"
+      },
+      {
+        "title": "Caesar Says",
+        "artist": "The Toppings"
+      }
+    ],
     "cover": [
       "#D4FC79",
       "#96E6A1"
@@ -120,6 +336,33 @@
     "tracks": 55,
     "minutes": 193,
     "pairsWith": "Feijoada",
+    "mood": "Festive",
+    "tracklist": [
+      {
+        "title": "Feijão Preto",
+        "artist": "Bloco da Panela"
+      },
+      {
+        "title": "Laranja e Couve",
+        "artist": "Zeca Tambor"
+      },
+      {
+        "title": "Sábado Inteiro",
+        "artist": "Roda da Vila"
+      },
+      {
+        "title": "Farofa Fina",
+        "artist": "Dona Ivone Jr."
+      },
+      {
+        "title": "Panela de Barro",
+        "artist": "Samba do Quintal"
+      },
+      {
+        "title": "Caipirinha Lenta",
+        "artist": "Mestre Cuíca"
+      }
+    ],
     "cover": [
       "#F83600",
       "#F9D423"
@@ -134,6 +377,33 @@
     "tracks": 47,
     "minutes": 165,
     "pairsWith": "Carbonara",
+    "mood": "Romantic",
+    "tracklist": [
+      {
+        "title": "Al Dente",
+        "artist": "Giulia Rossi"
+      },
+      {
+        "title": "Parmigiano Moon",
+        "artist": "The Trattoria Five"
+      },
+      {
+        "title": "Red Sauce Waltz",
+        "artist": "Nico Bruni"
+      },
+      {
+        "title": "Candle & Basil",
+        "artist": "Sofia Lento"
+      },
+      {
+        "title": "Carbonara Nights",
+        "artist": "Vincenzo Blue"
+      },
+      {
+        "title": "Tiramisu",
+        "artist": "Lucia Mare"
+      }
+    ],
     "cover": [
       "#E0C3FC",
       "#8EC5FC"
@@ -148,6 +418,33 @@
     "tracks": 36,
     "minutes": 126,
     "pairsWith": "Sushi",
+    "mood": "Intimate",
+    "tracklist": [
+      {
+        "title": "Omakase",
+        "artist": "Velvet Rice"
+      },
+      {
+        "title": "Soy & Silk",
+        "artist": "Aiko Soul"
+      },
+      {
+        "title": "Chopsticks",
+        "artist": "The Nori Sisters"
+      },
+      {
+        "title": "Ginger Kiss",
+        "artist": "Marcus Ume"
+      },
+      {
+        "title": "Late Reservation",
+        "artist": "June & Kenji"
+      },
+      {
+        "title": "Matcha Glow",
+        "artist": "Satin Tide"
+      }
+    ],
     "cover": [
       "#FF9A9E",
       "#FECFEF"
@@ -162,6 +459,33 @@
     "tracks": 40,
     "minutes": 140,
     "pairsWith": "Mushroom risotto",
+    "mood": "Warm",
+    "tracklist": [
+      {
+        "title": "Stir Slowly",
+        "artist": "The Arborio Trio"
+      },
+      {
+        "title": "Porcini Rain",
+        "artist": "Elena Bassi"
+      },
+      {
+        "title": "White Wine Splash",
+        "artist": "Max Lento"
+      },
+      {
+        "title": "Parmesan Dust",
+        "artist": "Quiet Kitchen Band"
+      },
+      {
+        "title": "Saffron Light",
+        "artist": "Ines Ward"
+      },
+      {
+        "title": "Last Spoon",
+        "artist": "The Butter Notes"
+      }
+    ],
     "cover": [
       "#30CFD0",
       "#330867"
@@ -176,6 +500,33 @@
     "tracks": 45,
     "minutes": 158,
     "pairsWith": "Tacos",
+    "mood": "Lively",
+    "tracklist": [
+      {
+        "title": "Tuesday Fiesta",
+        "artist": "Los Tacos Locos"
+      },
+      {
+        "title": "Salsa Verde",
+        "artist": "Diego Ramos"
+      },
+      {
+        "title": "Lime & Cilantro",
+        "artist": "Mariachi Moderno"
+      },
+      {
+        "title": "Al Pastor",
+        "artist": "Banda Fuego"
+      },
+      {
+        "title": "Tortilla Spin",
+        "artist": "La Cumbia Club"
+      },
+      {
+        "title": "Guac Time",
+        "artist": "Paloma Ríos"
+      }
+    ],
     "cover": [
       "#F093FB",
       "#F5576C"
@@ -190,6 +541,33 @@
     "tracks": 33,
     "minutes": 116,
     "pairsWith": "Chicken curry",
+    "mood": "Cozy",
+    "tracklist": [
+      {
+        "title": "Coconut Simmer",
+        "artist": "Priya Nair"
+      },
+      {
+        "title": "Garam Groove",
+        "artist": "The Spice Route"
+      },
+      {
+        "title": "Naan Stop",
+        "artist": "Velvet Masala"
+      },
+      {
+        "title": "Turmeric Sky",
+        "artist": "Soul Tandoor"
+      },
+      {
+        "title": "Rainy Kitchen",
+        "artist": "Ravi & The Ladles"
+      },
+      {
+        "title": "Second Helping",
+        "artist": "Curry Leaf"
+      }
+    ],
     "cover": [
       "#FFECD2",
       "#FCB69F"
@@ -204,6 +582,33 @@
     "tracks": 58,
     "minutes": 203,
     "pairsWith": "Picanha",
+    "mood": "Celebratory",
+    "tracklist": [
+      {
+        "title": "Picanha no Ponto",
+        "artist": "Roda de Fogo"
+      },
+      {
+        "title": "Farofa e Vinagrete",
+        "artist": "Grupo Brasa"
+      },
+      {
+        "title": "Domingo de Churrasco",
+        "artist": "Tio Zé do Samba"
+      },
+      {
+        "title": "Pão de Alho",
+        "artist": "Pagode da Grelha"
+      },
+      {
+        "title": "Linguiça",
+        "artist": "Bloco do Carvão"
+      },
+      {
+        "title": "Sobremesa",
+        "artist": "Mestre Tamborim"
+      }
+    ],
     "cover": [
       "#C71D6F",
       "#D09693"
@@ -218,6 +623,33 @@
     "tracks": 41,
     "minutes": 144,
     "pairsWith": "Pizza",
+    "mood": "Rowdy",
+    "tracklist": [
+      {
+        "title": "Midnight Slice",
+        "artist": "The Late Ovens"
+      },
+      {
+        "title": "Pepperoni Riot",
+        "artist": "Crust Punk"
+      },
+      {
+        "title": "Extra Large",
+        "artist": "Mozzarella Wolves"
+      },
+      {
+        "title": "Box on the Stairs",
+        "artist": "Stone Oven"
+      },
+      {
+        "title": "Garlic Crust",
+        "artist": "The Delivery Boys"
+      },
+      {
+        "title": "Cold Pizza Morning",
+        "artist": "Night Shift"
+      }
+    ],
     "cover": [
       "#0BA360",
       "#3CBA92"
@@ -232,6 +664,33 @@
     "tracks": 52,
     "minutes": 182,
     "pairsWith": "Ramen",
+    "mood": "Dreamy",
+    "tracklist": [
+      {
+        "title": "Broth at 2AM",
+        "artist": "Neon Noodle"
+      },
+      {
+        "title": "Steam on the Window",
+        "artist": "Kotatsu"
+      },
+      {
+        "title": "Soft Egg",
+        "artist": "Midnight Miso"
+      },
+      {
+        "title": "Last Train Home",
+        "artist": "Tonkotsu Tapes"
+      },
+      {
+        "title": "Chopstick Rain",
+        "artist": "Lantern FM"
+      },
+      {
+        "title": "Empty Bowl",
+        "artist": "Sleepless Udon"
+      }
+    ],
     "cover": [
       "#4FACFE",
       "#00F2FE"
@@ -246,6 +705,33 @@
     "tracks": 39,
     "minutes": 137,
     "pairsWith": "Kebab",
+    "mood": "Restless",
+    "tracklist": [
+      {
+        "title": "Rotating Spit",
+        "artist": "Doner Dub"
+      },
+      {
+        "title": "Garlic Sauce",
+        "artist": "Kebab Collective"
+      },
+      {
+        "title": "Taxi Queue",
+        "artist": "Night Bus"
+      },
+      {
+        "title": "Chilli Flakes",
+        "artist": "Grill Signal"
+      },
+      {
+        "title": "Wrap It Up",
+        "artist": "Pita Pulse"
+      },
+      {
+        "title": "Last Call",
+        "artist": "Bass Kiosk"
+      }
+    ],
     "cover": [
       "#667EEA",
       "#764BA2"
@@ -260,6 +746,33 @@
     "tracks": 30,
     "minutes": 105,
     "pairsWith": "Popcorn",
+    "mood": "Sleepy",
+    "tracklist": [
+      {
+        "title": "Microwave Hum",
+        "artist": "Popcorn Clouds"
+      },
+      {
+        "title": "Fridge Light",
+        "artist": "3AM Tapes"
+      },
+      {
+        "title": "Sofa Crumbs",
+        "artist": "Blanket Fort"
+      },
+      {
+        "title": "Salted Butter",
+        "artist": "Night Owl"
+      },
+      {
+        "title": "Just One More",
+        "artist": "Dim Kitchen"
+      },
+      {
+        "title": "Snooze",
+        "artist": "Pillow Static"
+      }
+    ],
     "cover": [
       "#09203F",
       "#537895"
@@ -274,6 +787,33 @@
     "tracks": 48,
     "minutes": 168,
     "pairsWith": "Pastel",
+    "mood": "Joyful",
+    "tracklist": [
+      {
+        "title": "Pastel de Feira",
+        "artist": "Bloco da Esquina"
+      },
+      {
+        "title": "Caldo de Cana",
+        "artist": "Roda da Feira"
+      },
+      {
+        "title": "Domingo na Feira",
+        "artist": "Samba de Barraca"
+      },
+      {
+        "title": "Queijo e Carne",
+        "artist": "Pandeiro Leve"
+      },
+      {
+        "title": "Pimenta",
+        "artist": "Tamborim de Ouro"
+      },
+      {
+        "title": "Até a Próxima",
+        "artist": "Grupo Feirante"
+      }
+    ],
     "cover": [
       "#F5F7FA",
       "#C3CFE2"
@@ -288,6 +828,33 @@
     "tracks": 37,
     "minutes": 130,
     "pairsWith": "Buffalo wings",
+    "mood": "Hyped",
+    "tracklist": [
+      {
+        "title": "Hot Wings",
+        "artist": "The Overtime"
+      },
+      {
+        "title": "Blue Cheese Dip",
+        "artist": "Penalty Box"
+      },
+      {
+        "title": "Fourth Quarter",
+        "artist": "Buzzer Beaters"
+      },
+      {
+        "title": "Celery Sticks",
+        "artist": "The Benchwarmers"
+      },
+      {
+        "title": "Extra Hot",
+        "artist": "Sauce Riot"
+      },
+      {
+        "title": "Victory Lap",
+        "artist": "Final Whistle"
+      }
+    ],
     "cover": [
       "#FF0844",
       "#FFB199"
@@ -302,6 +869,33 @@
     "tracks": 62,
     "minutes": 217,
     "pairsWith": "Brigadeiro",
+    "mood": "Sweet",
+    "tracklist": [
+      {
+        "title": "Brigadeiro",
+        "artist": "Docinho"
+      },
+      {
+        "title": "Granulado",
+        "artist": "Festa Pop"
+      },
+      {
+        "title": "Beijinho",
+        "artist": "Lua de Açúcar"
+      },
+      {
+        "title": "Bolo de Pote",
+        "artist": "Confeito"
+      },
+      {
+        "title": "Parabéns",
+        "artist": "Coral da Festa"
+      },
+      {
+        "title": "Last Piece",
+        "artist": "Sweet Talk"
+      }
+    ],
     "cover": [
       "#FDCBF1",
       "#E6DEE9"
@@ -316,6 +910,33 @@
     "tracks": 46,
     "minutes": 161,
     "pairsWith": "Nachos",
+    "mood": "Playful",
+    "tracklist": [
+      {
+        "title": "Loaded Nachos",
+        "artist": "Cheddar Kings"
+      },
+      {
+        "title": "Jalapeño Jump",
+        "artist": "La Fiesta Band"
+      },
+      {
+        "title": "Guacamole Ride",
+        "artist": "Los Totopos"
+      },
+      {
+        "title": "Salsa Brava",
+        "artist": "Fuego Latino"
+      },
+      {
+        "title": "Extra Queso",
+        "artist": "Nacho Libre Club"
+      },
+      {
+        "title": "Night Out",
+        "artist": "Cumbia Nights"
+      }
+    ],
     "cover": [
       "#FBAB7E",
       "#F7CE68"
@@ -330,6 +951,33 @@
     "tracks": 54,
     "minutes": 189,
     "pairsWith": "Dumplings",
+    "mood": "Euphoric",
+    "tracklist": [
+      {
+        "title": "Steam Basket",
+        "artist": "Dim Sum Disco"
+      },
+      {
+        "title": "Pleat & Fold",
+        "artist": "Bao Bass"
+      },
+      {
+        "title": "Soy Drop",
+        "artist": "Shanghai Pulse"
+      },
+      {
+        "title": "Chili Oil",
+        "artist": "Night Market"
+      },
+      {
+        "title": "Xiao Long",
+        "artist": "Dumpling Rave"
+      },
+      {
+        "title": "Bamboo Beat",
+        "artist": "Neon Lantern"
+      }
+    ],
     "cover": [
       "#21D4FD",
       "#B721FF"

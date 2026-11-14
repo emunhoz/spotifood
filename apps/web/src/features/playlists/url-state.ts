@@ -23,3 +23,17 @@ export function criteriaToSearch (criteria: PlaylistCriteria, currentSearch: str
   const query = params.toString()
   return query === '' ? '' : `?${query}`
 }
+
+const PLAYLIST_PARAM = 'playlist'
+
+export function readPlaylistId (search: string): string | null {
+  return new URLSearchParams(search).get(PLAYLIST_PARAM)
+}
+
+export function withPlaylistId (search: string, id: string | null): string {
+  const params = new URLSearchParams(search)
+  if (id === null) params.delete(PLAYLIST_PARAM)
+  else params.set(PLAYLIST_PARAM, id)
+  const query = params.toString()
+  return query === '' ? '' : `?${query}`
+}

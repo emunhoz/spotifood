@@ -5,8 +5,8 @@ import type { Playlist as PlaylistItem } from './filter-playlists'
 import Playlist from './Playlist'
 
 const playlists: PlaylistItem[] = [
-  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 140, pairsWith: 'Eggs Benedict', cover: ['#000', '#fff'] },
-  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 105, pairsWith: 'Pizza', cover: ['#000', '#fff'] }
+  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 140, pairsWith: 'Eggs Benedict', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] },
+  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 105, pairsWith: 'Pizza', mood: 'Warm', tracklist: [{ title: 'Song', artist: 'Band' }], cover: ['#000', '#fff'] }
 ]
 
 function mockFetch (response: Partial<Response>) {
@@ -77,6 +77,28 @@ describe('[Page]: Playlist', () => {
 
     expect(screen.getByRole('button', { name: /^Dinner 1/ })).toBeEnabled()
     expect(screen.getByRole('button', { name: /^Breakfast 0/ })).toBeDisabled()
+  })
+
+  test('opens the playlist detail from the card and puts it in the URL', async () => {
+    await renderLoadedPage()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Pizza Night' }))
+
+    expect(window.location.search).toBe('?playlist=2')
+    expect(screen.getByRole('heading', { name: 'Pizza Night', level: 2 })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Listen on Spotify' })).toBeInTheDocument()
+  })
+
+  test('a shared link opens the detail directly and closing drops the param', async () => {
+    window.history.replaceState(null, '', '/?genre=Rock&playlist=2')
+    mockFetch({ ok: true, json: async () => playlists })
+    render(<Playlist />)
+
+    expect(await screen.findByRole('heading', { name: 'Pizza Night', level: 2 })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+
+    expect(screen.queryByRole('heading', { name: 'Pizza Night', level: 2 })).not.toBeInTheDocument()
+    expect(window.location.search).toBe('?genre=Rock')
   })
 
   test('shows an error state when the request fails', async () => {

@@ -10,6 +10,7 @@ const rise = keyframes`
 `
 
 export const PlaylistCard = styled.article`
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -95,6 +96,37 @@ export const Title = styled.h3`
   white-space: nowrap;
 `
 
+// Stretched target: the title button's ::after covers the card, so the whole card opens it
+export const OpenButton = styled.button`
+  max-width: 100%;
+  padding: 0;
+  overflow: hidden;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: 0;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    outline: 2px solid ${({ theme }) => theme.palette.brand};
+    outline-offset: 2px;
+  }
+`
+
 export const Owner = styled.span`
   font-size: ${({ theme }) => theme.typography.size.s2}px;
   color: ${({ theme }) => theme.palette.textMuted};
@@ -114,6 +146,8 @@ export const Pairs = styled.span`
 `
 
 export const Listen = styled.a`
+  position: relative;
+  z-index: 1;
   display: grid;
   flex: none;
   place-items: center;
