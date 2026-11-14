@@ -1,20 +1,14 @@
+import type { ReactElement, ReactNode } from 'react'
 import createTheme from '@monorepo/design-tokens'
 import { ThemeProvider } from 'styled-components'
-import { render } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { render, type RenderOptions } from '@testing-library/react'
 
-const AllTheProviders = ({ children }: any) => (
-  <ThemeProvider theme={createTheme}>
-    <MemoryRouter>
-      {children}
-    </MemoryRouter>
-  </ThemeProvider>
+const AllTheProviders = ({ children }: { children: ReactNode }) => (
+  <ThemeProvider theme={createTheme}>{children}</ThemeProvider>
 )
 
-const customRender = (ui: any, options?: any) => render(ui, { wrapper: AllTheProviders, ...options })
+const customRender = (ui: ReactElement, options?: RenderOptions) => render(ui, { wrapper: AllTheProviders, ...options })
 
-// re-export everything
-export * from '@testing-library/react'
+export { screen, fireEvent } from '@testing-library/react'
 
-// override render method
 export { customRender as render }

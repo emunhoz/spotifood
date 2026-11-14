@@ -12,11 +12,15 @@ export const FilterButtonWrapper = styled.div`
   }
 `
 
-export const FilterButtonWrapperClear = styled.div`
+export const FilterButtonWrapperClear = styled.button`
+  padding: 0;
+  font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s4}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   color: ${({ theme }) => theme.palette.darkest};
   text-decoration: underline;
+  background: none;
+  border: 0;
 
   &:hover {
     text-decoration: none;

@@ -1,77 +1,64 @@
-import { useState, lazy } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { SearchBar, PlaylistCard, Label, Loading, EmptyState, SideModal } from '@monorepo/ui-components'
-import objectWithValues from '../../helpers/object-with-values'
-import encodeQueryData from '../../helpers/encode-query-data'
-import { useFetch } from '../../hooks/use-fetch'
-import { useFilter } from '../../contexts/filter'
+import { useFilter, FILTER_LABELS, type FilterName } from '../../contexts/filter'
+import { usePlaylists } from '../../features/playlists/use-playlists'
+import { filterPlaylists, type Playlist as PlaylistItem } from '../../features/playlists/filter-playlists'
+import { coverDataUrl, listenUrl } from '../../features/playlists/cover'
 import * as S from './Playlist.style'
 
 const FilterForm = lazy(() => import('./forms/Filter'))
 
-interface ResponseDataFromSpotifyPlaylist {
-  playlists: {
-    items: [{
-      name: string
-      id: string
-      owner: { display_name: string }
-      external_urls: { spotify: string }
-      images: [key: { url: string }]
-    }]
-  }
-}
-
 function Playlist () {
   const [search, setSearch] = useState('')
-  const { filterForm, removeFilterByItem, translate, handleToogleFilter, toggleFilter } = useFilter()
+  const { filterForm, removeFilterByItem, handleToogleFilter, toggleFilter } = useFilter()
+  const playlistsState = usePlaylists()
 
-  const params = objectWithValues(filterForm)
-  const { data: playlistData, isValidating } = useFetch<ResponseDataFromSpotifyPlaylist>(`/browse/featured-playlists?${encodeQueryData(params)}`)
-  
-  if (isValidating) return <Loading />
+  if (playlistsState.status === 'loading') return <Loading />
 
-  const filteredPlaylist = playlistData?.playlists.items?.filter((item: { name: string }) => item.name.toLowerCase().includes(search.toLowerCase()))
+  if (playlistsState.status === 'error') {
+    return <EmptyState title='Could not load playlists' message='Check your connection and refresh the page.' />
+  }
+
+  const { playlists } = playlistsState
+  const visiblePlaylists = filterPlaylists(playlists, { search, ...filterForm })
+  const appliedFilters = (Object.entries(filterForm) as [FilterName, string][]).filter(([, value]) => value !== '')
+  const hasNoResults = visiblePlaylists.length === 0
 
   return (
     <S.Wrapper>
       <S.SearchWrapper>
-        <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Nome da playlist...' />
-        <S.LabelWrapper><Label value="Filtros" onClick={() => handleToogleFilter(!toggleFilter)} /></S.LabelWrapper>
-        <SideModal
-          show={toggleFilter}
-          close={() => handleToogleFilter(!toggleFilter)}
-        >
-          <FilterForm onCloseFilter={() => handleToogleFilter(false)}/>
+        <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Search playlists...' />
+        <S.LabelWrapper><Label value='Filters' onClick={() => handleToogleFilter(!toggleFilter)} /></S.LabelWrapper>
+        <SideModal show={toggleFilter} close={() => handleToogleFilter(false)}>
+          <Suspense fallback={<Loading />}>
+            <FilterForm playlists={playlists} onCloseFilter={() => handleToogleFilter(false)} />
+          </Suspense>
         </SideModal>
       </S.SearchWrapper>
-      {Object.values(params).length !== 0 && <S.AppliedFilters>
-        <S.AppliedFiltersTitle>Filtros aplicados:</S.AppliedFiltersTitle>
-        <S.AppliedFilterWrapper>
-          {Object.entries(params).map((item: any) => 
-            <S.AppliedFilter key={item} onClick={() => removeFilterByItem(item[0])}>
-              {translate[item[0]]}: <strong>{item[1]}</strong>
-            </S.AppliedFilter>)}
+      {appliedFilters.length > 0 && (
+        <S.AppliedFilters>
+          <S.AppliedFiltersTitle>Applied filters:</S.AppliedFiltersTitle>
+          <S.AppliedFilterWrapper>
+            {appliedFilters.map(([name, value]) => (
+              <S.AppliedFilter key={name} type='button' aria-label={`Remove ${FILTER_LABELS[name]} filter`} onClick={() => removeFilterByItem(name)}>
+                {FILTER_LABELS[name]}: <strong>{value}</strong>
+              </S.AppliedFilter>
+            ))}
           </S.AppliedFilterWrapper>
-      </S.AppliedFilters>}
+        </S.AppliedFilters>
+      )}
       <S.PlayListWrapper>
-        {filteredPlaylist?.map(
-          (playlist: {
-            id: string
-            owner: { display_name: string }
-            name: string
-            external_urls: { spotify: string }
-            images: [key: { url: string }]
-          }) => (
-            <PlaylistCard
-              key={playlist.id}
-              owner={playlist.owner.display_name}
-              playlistName={playlist.name}
-              link={playlist.external_urls.spotify}
-              imgUrl={playlist.images[0].url}
-            />
-          )
-        )}
+        {visiblePlaylists.map((playlist: PlaylistItem) => (
+          <PlaylistCard
+            key={playlist.id}
+            owner={playlist.owner}
+            playlistName={playlist.name}
+            link={listenUrl(playlist.name)}
+            imgUrl={coverDataUrl(playlist.cover)}
+          />
+        ))}
       </S.PlayListWrapper>
-      {search && !filteredPlaylist?.length && <EmptyState title={`Nenhuma playlist encontrada com a palavra: ${search}!`}  message="Que tal pesquisar por outra palavra?" />}
+      {hasNoResults && <EmptyState title='No playlists found' message='Try another word or remove a filter.' />}
     </S.Wrapper>
   )
 }

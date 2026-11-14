@@ -74,10 +74,11 @@ export const AppliedFilterWrapper = styled.div`
   }
 `
 
-export const AppliedFilter = styled.div`
+export const AppliedFilter = styled.button`
   padding: 10px;
   margin: 6px;
   margin-left: 0%;
+  font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s2}px;
   color: ${({ theme }) => theme.palette.darkest};
   background: ${({ theme }) => theme.palette.lightest};
