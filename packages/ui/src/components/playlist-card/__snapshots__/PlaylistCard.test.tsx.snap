@@ -3,7 +3,7 @@
 exports[`[Component]: PlaylistCard render the component 1`] = `
 <DocumentFragment>
   <article
-    class="sc-aXZVg jTUWrt"
+    class="sc-aXZVg gDWGjS"
     style="--i: 0;"
   >
     <figure
@@ -22,7 +22,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
       </span>
     </figure>
     <div
-      class="sc-dcJsrY ccFxt"
+      class="sc-dcJsrY yzlaY"
     >
       <div
         class="sc-iGgWBj iZDeKS"
@@ -38,7 +38,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
           by Spotifood
         </span>
         <span
-          class="sc-imWYAI dxpIsa"
+          class="sc-imWYAI jFpNbZ"
         >
           Pairs with 
           <strong>

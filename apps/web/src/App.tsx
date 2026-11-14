@@ -1,6 +1,5 @@
 import { Header } from '@monorepo/ui-components'
 import styled from 'styled-components'
-import { FilterProvider } from './features/playlists/filter-context'
 import Playlist from './features/playlists/Playlist'
 
 const Main = styled.main`
@@ -14,9 +13,7 @@ function App () {
   return (
     <Main>
       <Header />
-      <FilterProvider>
-        <Playlist />
-      </FilterProvider>
+      <Playlist />
     </Main>
   )
 }

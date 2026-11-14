@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { typography } from '@monorepo/design-tokens'
+import createTheme, { typography } from '@monorepo/design-tokens'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -9,7 +9,13 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    background: #fff;
+    background: ${createTheme.palette.lightest};
+  }
+
+  /* One curve for every view transition: cards glide, the count and active chips morph */
+  ::view-transition-group(*) {
+    animation-duration: 0.35s;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 `
 

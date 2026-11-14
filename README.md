@@ -40,8 +40,8 @@ I designed the pages, components and design tokens in [Figma](https://www.figma.
 | Package manager | Yarn 1 + Lerna | Bun workspaces |
 | Tests | Jest | Vitest + Testing Library |
 | React | 17 | 18 |
-| Runtime deps (app) | axios, swr, react-router, web-vitals, service worker | none beyond React, styled-components, react-hot-toast |
-| Initial JS | 264 kB (84 kB gzip) | 209 kB (69 kB gzip) |
+| Runtime deps (app) | axios, swr, react-router, web-vitals, service worker | React and styled-components only |
+| Initial JS | 264 kB (84 kB gzip) | 200 kB (65 kB gzip) |
 
 JS sizes are the initial chunks, gzip -9: the "before" figure was measured from the 2021 production deploy.
 
