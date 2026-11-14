@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
-import { SearchBar, PlaylistCard, PlaylistCardSkeleton, EmptyState, Chip, Button } from '@monorepo/ui-components'
+import { SearchBar, PlaylistCard, PlaylistCardSkeleton, EmptyState, Chip, ChipGroup, Button } from '@monorepo/ui-components'
 import { usePlaylists } from './use-playlists'
 import { usePlaylistFilters } from './use-playlist-filters'
 import { usePlaylistDetail } from './use-playlist-detail'
@@ -13,9 +13,10 @@ const SKELETON_COUNT = 8
 const SEARCH_SHORTCUT = '/'
 const TYPING_TARGETS = new Set(['INPUT', 'TEXTAREA', 'SELECT'])
 
-// view-transition-name must be unique per frame, so only the active chip carries it
-function activeName (isActive: boolean, name: string): CSSProperties {
-  return { viewTransitionName: isActive ? name : undefined } as CSSProperties
+// Chip rows render live during filter transitions (no snapshot cross-fade), so the
+// ChipGroup indicator's own CSS slide is what you see instead of a ghosted copy
+function liveRow (name: string): CSSProperties {
+  return { viewTransitionName: name, viewTransitionClass: 'live' } as CSSProperties
 }
 
 function heroCover (isHero: boolean, id: string): CSSProperties {
@@ -89,13 +90,11 @@ function Playlist () {
           placeholder='Search playlists, people or dishes...'
           shortcutHint={SEARCH_SHORTCUT}
         />
-        <S.ChipRow role='group' aria-label='Occasion'>
+        <ChipGroup label='Occasion' {...FILTER_ONLY} style={liveRow('occasion-row')}>
           <Chip
             active={criteria.occasion === ''}
             count={isLoading ? undefined : allOccasionsCount}
             onClick={filters.showAllOccasions}
-            {...FILTER_ONLY}
-            style={activeName(criteria.occasion === '', 'occasion-active')}
           >
             All
           </Chip>
@@ -106,30 +105,26 @@ function Playlist () {
               suggested={value === suggestedOccasion}
               count={isLoading ? undefined : occasionCounts.get(value) ?? 0}
               onClick={() => filters.toggleOccasion(value)}
-              {...FILTER_ONLY}
-              style={activeName(criteria.occasion === value, 'occasion-active')}
             >
               {value}
             </Chip>
           ))}
-        </S.ChipRow>
+        </ChipGroup>
       </S.Toolbar>
 
       <S.Filters>
-        <S.ChipRow role='group' aria-label='Genre'>
+        <ChipGroup label='Genre' {...FILTER_ONLY} style={liveRow('genre-row')}>
           {genres.map(value => (
             <Chip
               key={value}
               active={criteria.genre === value}
               count={genreCounts.get(value) ?? 0}
               onClick={() => filters.toggleGenre(value)}
-              {...FILTER_ONLY}
-              style={activeName(criteria.genre === value, 'genre-active')}
             >
               {value}
             </Chip>
           ))}
-        </S.ChipRow>
+        </ChipGroup>
         {hasFilters && <S.ClearButton type='button' onClick={filters.clearAll}>Clear filters</S.ClearButton>}
       </S.Filters>
 

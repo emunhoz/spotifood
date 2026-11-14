@@ -14,14 +14,16 @@ export const Chip = ({ active = false, suggested = false, count, children, disab
 
   return (
     <S.Chip type='button' aria-pressed={active} $active={active} disabled={Boolean(disabled) || isEmpty} {...props}>
-      {children}
-      {count !== undefined && <S.Count $active={active}>{count}</S.Count>}
-      {suggested && (
-        <>
-          <S.NowDot aria-hidden='true' />
-          <S.VisuallyHidden>(suggested for now)</S.VisuallyHidden>
-        </>
-      )}
+      <S.Content>
+        {children}
+        {count !== undefined && <S.Count $active={active}>{count}</S.Count>}
+        {suggested && (
+          <>
+            <S.NowDot aria-hidden='true' />
+            <S.VisuallyHidden>(suggested for now)</S.VisuallyHidden>
+          </>
+        )}
+      </S.Content>
     </S.Chip>
   )
 }

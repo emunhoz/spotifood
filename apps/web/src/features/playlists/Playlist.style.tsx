@@ -83,15 +83,6 @@ export const Filters = styled.div`
   min-width: 0;
 `
 
-export const ChipRow = styled.div`
-  display: flex;
-  gap: 8px;
-  padding: 2px 2px 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  overscroll-behavior-x: contain;
-`
-
 export const ClearButton = styled.button`
   align-self: flex-start;
   padding: 0;
