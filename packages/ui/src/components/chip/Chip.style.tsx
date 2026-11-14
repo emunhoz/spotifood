@@ -6,22 +6,22 @@ const ping = keyframes`
   }
 `
 
+// Same weight active or not: a bolder active label would change the chip width and shove the row
 export const Chip = styled.button<{ $active: boolean }>`
   display: inline-flex;
   flex: none;
-  gap: 6px;
   align-items: center;
   padding: 10px 16px;
   font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s2}px;
-  font-weight: ${({ theme, $active }) => ($active ? theme.typography.weight.bold : theme.typography.weight.medium)};
+  font-weight: ${({ theme }) => theme.typography.weight.medium};
   color: ${({ theme, $active }) => ($active ? theme.palette.onPrimary : theme.palette.textMuted)};
   white-space: nowrap;
   cursor: pointer;
   background: ${({ theme, $active }) => ($active ? theme.palette.primary : theme.palette.surface)};
   border: 0;
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
-  transition: background-color 0.2s, color 0.2s, transform 0.15s;
+  transition: background-color 0.2s, color 0.25s, opacity 0.2s, transform 0.15s;
 
   &:hover {
     color: ${({ theme, $active }) => ($active ? theme.palette.onPrimary : theme.palette.darkest)};
@@ -47,7 +47,18 @@ export const Chip = styled.button<{ $active: boolean }>`
   }
 `
 
+// Above a ChipGroup's sliding indicator, which sits between the chip background and its label
+export const Content = styled.span`
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+`
+
+// Two-digit slot, so a count going from 24 to 3 does not resize the chip and shift the row
 export const Count = styled.span<{ $active: boolean }>`
+  min-width: 1.3em;
   font-size: ${({ theme }) => theme.typography.size.s1}px;
   font-weight: ${({ theme }) => theme.typography.weight.medium};
   font-variant-numeric: tabular-nums;

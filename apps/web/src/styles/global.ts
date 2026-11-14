@@ -23,6 +23,16 @@ const GlobalStyle = createGlobalStyle`
     animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
+  /* Live groups skip the snapshot cross-fade: only the new state shows, so CSS transitions inside
+     them (the chip indicator slide) play instead of fading against a frozen copy */
+  ::view-transition-old(.live) {
+    display: none;
+  }
+
+  ::view-transition-new(.live) {
+    animation: none;
+  }
+
   /*
    * Opening or closing a playlist. Named groups paint above the page snapshot, so:
    * - filter-only names (cards, count, active chips) are dropped, or they would stay sharp above the backdrop;
