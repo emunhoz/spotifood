@@ -12,7 +12,7 @@
 
 I designed the pages, components and design tokens in [Figma](https://www.figma.com/design/ZYNcMs2B7uDiFCmw9mBvZQ) first, then built them as three packages:
 
-- [`design-tokens`](./packages/tokens): DTCG token sets (core, light, dark) built by Style Dictionary into a typed theme and CSS variables; the same sets back the Figma variables
+- [`design-tokens`](./packages/tokens): DTCG token sets (core, light, dark) built by Style Dictionary into a typed theme and CSS variables; the same sets back the Figma variables ([Figma ↔ code workflow](./packages/tokens/README.md#figma--code-workflow))
 - [`ui-components`](./packages/ui): the component library, documented in Storybook
 - [`app`](./apps/web): the playlist browser (search, filter by genre and occasion, applied-filter chips, empty and error states)
 
