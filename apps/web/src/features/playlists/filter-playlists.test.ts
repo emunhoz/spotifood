@@ -1,10 +1,10 @@
 import { filterPlaylists, uniqueValues, type Playlist } from './filter-playlists'
 
 const playlists: Playlist[] = [
-  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, cover: ['#000', '#fff'] },
-  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, cover: ['#000', '#fff'] },
-  { id: '3', name: 'Lunch Beats', owner: 'Spotifood', genre: 'Electronic', occasion: 'Lunch', tracks: 25, cover: ['#000', '#fff'] },
-  { id: '4', name: 'Jazz Dinner', owner: 'Leo', genre: 'Jazz', occasion: 'Dinner', tracks: 50, cover: ['#000', '#fff'] }
+  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 100, pairsWith: 'Eggs Benedict', cover: ['#000', '#fff'] },
+  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 100, pairsWith: 'Pizza', cover: ['#000', '#fff'] },
+  { id: '3', name: 'Lunch Beats', owner: 'Spotifood', genre: 'Electronic', occasion: 'Lunch', tracks: 25, minutes: 100, pairsWith: 'Poke', cover: ['#000', '#fff'] },
+  { id: '4', name: 'Jazz Dinner', owner: 'Leo', genre: 'Jazz', occasion: 'Dinner', tracks: 50, minutes: 100, pairsWith: 'Ramen', cover: ['#000', '#fff'] }
 ]
 
 const noCriteria = { search: '', genre: '', occasion: '' }
@@ -21,6 +21,10 @@ describe('filterPlaylists', () => {
 
   test('search matches the owner too', () => {
     expect(ids(filterPlaylists(playlists, { ...noCriteria, search: 'leo' }))).toEqual(['4'])
+  })
+
+  test('search matches the dish it pairs with', () => {
+    expect(ids(filterPlaylists(playlists, { ...noCriteria, search: 'ramen' }))).toEqual(['4'])
   })
 
   test('combines criteria with AND', () => {

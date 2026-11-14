@@ -6,6 +6,8 @@
     "genre": "Jazz",
     "occasion": "Breakfast",
     "tracks": 42,
+    "minutes": 147,
+    "pairsWith": "Eggs Benedict",
     "cover": [
       "#F6D365",
       "#FDA085"
@@ -18,6 +20,8 @@
     "genre": "Bossa Nova",
     "occasion": "Breakfast",
     "tracks": 35,
+    "minutes": 123,
+    "pairsWith": "Croissants",
     "cover": [
       "#FCE38A",
       "#F38181"
@@ -30,6 +34,8 @@
     "genre": "Pop",
     "occasion": "Breakfast",
     "tracks": 50,
+    "minutes": 175,
+    "pairsWith": "Pancakes",
     "cover": [
       "#FFDEE9",
       "#B5FFFC"
@@ -42,6 +48,8 @@
     "genre": "Electronic",
     "occasion": "Breakfast",
     "tracks": 28,
+    "minutes": 98,
+    "pairsWith": "Açaí bowl",
     "cover": [
       "#A18CD1",
       "#FBC2EB"
@@ -54,6 +62,8 @@
     "genre": "Lo-fi",
     "occasion": "Lunch",
     "tracks": 60,
+    "minutes": 210,
+    "pairsWith": "Burrito bowl",
     "cover": [
       "#84FAB0",
       "#8FD3F4"
@@ -66,6 +76,8 @@
     "genre": "Lo-fi",
     "occasion": "Lunch",
     "tracks": 44,
+    "minutes": 154,
+    "pairsWith": "Poke",
     "cover": [
       "#43E97B",
       "#38F9D7"
@@ -78,6 +90,8 @@
     "genre": "Rock",
     "occasion": "Lunch",
     "tracks": 32,
+    "minutes": 112,
+    "pairsWith": "Cheeseburger",
     "cover": [
       "#FA709A",
       "#FEE140"
@@ -90,6 +104,8 @@
     "genre": "Pop",
     "occasion": "Lunch",
     "tracks": 38,
+    "minutes": 133,
+    "pairsWith": "Caesar salad",
     "cover": [
       "#D4FC79",
       "#96E6A1"
@@ -102,6 +118,8 @@
     "genre": "Samba",
     "occasion": "Lunch",
     "tracks": 55,
+    "minutes": 193,
+    "pairsWith": "Feijoada",
     "cover": [
       "#F83600",
       "#F9D423"
@@ -114,6 +132,8 @@
     "genre": "Jazz",
     "occasion": "Dinner",
     "tracks": 47,
+    "minutes": 165,
+    "pairsWith": "Carbonara",
     "cover": [
       "#E0C3FC",
       "#8EC5FC"
@@ -126,6 +146,8 @@
     "genre": "Soul",
     "occasion": "Dinner",
     "tracks": 36,
+    "minutes": 126,
+    "pairsWith": "Sushi",
     "cover": [
       "#FF9A9E",
       "#FECFEF"
@@ -138,6 +160,8 @@
     "genre": "Jazz",
     "occasion": "Dinner",
     "tracks": 40,
+    "minutes": 140,
+    "pairsWith": "Mushroom risotto",
     "cover": [
       "#30CFD0",
       "#330867"
@@ -150,6 +174,8 @@
     "genre": "Latin",
     "occasion": "Dinner",
     "tracks": 45,
+    "minutes": 158,
+    "pairsWith": "Tacos",
     "cover": [
       "#F093FB",
       "#F5576C"
@@ -162,6 +188,8 @@
     "genre": "Soul",
     "occasion": "Dinner",
     "tracks": 33,
+    "minutes": 116,
+    "pairsWith": "Chicken curry",
     "cover": [
       "#FFECD2",
       "#FCB69F"
@@ -174,6 +202,8 @@
     "genre": "Samba",
     "occasion": "Dinner",
     "tracks": 58,
+    "minutes": 203,
+    "pairsWith": "Picanha",
     "cover": [
       "#C71D6F",
       "#D09693"
@@ -186,6 +216,8 @@
     "genre": "Rock",
     "occasion": "Late night",
     "tracks": 41,
+    "minutes": 144,
+    "pairsWith": "Pizza",
     "cover": [
       "#0BA360",
       "#3CBA92"
@@ -198,6 +230,8 @@
     "genre": "Lo-fi",
     "occasion": "Late night",
     "tracks": 52,
+    "minutes": 182,
+    "pairsWith": "Ramen",
     "cover": [
       "#4FACFE",
       "#00F2FE"
@@ -210,6 +244,8 @@
     "genre": "Electronic",
     "occasion": "Late night",
     "tracks": 39,
+    "minutes": 137,
+    "pairsWith": "Kebab",
     "cover": [
       "#667EEA",
       "#764BA2"
@@ -222,6 +258,8 @@
     "genre": "Lo-fi",
     "occasion": "Late night",
     "tracks": 30,
+    "minutes": 105,
+    "pairsWith": "Popcorn",
     "cover": [
       "#09203F",
       "#537895"
@@ -234,6 +272,8 @@
     "genre": "Samba",
     "occasion": "Party",
     "tracks": 48,
+    "minutes": 168,
+    "pairsWith": "Pastel",
     "cover": [
       "#F5F7FA",
       "#C3CFE2"
@@ -246,6 +286,8 @@
     "genre": "Rock",
     "occasion": "Party",
     "tracks": 37,
+    "minutes": 130,
+    "pairsWith": "Buffalo wings",
     "cover": [
       "#FF0844",
       "#FFB199"
@@ -258,6 +300,8 @@
     "genre": "Pop",
     "occasion": "Party",
     "tracks": 62,
+    "minutes": 217,
+    "pairsWith": "Brigadeiro",
     "cover": [
       "#FDCBF1",
       "#E6DEE9"
@@ -270,6 +314,8 @@
     "genre": "Latin",
     "occasion": "Party",
     "tracks": 46,
+    "minutes": 161,
+    "pairsWith": "Nachos",
     "cover": [
       "#FBAB7E",
       "#F7CE68"
@@ -282,6 +328,8 @@
     "genre": "Electronic",
     "occasion": "Party",
     "tracks": 54,
+    "minutes": 189,
+    "pairsWith": "Dumplings",
     "cover": [
       "#21D4FD",
       "#B721FF"

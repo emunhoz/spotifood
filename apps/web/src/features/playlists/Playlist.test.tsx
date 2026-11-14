@@ -5,8 +5,8 @@ import type { Playlist as PlaylistItem } from './filter-playlists'
 import Playlist from './Playlist'
 
 const playlists: PlaylistItem[] = [
-  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, cover: ['#000', '#fff'] },
-  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, cover: ['#000', '#fff'] }
+  { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 140, pairsWith: 'Eggs Benedict', cover: ['#000', '#fff'] },
+  { id: '2', name: 'Pizza Night', owner: 'Ana', genre: 'Rock', occasion: 'Dinner', tracks: 30, minutes: 105, pairsWith: 'Pizza', cover: ['#000', '#fff'] }
 ]
 
 function mockFetch (response: Partial<Response>) {

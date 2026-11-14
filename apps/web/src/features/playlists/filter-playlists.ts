@@ -5,6 +5,8 @@ export interface Playlist {
   genre: string
   occasion: string
   tracks: number
+  minutes: number
+  pairsWith: string
   cover: [string, string]
 }
 
@@ -22,8 +24,7 @@ export function filterPlaylists (playlists: Playlist[], { search, genre, occasio
 
   return playlists.filter(playlist => {
     const matchesSearch = term === '' ||
-      playlist.name.toLowerCase().includes(term) ||
-      playlist.owner.toLowerCase().includes(term)
+      [playlist.name, playlist.owner, playlist.pairsWith].some(field => field.toLowerCase().includes(term))
     const matchesGenre = genre === '' || playlist.genre === genre
     const matchesOccasion = occasion === '' || playlist.occasion === occasion
 
