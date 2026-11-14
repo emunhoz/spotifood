@@ -3,17 +3,17 @@
 exports[`[Component]: Input render component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eBMEME ggngQp"
+    class="sc-jxOSlx bOca-DM"
   >
     <label
-      class="sc-feUZmu bBEFbJ"
+      class="sc-fHjqPf hJRdrm"
     />
     <input
-      class="sc-dCFHLb gkBgkB"
+      class="sc-lcIPJg drRZLR"
       value=""
     />
     <span
-      class="sc-fhzFiK jbVOdS"
+      class="sc-kdBSHD hwrqMs"
     />
   </div>
 </DocumentFragment>
@@ -22,17 +22,17 @@ exports[`[Component]: Input render component 1`] = `
 exports[`[Component]: Input render component with error style 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eBMEME ggngQp"
+    class="sc-jxOSlx bOca-DM"
   >
     <label
-      class="sc-feUZmu bBEFbJ"
+      class="sc-fHjqPf hJRdrm"
     />
     <input
-      class="sc-dCFHLb iNteId"
+      class="sc-lcIPJg kcQWLZ"
       value=""
     />
     <span
-      class="sc-fhzFiK jpDrXY"
+      class="sc-kdBSHD cMVmJy"
     >
       Help message
     </span>

@@ -13,7 +13,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@monorepo/design-tokens": ["../../packages/tokens/src/index.ts"],
+      "@monorepo/ui-components": ["../../packages/ui/src/index.ts"]
+    }
   },
   "include": ["src", "vite.config.ts"]
 }

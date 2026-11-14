@@ -25,6 +25,7 @@ export const Count = styled.h1`
   margin: 0;
   font-size: ${({ theme }) => theme.typography.size.m3}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
+  font-variant-numeric: tabular-nums;
   line-height: 1.15;
   color: ${({ theme }) => theme.palette.darkest};
 

@@ -1,4 +1,5 @@
 import { vi } from 'vitest'
+import { waitFor } from '@testing-library/react'
 import { render, screen, fireEvent } from '../../utils/test-utils'
 import type { Playlist as PlaylistItem } from './filter-playlists'
 import Playlist from './Playlist'
@@ -18,7 +19,10 @@ function renderLoadedPage () {
   return screen.findByText('Sunday Brunch')
 }
 
-afterEach(() => vi.unstubAllGlobals())
+afterEach(() => {
+  vi.unstubAllGlobals()
+  window.history.replaceState(null, '', '/')
+})
 
 describe('[Page]: Playlist', () => {
   test('shows skeletons while loading, then a card per playlist with the count', async () => {
@@ -46,15 +50,33 @@ describe('[Page]: Playlist', () => {
     const searchInput = screen.getByPlaceholderText(/search playlists/i)
 
     fireEvent.change(searchInput, { target: { value: 'eggs' } })
+    await waitFor(() => expect(screen.queryByText('Pizza Night')).not.toBeInTheDocument())
     expect(screen.getByText('Sunday Brunch')).toBeInTheDocument()
-    expect(screen.queryByText('Pizza Night')).not.toBeInTheDocument()
 
     fireEvent.change(searchInput, { target: { value: 'metal' } })
-    expect(screen.getByText(/no playlists found/i)).toBeInTheDocument()
+    expect(await screen.findByText(/no playlists found/i)).toBeInTheDocument()
 
     fireEvent.click(screen.getAllByRole('button', { name: 'Clear filters' })[0])
     expect(screen.getByText('Pizza Night')).toBeInTheDocument()
     expect(searchInput).toHaveValue('')
+  })
+
+  test('restores filters from the URL and writes them back', async () => {
+    window.history.replaceState(null, '', '/?occasion=Dinner')
+    mockFetch({ ok: true, json: async () => playlists })
+    render(<Playlist />)
+
+    expect(await screen.findByRole('heading', { name: '1 playlist for dinner' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /^Rock/ }))
+    expect(window.location.search).toBe('?occasion=Dinner&genre=Rock')
+  })
+
+  test('chips show how many results they would give and disable empty ones', async () => {
+    await renderLoadedPage()
+    fireEvent.click(screen.getByRole('button', { name: /^Rock/ }))
+
+    expect(screen.getByRole('button', { name: /^Dinner 1/ })).toBeEnabled()
+    expect(screen.getByRole('button', { name: /^Breakfast 0/ })).toBeDisabled()
   })
 
   test('shows an error state when the request fails', async () => {
