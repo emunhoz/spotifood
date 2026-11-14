@@ -57,5 +57,8 @@
     "react": ">=17",
     "react-dom": ">=17",
     "styled-components": "^5.2.1"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

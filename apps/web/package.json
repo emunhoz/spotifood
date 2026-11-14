@@ -36,5 +36,8 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "lint:css": "stylelint 'src/**/*.tsx' -f verbose --color"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
