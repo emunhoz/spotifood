@@ -1,0 +1,66 @@
+/* Generated from tokens.json — do not edit */
+:root {
+  --sf-color-primary: #EA1D2C;
+  --sf-color-primary-light: #FF7B85;
+  --sf-color-primary-dark: #AA000C;
+  --sf-color-lightest: #FCFCFC;
+  --sf-color-lighter: #F7F7FC;
+  --sf-color-light: #EFF0F6;
+  --sf-color-mediumlight: #D9DBE9;
+  --sf-color-dark: #A6A6A6;
+  --sf-color-darker: #717171;
+  --sf-color-darkest: #3E3E3E;
+  --sf-typography-type-primary: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sf-typography-type-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --sf-typography-weight-regular: 400;
+  --sf-typography-weight-medium: 500;
+  --sf-typography-weight-bold: 700;
+  --sf-typography-weight-extrabold: 900;
+  --sf-typography-size-s1: 12px;
+  --sf-typography-size-s2: 14px;
+  --sf-typography-size-s3: 16px;
+  --sf-typography-size-s4: 18px;
+  --sf-typography-size-m1: 20px;
+  --sf-typography-size-m2: 24px;
+  --sf-typography-size-m3: 28px;
+  --sf-typography-size-l1: 32px;
+  --sf-typography-size-l2: 40px;
+  --sf-typography-size-l3: 48px;
+  --sf-typography-size-code: 90px;
+  --sf-attributes-border-radius-small: 5px;
+  --sf-attributes-border-radius-default: 10px;
+  --sf-attributes-border-radius-big: 20px;
+  --sf-attributes-border-radius-xbig: 40px;
+  --sf-attributes-box-shadow-small: 0 0 46px 0 rgba(0, 0, 0, 0.13);
+  --sf-attributes-box-shadow-hover: 0 0 15px 0 rgba(0, 0, 0, 0.13);
+  --sf-breakpoints-sm: 576px;
+  --sf-breakpoints-md: 768px;
+  --sf-breakpoints-lg: 992px;
+  --sf-breakpoints-xl: 1200px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sf-color-primary: #EA1D2C;
+    --sf-color-primary-light: #FF7B85;
+    --sf-color-primary-dark: #AA000C;
+    --sf-color-lightest: #3E3E3E;
+    --sf-color-lighter: #717171;
+    --sf-color-light: #A6A6A6;
+    --sf-color-mediumlight: #D9DBE9;
+    --sf-color-dark: #EFF0F6;
+    --sf-color-darker: #F7F7FC;
+    --sf-color-darkest: #FCFCFC;
+  }
+}
+:root[data-theme="dark"] {
+  --sf-color-primary: #EA1D2C;
+  --sf-color-primary-light: #FF7B85;
+  --sf-color-primary-dark: #AA000C;
+  --sf-color-lightest: #3E3E3E;
+  --sf-color-lighter: #717171;
+  --sf-color-light: #A6A6A6;
+  --sf-color-mediumlight: #D9DBE9;
+  --sf-color-dark: #EFF0F6;
+  --sf-color-darker: #F7F7FC;
+  --sf-color-darkest: #FCFCFC;
+}

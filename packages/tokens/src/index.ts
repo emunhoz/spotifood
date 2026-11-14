@@ -1,16 +1,14 @@
-import { palette, Palette } from './palette'
-import { typography, Typography } from './typography'
-import { attributes, Attributes } from './attributes'
-import { breakpoints, Breakpoints } from './breakpoints'
+import { tokens } from './generated/tokens'
 
-export interface Theme {
-  palette?: Palette
-  typography?: Typography
-  attributes?: Attributes
-  breakpoints?: Breakpoints
-}
+export type Theme = typeof tokens
+export type Palette = Theme['palette']
+export type Typography = Theme['typography']
+export type Attributes = Theme['attributes']
+export type Breakpoints = Theme['breakpoints']
 
-const createTheme = ({ palette, typography, attributes, breakpoints }: Theme) => ({ palette, typography, attributes, breakpoints })
+const createTheme = ({ palette, typography, attributes, breakpoints }: Theme): Theme => ({ palette, typography, attributes, breakpoints })
 
-export default createTheme({ palette, typography, attributes, breakpoints })
+const { typography } = tokens
+
+export default createTheme(tokens)
 export { typography }

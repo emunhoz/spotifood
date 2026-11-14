@@ -9,12 +9,18 @@
     "src": "src"
   },
   "files": [
-    "src"
+    "src",
+    "tokens.json",
+    "dist"
   ],
   "scripts": {
-    "libbuild": "tsc -p .",
+    "libbuild": "bun run build:tokens && tsc -p .",
     "start": "tsc -p . --watch",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:css": "stylelint 'src/**/*.ts' -f verbose --color"
+    "lint:css": "stylelint 'src/**/*.ts' -f verbose --color",
+    "build:tokens": "style-dictionary build --config style-dictionary.config.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
   }
 }
