@@ -22,6 +22,14 @@ function heroCover (isHero: boolean, id: string): CSSProperties {
   return (isHero ? { viewTransitionName: `cover-${id}`, viewTransitionClass: 'cover' } : {}) as CSSProperties
 }
 
+// The hero card and the dialog panel share one name: the card's surface grows into the panel
+function heroShell (isHero: boolean): CSSProperties {
+  return (isHero ? { viewTransitionName: 'playlist-dialog' } : {}) as CSSProperties
+}
+
+// Names that only make sense while filtering; detail transitions strip them so nothing floats above the backdrop
+const FILTER_ONLY = { 'data-vt-filter': '' }
+
 function isTypingTarget (target: EventTarget | null): boolean {
   return target instanceof HTMLElement && (TYPING_TARGETS.has(target.tagName) || target.isContentEditable)
 }
@@ -64,7 +72,7 @@ function Playlist () {
     <S.Wrapper>
       <S.Hero>
         <S.Eyebrow>{greetingForHour(hour)}</S.Eyebrow>
-        <S.Count aria-live='polite' style={{ viewTransitionName: 'playlist-count' } as CSSProperties}>
+        <S.Count aria-live='polite' {...FILTER_ONLY} style={{ viewTransitionName: 'playlist-count' } as CSSProperties}>
           {isLoading ? 'Finding playlists…' : describeSelection(visiblePlaylists.length, criteria.genre, criteria.occasion)}
         </S.Count>
         <S.Subline>Music to go with your food order.</S.Subline>
@@ -86,6 +94,7 @@ function Playlist () {
             active={criteria.occasion === ''}
             count={isLoading ? undefined : allOccasionsCount}
             onClick={filters.showAllOccasions}
+            {...FILTER_ONLY}
             style={activeName(criteria.occasion === '', 'occasion-active')}
           >
             All
@@ -97,6 +106,7 @@ function Playlist () {
               suggested={value === suggestedOccasion}
               count={isLoading ? undefined : occasionCounts.get(value) ?? 0}
               onClick={() => filters.toggleOccasion(value)}
+              {...FILTER_ONLY}
               style={activeName(criteria.occasion === value, 'occasion-active')}
             >
               {value}
@@ -113,6 +123,7 @@ function Playlist () {
               active={criteria.genre === value}
               count={genreCounts.get(value) ?? 0}
               onClick={() => filters.toggleGenre(value)}
+              {...FILTER_ONLY}
               style={activeName(criteria.genre === value, 'genre-active')}
             >
               {value}
@@ -125,7 +136,7 @@ function Playlist () {
       <S.Grid aria-busy={isLoading}>
         {isLoading && Array.from({ length: SKELETON_COUNT }, (_, index) => <PlaylistCardSkeleton key={index} />)}
         {visiblePlaylists.map((playlist, index) => (
-          <S.CardSlot key={playlist.id} data-card-slot style={{ viewTransitionName: `card-${playlist.id}` } as CSSProperties}>
+          <S.CardSlot key={playlist.id} {...FILTER_ONLY} style={{ viewTransitionName: `card-${playlist.id}` } as CSSProperties}>
             <PlaylistCard
               index={index}
               owner={playlist.owner}
@@ -138,6 +149,7 @@ function Playlist () {
               // Only the hero card names its cover, and only while the dialog does not show it:
               // one name per frame, and unnamed cards stay under the backdrop
               coverStyle={heroCover(playlist.id === detail.heroId && playlist.id !== detail.openId, playlist.id)}
+              shellStyle={heroShell(playlist.id === detail.heroId && playlist.id !== detail.openId)}
             />
           </S.CardSlot>
         ))}
