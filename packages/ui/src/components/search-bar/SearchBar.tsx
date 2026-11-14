@@ -39,14 +39,14 @@ export const SearchBar = ({
   message = '',
   ...rest
 }: ISearchBar) => (
+  // The label wraps the input, so the association needs no id (and clicking the icon focuses it)
   <S.SearchBar>
-    <S.Label htmlFor={labelName}>{labelName}</S.Label>
+    <S.Label>{labelName}</S.Label>
     <S.SearchIcon>
       <img width='24' height='24' src={SearchIcon} alt='' />
     </S.SearchIcon>
     <S.Input
       type='text'
-      id={labelName}
       name={labelName}
       value={value}
       disabled={disabled}

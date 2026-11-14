@@ -58,6 +58,7 @@ function Playlist () {
           withViewTransition(() => setSearch(value))
         }}
         value={search}
+        labelName='Search playlists'
         placeholder='Search playlists, people or dishes...'
       />
 

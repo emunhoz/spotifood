@@ -4,37 +4,48 @@ const ErrorStyle = css`
   border: 2px solid ${({ theme }) => theme.palette.negative};
 `
 
-export const SearchBar = styled.div`
+// Sized by its own padding, not by the parent: it must hold up in any layout.
+export const SearchBar = styled.label`
   position: relative;
   display: flex;
+  align-items: center;
   width: 100%;
 `
 
 export const SearchIcon = styled.div`
   position: absolute;
+  top: 50%;
+  left: 20px;
   display: flex;
-  align-items: center;
-  height: -webkit-fill-available;
-  padding: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
 `
 
 export const Input = styled.input<{ error?: boolean }>`
-  display: flex;
+  box-sizing: border-box;
   width: 100%;
-  height: 100%;
-  max-height: 65px;
-  padding: 20px 20px 20px 58px;
-  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+  padding: 18px 20px 18px 58px;
+  font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
-  letter-spacing: 0.75px;
-  background: ${({ theme }) => theme.palette.light};
-  border: none;
+  color: ${({ theme }) => theme.palette.darkest};
+  background: ${({ theme }) => theme.palette.surface};
+  border: 2px solid transparent;
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
+  outline: none;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.palette.textMuted};
+  }
+
+  &:focus-visible {
+    border-color: ${({ theme }) => theme.palette.brand};
+  }
 
   ${({ error }) => error && ErrorStyle};
 `
 
-export const Label = styled.label`
+export const Label = styled.span`
   position: absolute;
   width: 1px;
   height: 1px;
