@@ -19,7 +19,7 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
       />
     </div>
     <input
-      class="sc-eqUAAy sSKPM"
+      class="sc-eqUAAy hnpazK"
       type="text"
       value=""
     />

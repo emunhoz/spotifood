@@ -4,6 +4,7 @@ export const tokens = {
     "primary": "#D9122A",
     "primaryLight": "#E8717F",
     "primaryDark": "#9E0D1F",
+    "negative": "#B3261E",
     "lightest": "#FCFCFC",
     "lighter": "#F7F7FC",
     "light": "#EFF0F6",
