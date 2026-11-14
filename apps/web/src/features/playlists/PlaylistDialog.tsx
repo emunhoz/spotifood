@@ -32,7 +32,14 @@ function PlaylistDialog ({ playlist, onClose }: PlaylistDialogProps) {
   }
 
   return (
-    <S.Dialog ref={dialogRef} aria-label={playlist?.name} onCancel={handleCancel} onClick={handleBackdropClick}>
+    <S.Dialog
+      ref={dialogRef}
+      aria-label={playlist?.name}
+      onCancel={handleCancel}
+      onClick={handleBackdropClick}
+      // Own group: the panel rises on its own while the cover flies into it
+      style={{ viewTransitionName: 'playlist-dialog' } as CSSProperties}
+    >
       {playlist && (
         <PlaylistDetail
           imgUrl={coverDataUrl(playlist)}
@@ -46,7 +53,7 @@ function PlaylistDialog ({ playlist, onClose }: PlaylistDialogProps) {
           tracklist={playlist.tracklist}
           listenUrl={listenUrl(playlist.name)}
           onClose={onClose}
-          coverStyle={{ viewTransitionName: `cover-${playlist.id}` } as CSSProperties}
+          coverStyle={{ viewTransitionName: `cover-${playlist.id}`, viewTransitionClass: 'cover' } as CSSProperties}
         />
       )}
     </S.Dialog>

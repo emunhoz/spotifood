@@ -18,6 +18,10 @@ function activeName (isActive: boolean, name: string): CSSProperties {
   return { viewTransitionName: isActive ? name : undefined } as CSSProperties
 }
 
+function heroCover (isHero: boolean, id: string): CSSProperties {
+  return (isHero ? { viewTransitionName: `cover-${id}`, viewTransitionClass: 'cover' } : {}) as CSSProperties
+}
+
 function isTypingTarget (target: EventTarget | null): boolean {
   return target instanceof HTMLElement && (TYPING_TARGETS.has(target.tagName) || target.isContentEditable)
 }
@@ -121,7 +125,7 @@ function Playlist () {
       <S.Grid aria-busy={isLoading}>
         {isLoading && Array.from({ length: SKELETON_COUNT }, (_, index) => <PlaylistCardSkeleton key={index} />)}
         {visiblePlaylists.map((playlist, index) => (
-          <S.CardSlot key={playlist.id} style={{ viewTransitionName: `card-${playlist.id}` } as CSSProperties}>
+          <S.CardSlot key={playlist.id} data-card-slot style={{ viewTransitionName: `card-${playlist.id}` } as CSSProperties}>
             <PlaylistCard
               index={index}
               owner={playlist.owner}
@@ -131,8 +135,9 @@ function Playlist () {
               minutes={playlist.minutes}
               pairsWith={playlist.pairsWith}
               onOpen={() => detail.open(playlist.id)}
-              // The open playlist's cover lives in the dialog; one name per frame or the transition aborts
-              coverStyle={{ viewTransitionName: playlist.id === detail.openId ? undefined : `cover-${playlist.id}` } as CSSProperties}
+              // Only the hero card names its cover, and only while the dialog does not show it:
+              // one name per frame, and unnamed cards stay under the backdrop
+              coverStyle={heroCover(playlist.id === detail.heroId && playlist.id !== detail.openId, playlist.id)}
             />
           </S.CardSlot>
         ))}

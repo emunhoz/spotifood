@@ -26,8 +26,9 @@ export function formatDuration (minutes: number): string {
 
 export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairsWith, index = 0, onOpen, coverStyle }: IPlaylistCard) => (
   <S.PlaylistCard style={{ '--i': index } as CSSProperties}>
-    <S.Cover style={coverStyle}>
-      <S.CoverImg src={imgUrl} alt='' loading='lazy' />
+    <S.Cover>
+      {/* The name goes on the image, not the figure, so the duration badge stays in the card */}
+      <S.CoverImg src={imgUrl} alt='' loading='lazy' style={coverStyle} />
       {minutes !== undefined && <S.Duration>{formatDuration(minutes)}</S.Duration>}
     </S.Cover>
     <S.Body>

@@ -56,6 +56,9 @@ export const CoverImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  /* Snapshots ignore the figure's clip, so the image carries its own radius for the flight */
+  border-radius: ${({ theme }) => theme.attributes.borderRadius.default}px;
 `
 
 export const Duration = styled.span`
