@@ -44,7 +44,7 @@ describe('[Component]: Header', () => {
       />
     )
 
-    fireEvent.click(screen.getByText(/sair/i))
+    fireEvent.click(screen.getByText(/sign out/i))
 
     expect(SignOut).toHaveBeenCalled()
   })

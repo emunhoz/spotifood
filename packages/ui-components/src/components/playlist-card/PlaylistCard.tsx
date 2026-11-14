@@ -21,10 +21,10 @@ export const PlaylistCard = ({
     <S.Footer>
       <S.PlaylistInfo>
         <S.PlaylistInfoTitle>{playlistName}</S.PlaylistInfoTitle>
-        <S.PlaylistInfoSubtitle>por {owner}</S.PlaylistInfoSubtitle>
+        <S.PlaylistInfoSubtitle>by {owner}</S.PlaylistInfoSubtitle>
       </S.PlaylistInfo>
       <S.Link href={link} rel='noreferrer' target='_blank'>
-        Escutar
+        Listen
       </S.Link>
     </S.Footer>
   </S.PlaylistCard>

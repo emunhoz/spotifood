@@ -21,7 +21,7 @@ describe('[Component]: SideModal', () => {
       </SideModal>
     )
 
-    fireEvent.click(screen.getByText(/fechar/i))
+    fireEvent.click(screen.getByText(/close/i))
 
     expect(closeModal).toHaveBeenCalled()
   })

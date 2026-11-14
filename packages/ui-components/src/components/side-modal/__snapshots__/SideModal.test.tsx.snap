@@ -12,13 +12,13 @@ exports[`[Component]: SideModal render the component 1`] = `
         class="sc-gEvEer kVOJcu"
       >
         <img
-          alt="Fechar"
+          alt=""
           class="sc-eqUAAy cVgCSF"
           height="44"
           src="test-file-stub"
           width="44"
         />
-        Fechar
+        Close
       </div>
       <h1>
         Hello world

@@ -13,8 +13,8 @@ export const SideModal = ({ show, children, close }: ISideModal) => {
     <S.ModalContent toogleFilter={show}>
       <S.ModalWrapper>
         <S.CloseModal onClick={() => close()}>
-          <S.CloseIcon src={CloseIcon} alt='Fechar' width='44' height='44' />
-          Fechar
+          <S.CloseIcon src={CloseIcon} alt='' width='44' height='44' />
+          Close
         </S.CloseModal>
         {children}
       </S.ModalWrapper>

@@ -22,7 +22,7 @@ export const Header = ({ user, signOut }: IHeader) => (
       <S.User>
         <S.NameWrapper>
           <S.DisplayName>{user.display_name}</S.DisplayName>
-          <S.SignOutLink onClick={() => signOut?.()}>Sair</S.SignOutLink>
+          <S.SignOutLink onClick={() => signOut?.()}>Sign out</S.SignOutLink>
         </S.NameWrapper>
         <S.Avatar src={user.images[0].url} alt={user.display_name} />
       </S.User>

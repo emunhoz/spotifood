@@ -26,7 +26,7 @@ exports[`[Component]: Header render the component 1`] = `
         <span
           class="sc-iGgWBj ipdAWR"
         >
-          Sair
+          Sign out
         </span>
       </div>
       <img

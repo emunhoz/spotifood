@@ -29,7 +29,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
         <small
           class="sc-gsFSXq jSDddn"
         >
-          por Spotify
+          by Spotify
         </small>
       </div>
       <a
@@ -38,7 +38,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
         rel="noreferrer"
         target="_blank"
       >
-        Escutar
+        Listen
       </a>
     </footer>
   </div>
