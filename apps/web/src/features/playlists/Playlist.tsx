@@ -120,7 +120,7 @@ function Playlist () {
               owner={playlist.owner}
               playlistName={playlist.name}
               link={listenUrl(playlist.name)}
-              imgUrl={coverDataUrl(playlist.cover)}
+              imgUrl={coverDataUrl(playlist)}
               minutes={playlist.minutes}
               pairsWith={playlist.pairsWith}
             />
