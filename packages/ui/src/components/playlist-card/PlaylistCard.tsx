@@ -13,6 +13,8 @@ interface IPlaylistCard {
   onOpen?: () => void
   /** Lets the app name the cover for a shared-element view transition */
   coverStyle?: CSSProperties
+  /** Lets the app name the whole card, so it can morph into another surface */
+  shellStyle?: CSSProperties
 }
 
 const MINUTES_PER_HOUR = 60
@@ -24,8 +26,8 @@ export function formatDuration (minutes: number): string {
   return rest === 0 ? `${hours} h` : `${hours} h ${rest} min`
 }
 
-export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairsWith, index = 0, onOpen, coverStyle }: IPlaylistCard) => (
-  <S.PlaylistCard style={{ '--i': index } as CSSProperties}>
+export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairsWith, index = 0, onOpen, coverStyle, shellStyle }: IPlaylistCard) => (
+  <S.PlaylistCard style={{ '--i': index, ...shellStyle } as CSSProperties}>
     <S.Cover>
       {/* The name goes on the image, not the figure, so the duration badge stays in the card */}
       <S.CoverImg src={imgUrl} alt='' loading='lazy' style={coverStyle} />

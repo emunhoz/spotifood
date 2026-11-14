@@ -25,29 +25,45 @@ const GlobalStyle = createGlobalStyle`
 
   /*
    * Opening or closing a playlist. Named groups paint above the page snapshot, so:
-   * - cards drop their names, or they would float above the dialog and its backdrop;
+   * - filter-only names (cards, count, active chips) are dropped, or they would stay sharp above the backdrop;
    * - the page cross-fades only where it differs, which is the backdrop, so it dims and undims for free;
-   * - the panel rises as its own group while the cover flies into its slot.
+   * - container transform: the hero card's surface grows into the panel while the cover flies above it.
    */
-  html[data-transition='detail'] [data-card-slot] {
+  html[data-transition='detail'] [data-vt-filter] {
     view-transition-name: none !important;
   }
 
   /* The panel snapshot paints its own background where the cover sits; the cover must fly above it */
+  /* A solid, rounded surface for the whole morph, so nothing shows through while the contents swap */
   ::view-transition-group(playlist-dialog) {
     z-index: 1;
+    overflow: clip;
+    background: ${createTheme.palette.lightest};
+    border-radius: ${createTheme.attributes.borderRadius.big}px;
   }
 
   ::view-transition-group(.cover) {
     z-index: 2;
   }
 
+  /* Card and panel have different shapes: keep both contents at their real size, anchored to the top,
+     so the growing box reveals the panel instead of stretching the card. Swap quickly (old out early,
+     new in late) so the two layouts never read on top of each other. */
+  ::view-transition-old(playlist-dialog),
   ::view-transition-new(playlist-dialog) {
-    animation: sf-panel-in 0.36s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    height: 100%;
+    overflow: clip;
+    object-fit: none;
+    object-position: top center;
+    mix-blend-mode: normal;
   }
 
   ::view-transition-old(playlist-dialog) {
-    animation: sf-panel-out 0.2s ease-in both;
+    animation: sf-fade-out 0.1s ease-out both;
+  }
+
+  ::view-transition-new(playlist-dialog) {
+    animation: sf-fade-in 0.25s ease-in 0.08s both;
   }
 
   /* Card cover is 1:1, dialog cover 16:10: crop instead of stretching while it morphs */
@@ -58,17 +74,15 @@ const GlobalStyle = createGlobalStyle`
     object-fit: cover;
   }
 
-  @keyframes sf-panel-in {
+  @keyframes sf-fade-in {
     from {
       opacity: 0;
-      transform: translateY(28px) scale(0.98);
     }
   }
 
-  @keyframes sf-panel-out {
+  @keyframes sf-fade-out {
     to {
       opacity: 0;
-      transform: translateY(16px) scale(0.98);
     }
   }
 `
