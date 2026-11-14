@@ -18,7 +18,7 @@ I designed the pages, components and design tokens in [Figma](https://www.figma.
 
 ## Design decisions
 
-<!-- TODO(author): one line on the hardest design decision and how you resolved it -->
+- **Tokens and components before screens.** The hardest call was the build order. I designed the screens in Figma, but in code I didn't start with them: first I pulled the tokens (type scale, font sizes, spacing, colors) out of the Figma file, then documented every component in Storybook, and only then assembled the pages. The first screen took longer to appear, but every screen after it was built from the same documented pieces, so the Figma file, Storybook and the app never drifted apart.
 
 - **Decoupled the UI from Spotify.** The app originally logged in with Spotify and listed its featured playlists. In 2024–2025 Spotify removed both the Implicit Grant flow and `featured-playlists` for development-mode apps, and only allowlisted accounts could sign in, so a visitor would see nothing. The UI now reads a versioned JSON through a real `fetch`. Loading, error and empty states behave exactly as they would against an API, and swapping in a real endpoint is a one-line change.
 - **Filters that mean something to the user.** The old filters mirrored Spotify's query params (`locale`, `timestamp`, `offset`). They are now *genre* and *occasion* (Breakfast, Lunch, Dinner, Late night, Party), with options derived from the data so the UI never offers a filter that returns nothing.
