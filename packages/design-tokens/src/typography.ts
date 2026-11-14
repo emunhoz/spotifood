@@ -26,7 +26,7 @@ export interface Typography {
 
 export const typography: Typography = {
   type: {
-    primary: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    primary: '"Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif',
     code: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
   },
   weight: {

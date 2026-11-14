@@ -13,3 +13,4 @@ export interface Theme {
 const createTheme = ({ palette, typography, attributes, breakpoints }: Theme) => ({ palette, typography, attributes, breakpoints })
 
 export default createTheme({ palette, typography, attributes, breakpoints })
+export { typography }
