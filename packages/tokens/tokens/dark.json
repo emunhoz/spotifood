@@ -1,0 +1,36 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Placeholder: the monochrome scale is mirrored and primaries are kept. To be redesigned in Figma.",
+    "primary": {
+      "$value": "#EA1D2C"
+    },
+    "primaryLight": {
+      "$value": "#FF7B85"
+    },
+    "primaryDark": {
+      "$value": "#AA000C"
+    },
+    "lightest": {
+      "$value": "#3E3E3E"
+    },
+    "lighter": {
+      "$value": "#717171"
+    },
+    "light": {
+      "$value": "#A6A6A6"
+    },
+    "mediumlight": {
+      "$value": "#D9DBE9"
+    },
+    "dark": {
+      "$value": "#EFF0F6"
+    },
+    "darker": {
+      "$value": "#F7F7FC"
+    },
+    "darkest": {
+      "$value": "#FCFCFC"
+    }
+  }
+}

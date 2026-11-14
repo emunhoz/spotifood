@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs'
 import StyleDictionary from 'style-dictionary'
 
-const HEADER = 'Generated from tokens.json — do not edit'
+const HEADER = 'Generated from tokens/*.json — do not edit'
 const THEME_KEYS = { color: 'palette' }
 const PX_TYPES = new Set(['dimension'])
 
@@ -31,10 +32,18 @@ function cssBlock(selector, declarations, indent) {
   return `${pad}${selector} {\n${lines}\n${pad}}`
 }
 
-function darkDeclarations(tokens) {
-  return tokens
-    .filter((token) => token.original.$extensions?.mode?.dark)
-    .map((token) => `${cssName(token)}: ${token.original.$extensions.mode.dark};`)
+// Tokens Studio keeps each theme in its own set; dark.json only overrides colors.
+function flatten(node, path = []) {
+  return Object.entries(node)
+    .filter(([key]) => !key.startsWith('$'))
+    .flatMap(([key, value]) =>
+      '$value' in value ? [{ path: [...path, key], value: value.$value }] : flatten(value, [...path, key])
+    )
+}
+
+function darkDeclarations() {
+  const dark = JSON.parse(readFileSync('tokens/dark.json', 'utf8'))
+  return flatten(dark).map((token) => `${cssName(token)}: ${token.value};`)
 }
 
 StyleDictionary.registerFormat({
@@ -47,7 +56,7 @@ StyleDictionary.registerFormat({
   name: 'sf/css-variables',
   format: ({ dictionary }) => {
     const light = dictionary.allTokens.map((token) => `${cssName(token)}: ${rawValue(token)};`)
-    const dark = darkDeclarations(dictionary.allTokens)
+    const dark = darkDeclarations()
     return [
       `/* ${HEADER} */`,
       cssBlock(':root', light, 0),
@@ -60,7 +69,7 @@ StyleDictionary.registerFormat({
 })
 
 export default {
-  source: ['tokens.json'],
+  source: ['tokens/light.json', 'tokens/core.json'],
   platforms: {
     ts: {
       transforms: ['name/kebab'],

@@ -1,4 +1,4 @@
-// Generated from tokens.json — do not edit
+// Generated from tokens/*.json — do not edit
 export const tokens = {
   "palette": {
     "primary": "#EA1D2C",
