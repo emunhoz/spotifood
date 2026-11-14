@@ -5,14 +5,14 @@
 <p align="center">
   <a href="https://spotifood-ten.vercel.app">Live app</a> ·
   <a href="https://spotifood-components.vercel.app/?path=/docs/components-button--primary">Storybook</a> ·
-  <a href="https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood">Figma</a>
+  <a href="https://www.figma.com/design/ZYNcMs2B7uDiFCmw9mBvZQ">Figma</a>
 </p>
 
 ## What it is
 
-I designed the pages, components and design tokens in [Figma](https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood) first, then built them as three packages:
+I designed the pages, components and design tokens in [Figma](https://www.figma.com/design/ZYNcMs2B7uDiFCmw9mBvZQ) first, then built them as three packages:
 
-- [`design-tokens`](./packages/tokens): palette, typography, spacing and breakpoints as a typed theme object
+- [`design-tokens`](./packages/tokens): DTCG token sets (core, light, dark) built by Style Dictionary into a typed theme and CSS variables; the same sets back the Figma variables
 - [`ui-components`](./packages/ui): the component library, documented in Storybook
 - [`app`](./apps/web): the playlist browser (search, filter by genre and occasion, applied-filter chips, empty and error states)
 
