@@ -12,3 +12,4 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = { args: { value: 'hello', label: 'Label example' } }
+export const Error: Story = { args: { value: 'hello', label: 'Label example', error: true, message: 'This field is required' } }

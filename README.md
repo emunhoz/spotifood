@@ -45,8 +45,12 @@ I designed the pages, components and design tokens in [Figma](https://www.figma.
 
 JS sizes are the initial chunks, gzip -9: the "before" figure was measured from the 2021 production deploy.
 
+After: static data behind a real `fetch`, genre and occasion filters, generated covers.
+
+<img src="docs/previews/2026-home.png" width="220" alt="Home" /><img src="docs/previews/2026-filters.png" width="220" alt="Filters" /><img src="docs/previews/2026-applied-filters.png" width="220" alt="Applied filters" /><img src="docs/previews/2026-empty.png" width="220" alt="Empty search" />
+
 <details>
-<summary>2021 screens (Spotify login flow)</summary>
+<summary>Before (2021): Spotify login flow</summary>
 
 <img src="docs/previews/login.png" width="240" alt="Login" /><img src="docs/previews/spotify.png" width="240" alt="Spotify consent" /><img src="docs/previews/home.png" width="240" alt="Home" /><img src="docs/previews/filter.png" width="240" alt="Filters" /><img src="docs/previews/applied-filters.png" width="240" alt="Applied filters" />
 

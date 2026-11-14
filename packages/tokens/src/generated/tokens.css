@@ -3,6 +3,7 @@
   --sf-color-primary: #D9122A;
   --sf-color-primary-light: #E8717F;
   --sf-color-primary-dark: #9E0D1F;
+  --sf-color-negative: #B3261E;
   --sf-color-lightest: #FCFCFC;
   --sf-color-lighter: #F7F7FC;
   --sf-color-light: #EFF0F6;
@@ -40,9 +41,10 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --sf-color-primary: #EA1D2C;
-    --sf-color-primary-light: #F27780;
-    --sf-color-primary-dark: #AB1520;
+    --sf-color-primary: #D9122A;
+    --sf-color-primary-light: #E8717F;
+    --sf-color-primary-dark: #9E0D1F;
+    --sf-color-negative: #FFB4AB;
     --sf-color-lightest: #3E3E3E;
     --sf-color-lighter: #717171;
     --sf-color-light: #A6A6A6;
@@ -53,9 +55,10 @@
   }
 }
 :root[data-theme="dark"] {
-  --sf-color-primary: #EA1D2C;
-  --sf-color-primary-light: #F27780;
-  --sf-color-primary-dark: #AB1520;
+  --sf-color-primary: #D9122A;
+  --sf-color-primary-light: #E8717F;
+  --sf-color-primary-dark: #9E0D1F;
+  --sf-color-negative: #FFB4AB;
   --sf-color-lightest: #3E3E3E;
   --sf-color-lighter: #717171;
   --sf-color-light: #A6A6A6;
