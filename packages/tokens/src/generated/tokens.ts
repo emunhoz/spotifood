@@ -6,6 +6,8 @@ export const tokens = {
     "primaryLight": "#DCEE92",
     "primaryDark": "#90A636",
     "brand": "#4A2C6E",
+    "surface": "#F6F6F3",
+    "textMuted": "#6B6B6B",
     "negative": "#B3261E",
     "lightest": "#FCFCFC",
     "lighter": "#F7F7FC",

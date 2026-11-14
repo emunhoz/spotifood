@@ -16,6 +16,8 @@ Each color has one job, so no color reads as two things (the old red brand also 
 | `onPrimary` (`#141414`) | text and icons on `primary` | 12.7:1 on `primary`, 6.8:1 on `primaryDark` |
 | `brand` (aubergine `#4A2C6E`, lavender `#C9B6F0` in dark) | logo, outline buttons, spinner | 11.2:1 on white |
 | `negative` | errors only | Never used for actions |
+| `surface` (`#F6F6F3`) | cards, pills, inputs on the white page | Replaces drop shadows; depth comes from tint |
+| `textMuted` (`#6B6B6B`) | secondary text | 4.9:1 on `surface`; dark value `#C2C2C2` is 5.0:1 on dark `surface` |
 - Build: `bun run build:tokens` (Style Dictionary v4) writes `src/generated/tokens.ts` and `tokens.css`.
   `libbuild` runs it before `tsc`. Commit the generated files; CI fails on drift.
 - TS: default export is the theme object (light values), named export `typography`.
