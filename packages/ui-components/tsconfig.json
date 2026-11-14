@@ -1,5 +1,5 @@
 {
-  "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/utils/test-utils.tsx"],
+  "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/utils/test-utils.tsx", "src/**/*.stories.tsx"],
   "compilerOptions": {
     "skipLibCheck": true,
     "types": ["jest", "node"],
