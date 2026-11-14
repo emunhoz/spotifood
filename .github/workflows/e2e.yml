@@ -1,0 +1,50 @@
+name: E2E
+
+# Behaviour + visual regression in a real browser. Screenshot baselines are rendered here, on Linux,
+# so fonts never differ from a contributor's machine. Run manually with "update snapshots" to
+# (re)generate them; the job commits the new baselines to the branch.
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      update-snapshots:
+        description: Regenerate screenshot baselines and commit them
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  e2e:
+    name: Playwright
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run build
+      # "missing" writes baselines that do not exist yet (new tests) but still fails on any changed one;
+      # the manual run rewrites them all after an intended visual change
+      - name: Test
+        run: bunx playwright test --update-snapshots=${{ inputs.update-snapshots && 'all' || 'missing' }}
+      - name: Commit new baselines
+        run: |
+          git add e2e/__screenshots__
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "test(e2e): update screenshot baselines"
+          git push
+      - uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: playwright-report
+          path: apps/web/playwright-report
+          retention-days: 7
