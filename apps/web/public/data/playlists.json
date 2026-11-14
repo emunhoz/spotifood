@@ -1,0 +1,290 @@
+[
+  {
+    "id": "pl-01",
+    "name": "Sunday Brunch",
+    "owner": "Spotifood",
+    "genre": "Jazz",
+    "occasion": "Breakfast",
+    "tracks": 42,
+    "cover": [
+      "#F6D365",
+      "#FDA085"
+    ]
+  },
+  {
+    "id": "pl-02",
+    "name": "Coffee & Croissants",
+    "owner": "Marina Alves",
+    "genre": "Bossa Nova",
+    "occasion": "Breakfast",
+    "tracks": 35,
+    "cover": [
+      "#FCE38A",
+      "#F38181"
+    ]
+  },
+  {
+    "id": "pl-03",
+    "name": "Pancake Mornings",
+    "owner": "Spotifood",
+    "genre": "Pop",
+    "occasion": "Breakfast",
+    "tracks": 50,
+    "cover": [
+      "#FFDEE9",
+      "#B5FFFC"
+    ]
+  },
+  {
+    "id": "pl-04",
+    "name": "Açaí Bowl Vibes",
+    "owner": "Rafa Costa",
+    "genre": "Electronic",
+    "occasion": "Breakfast",
+    "tracks": 28,
+    "cover": [
+      "#A18CD1",
+      "#FBC2EB"
+    ]
+  },
+  {
+    "id": "pl-05",
+    "name": "Desk Lunch Focus",
+    "owner": "Spotifood",
+    "genre": "Lo-fi",
+    "occasion": "Lunch",
+    "tracks": 60,
+    "cover": [
+      "#84FAB0",
+      "#8FD3F4"
+    ]
+  },
+  {
+    "id": "pl-06",
+    "name": "Poke & Chill",
+    "owner": "Leo Tanaka",
+    "genre": "Lo-fi",
+    "occasion": "Lunch",
+    "tracks": 44,
+    "cover": [
+      "#43E97B",
+      "#38F9D7"
+    ]
+  },
+  {
+    "id": "pl-07",
+    "name": "Burger Break",
+    "owner": "Spotifood",
+    "genre": "Rock",
+    "occasion": "Lunch",
+    "tracks": 32,
+    "cover": [
+      "#FA709A",
+      "#FEE140"
+    ]
+  },
+  {
+    "id": "pl-08",
+    "name": "Salad Bar Sessions",
+    "owner": "Ana Ribeiro",
+    "genre": "Pop",
+    "occasion": "Lunch",
+    "tracks": 38,
+    "cover": [
+      "#D4FC79",
+      "#96E6A1"
+    ]
+  },
+  {
+    "id": "pl-09",
+    "name": "Feijoada Saturday",
+    "owner": "Spotifood",
+    "genre": "Samba",
+    "occasion": "Lunch",
+    "tracks": 55,
+    "cover": [
+      "#F83600",
+      "#F9D423"
+    ]
+  },
+  {
+    "id": "pl-10",
+    "name": "Pasta Night",
+    "owner": "Giulia Rossi",
+    "genre": "Jazz",
+    "occasion": "Dinner",
+    "tracks": 47,
+    "cover": [
+      "#E0C3FC",
+      "#8EC5FC"
+    ]
+  },
+  {
+    "id": "pl-11",
+    "name": "Sushi Date",
+    "owner": "Spotifood",
+    "genre": "Soul",
+    "occasion": "Dinner",
+    "tracks": 36,
+    "cover": [
+      "#FF9A9E",
+      "#FECFEF"
+    ]
+  },
+  {
+    "id": "pl-12",
+    "name": "Candlelight Risotto",
+    "owner": "Spotifood",
+    "genre": "Jazz",
+    "occasion": "Dinner",
+    "tracks": 40,
+    "cover": [
+      "#30CFD0",
+      "#330867"
+    ]
+  },
+  {
+    "id": "pl-13",
+    "name": "Taco Tuesday",
+    "owner": "Diego Ramos",
+    "genre": "Latin",
+    "occasion": "Dinner",
+    "tracks": 45,
+    "cover": [
+      "#F093FB",
+      "#F5576C"
+    ]
+  },
+  {
+    "id": "pl-14",
+    "name": "Curry & Cozy",
+    "owner": "Priya Nair",
+    "genre": "Soul",
+    "occasion": "Dinner",
+    "tracks": 33,
+    "cover": [
+      "#FFECD2",
+      "#FCB69F"
+    ]
+  },
+  {
+    "id": "pl-15",
+    "name": "Churrasco Classics",
+    "owner": "Spotifood",
+    "genre": "Samba",
+    "occasion": "Dinner",
+    "tracks": 58,
+    "cover": [
+      "#C71D6F",
+      "#D09693"
+    ]
+  },
+  {
+    "id": "pl-16",
+    "name": "Pizza After Midnight",
+    "owner": "Spotifood",
+    "genre": "Rock",
+    "occasion": "Late night",
+    "tracks": 41,
+    "cover": [
+      "#0BA360",
+      "#3CBA92"
+    ]
+  },
+  {
+    "id": "pl-17",
+    "name": "Ramen at 2AM",
+    "owner": "Leo Tanaka",
+    "genre": "Lo-fi",
+    "occasion": "Late night",
+    "tracks": 52,
+    "cover": [
+      "#4FACFE",
+      "#00F2FE"
+    ]
+  },
+  {
+    "id": "pl-18",
+    "name": "Kebab Run",
+    "owner": "Spotifood",
+    "genre": "Electronic",
+    "occasion": "Late night",
+    "tracks": 39,
+    "cover": [
+      "#667EEA",
+      "#764BA2"
+    ]
+  },
+  {
+    "id": "pl-19",
+    "name": "Insomnia Snacks",
+    "owner": "Bia Moura",
+    "genre": "Lo-fi",
+    "occasion": "Late night",
+    "tracks": 30,
+    "cover": [
+      "#09203F",
+      "#537895"
+    ]
+  },
+  {
+    "id": "pl-20",
+    "name": "Pastel de Feira",
+    "owner": "Spotifood",
+    "genre": "Samba",
+    "occasion": "Party",
+    "tracks": 48,
+    "cover": [
+      "#F5F7FA",
+      "#C3CFE2"
+    ]
+  },
+  {
+    "id": "pl-21",
+    "name": "Wings & Playoffs",
+    "owner": "Spotifood",
+    "genre": "Rock",
+    "occasion": "Party",
+    "tracks": 37,
+    "cover": [
+      "#FF0844",
+      "#FFB199"
+    ]
+  },
+  {
+    "id": "pl-22",
+    "name": "Brigadeiro Party",
+    "owner": "Marina Alves",
+    "genre": "Pop",
+    "occasion": "Party",
+    "tracks": 62,
+    "cover": [
+      "#FDCBF1",
+      "#E6DEE9"
+    ]
+  },
+  {
+    "id": "pl-23",
+    "name": "Nachos Night Out",
+    "owner": "Diego Ramos",
+    "genre": "Latin",
+    "occasion": "Party",
+    "tracks": 46,
+    "cover": [
+      "#FBAB7E",
+      "#F7CE68"
+    ]
+  },
+  {
+    "id": "pl-24",
+    "name": "Dumpling Dance",
+    "owner": "Spotifood",
+    "genre": "Electronic",
+    "occasion": "Party",
+    "tracks": 54,
+    "cover": [
+      "#21D4FD",
+      "#B721FF"
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/blocks'
+import createTheme from '@monorepo/design-tokens'
+
+export const { size, weight } = createTheme.typography
+
+<Meta title="Design System/Typography" />
+
+# Typography
+
+**Font:** Poppins · **Weights:** {Object.entries(weight).map(([name, value]) => `${value} (${name})`).join(', ')}
+
+## Type scale
+
+<table>
+  <thead>
+    <tr><th>Token</th><th>Size</th><th>Regular</th><th>Bold</th></tr>
+  </thead>
+  <tbody>
+    {Object.entries(size).filter(([name]) => name !== 'code').map(([name, px]) => (
+      <tr key={name}>
+        <td><code>theme.typography.size.{name}</code></td>
+        <td>{px}px</td>
+        <td style={{ fontSize: px, fontWeight: weight.regular }}>Spotifood</td>
+        <td style={{ fontSize: px, fontWeight: weight.bold }}>Spotifood</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

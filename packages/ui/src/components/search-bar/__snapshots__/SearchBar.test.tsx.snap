@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: SearchBar render component with error style 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-aXZVg bgHufR"
+  >
+    <label
+      class="sc-fqkvVR hbUBct"
+    />
+    <div
+      class="sc-gEvEer LwDFE"
+    >
+      <img
+        alt=""
+        height="24"
+        src="test-file-stub"
+        width="24"
+      />
+    </div>
+    <input
+      class="sc-eqUAAy sSKPM"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`[Component]: SearchBar render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-aXZVg bgHufR"
+  >
+    <label
+      class="sc-fqkvVR hbUBct"
+    />
+    <div
+      class="sc-gEvEer LwDFE"
+    >
+      <img
+        alt=""
+        height="24"
+        src="test-file-stub"
+        width="24"
+      />
+    </div>
+    <input
+      class="sc-eqUAAy dywrZK"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

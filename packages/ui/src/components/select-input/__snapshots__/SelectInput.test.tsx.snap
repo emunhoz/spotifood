@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: SelectInput render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bmzYkS"
+  >
+    <div
+      class="sc-dtBdUo cSXkT"
+    >
+      <label
+        class="sc-dLMFU dTzXzH"
+        for="Select example"
+      >
+        Select example
+      </label>
+      <select
+        class="sc-iHGNWf jjgfGP"
+        name="Select example"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

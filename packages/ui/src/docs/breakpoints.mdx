@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/blocks'
+import createTheme from '@monorepo/design-tokens'
+
+<Meta title="Design System/Breakpoints" />
+
+# Breakpoints
+
+Mobile first: styles target the smallest screen and each breakpoint is a `min-width` media query.
+
+<table>
+  <thead>
+    <tr><th>Token</th><th>Min width</th></tr>
+  </thead>
+  <tbody>
+    {Object.entries(createTheme.breakpoints).map(([name, width]) => (
+      <tr key={name}>
+        <td><code>theme.breakpoints.{name}</code></td>
+        <td>{width}px</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

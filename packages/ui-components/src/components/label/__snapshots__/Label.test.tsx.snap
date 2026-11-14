@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`[Component]: Label render the component 1`] = `
-<DocumentFragment>
-  <label
-    class="sc-bdnxRM csbKke"
-  />
-</DocumentFragment>
-`;

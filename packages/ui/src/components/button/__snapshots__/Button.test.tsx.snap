@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component]: Button render the component 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-aXZVg kcPVnt"
+  >
+    Hello world
+  </button>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Button render the component 2`] = `
+<DocumentFragment>
+  <button
+    class="sc-aXZVg irakEF"
+  >
+    Hello world
+  </button>
+</DocumentFragment>
+`;
+
+exports[`[Component]: Button render the component 3`] = `
+<DocumentFragment>
+  <button
+    class="sc-aXZVg fJtCHa"
+  >
+    Hello world
+  </button>
+</DocumentFragment>
+`;

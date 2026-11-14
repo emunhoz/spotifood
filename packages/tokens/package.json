@@ -1,0 +1,26 @@
+{
+  "name": "@monorepo/design-tokens",
+  "version": "0.2.0",
+  "description": "Monorepo design tokens",
+  "author": "emunhoz",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src",
+    "tokens.json",
+    "dist"
+  ],
+  "scripts": {
+    "libbuild": "bun run build:tokens && tsc -p .",
+    "start": "tsc -p . --watch",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint:css": "stylelint 'src/**/*.ts' -f verbose --color",
+    "build:tokens": "style-dictionary build --config style-dictionary.config.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
+  }
+}
