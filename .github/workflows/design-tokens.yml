@@ -1,11 +1,13 @@
 name: Design tokens
 
 # Tokens Studio pushes tokens.json to design/tokens. Regenerate the TS/CSS output,
-# test it, and open a PR so every Figma change is reviewed with a Vercel preview.
+# refresh snapshots (styled-components class hashes change with every style), test,
+# and open a PR so every Figma change is reviewed with a Vercel preview.
 on:
   push:
     branches: [design/tokens]
     paths: [packages/tokens/tokens.json]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,13 +21,15 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build:tokens
-      - run: bun run test:ci
-      - name: Commit generated tokens
+      # -u rewrites snapshots but still fails on real assertion errors
+      - run: bun run test:update
+      - name: Commit generated tokens and snapshots
         run: |
-          git diff --quiet -- packages/tokens/src/generated && exit 0
+          git add -A packages apps
+          git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore(tokens): regenerate from figma"
+          git commit -m "chore(tokens): regenerate from figma"
           git push
       - name: Open or update PR
         env:
@@ -34,4 +38,4 @@ jobs:
           gh pr view design/tokens --json state -q .state | grep -q OPEN && exit 0
           gh pr create --base main --head design/tokens \
             --title "chore(tokens): sync from Figma" \
-            --body "Token changes pushed from Tokens Studio. Generated TS/CSS was rebuilt and tests passed; check the Vercel preview."
+            --body "Token changes pushed from Tokens Studio. Generated TS/CSS and snapshots were rebuilt and tests passed; check the Vercel preview."
