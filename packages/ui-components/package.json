@@ -2,7 +2,7 @@
   "name": "@monorepo/ui-components",
   "version": "0.10.4",
   "description": "Monorepo ui components",
-  "author": "emunhoz <edermunhozsantos@gmail.com>",
+  "author": "emunhoz",
   "license": "ISC",
   "main": "dist/src/index.js",
   "files": [
@@ -20,9 +20,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o public",
     "generate:component": "plop",
-    "libbuild": "tsc -p . && yarn add-assets -w",
+    "libbuild": "tsc -p . && bun run add-assets",
     "add-assets": "copyfiles -u 1 'src/**/!(*.js|*.mdx|*.jsx|*.map|*.ts|*.tsx)' dist/src/",
-    "watch": "tsc && tsc --build tsconfig.esm.json && yarn add-assets -w"
+    "watch": "tsc && bun run add-assets"
   },
   "publishConfig": {
     "access": "public"
@@ -41,25 +41,25 @@
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.5",
     "awesome-typescript-loader": "^5.2.1",
     "copyfiles": "^2.4.1",
     "jest": "^26.0.1",
     "plop": "^2.7.4",
-    "react": "^17.0.1",
+    "react": "^18.3.1",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1",
     "ts-jest": "^26.1.0",
     "ts-loader": "^9.2.1"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": ">=17",
+    "react-dom": ">=17",
     "styled-components": "^5.2.1"
   }
 }

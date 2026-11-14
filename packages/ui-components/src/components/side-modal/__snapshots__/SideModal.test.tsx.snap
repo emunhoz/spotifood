@@ -3,17 +3,17 @@
 exports[`[Component]: SideModal render the component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM bUwgPB"
+    class="sc-aXZVg cxiLGs"
   >
     <div
-      class="sc-hKFxyN cDmoop"
+      class="sc-fqkvVR PFzXp"
     >
       <div
-        class="sc-gtsrHT pFztO"
+        class="sc-gEvEer kVOJcu"
       >
         <img
           alt="Fechar"
-          class="sc-dlnjwi cyBfdP"
+          class="sc-eqUAAy cVgCSF"
           height="44"
           src="test-file-stub"
           width="44"

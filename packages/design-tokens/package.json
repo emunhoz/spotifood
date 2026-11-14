@@ -2,7 +2,7 @@
   "name": "@monorepo/design-tokens",
   "version": "0.2.0",
   "description": "Monorepo design tokens",
-  "author": "emunhoz <edermunhozsantos@gmail.com>",
+  "author": "emunhoz",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {

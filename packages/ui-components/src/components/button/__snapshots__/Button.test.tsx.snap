@@ -3,7 +3,7 @@
 exports[`[Component]: Button render the component 1`] = `
 <DocumentFragment>
   <button
-    class="sc-bdnxRM fgxDDw"
+    class="sc-aXZVg kcPVnt"
   >
     Hello world
   </button>
@@ -13,7 +13,7 @@ exports[`[Component]: Button render the component 1`] = `
 exports[`[Component]: Button render the component 2`] = `
 <DocumentFragment>
   <button
-    class="sc-bdnxRM dSYVDM"
+    class="sc-aXZVg irakEF"
   >
     Hello world
   </button>
@@ -23,7 +23,7 @@ exports[`[Component]: Button render the component 2`] = `
 exports[`[Component]: Button render the component 3`] = `
 <DocumentFragment>
   <button
-    class="sc-bdnxRM gpdbnf"
+    class="sc-aXZVg fJtCHa"
   >
     Hello world
   </button>

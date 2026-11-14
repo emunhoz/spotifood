@@ -3,18 +3,18 @@
 exports[`[Component]: EmptyState render the component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM deDEVT"
+    class="sc-aXZVg bYNmwC"
   >
     <img
       alt=""
-      class="sc-dlnjwi fxotzT"
+      class="sc-eqUAAy iQCFMd"
       src="test-file-stub"
     />
     <h2
-      class="sc-gtsrHT kEeQDH"
+      class="sc-gEvEer crJNGT"
     />
     <p
-      class="sc-hKFxyN FKMGg"
+      class="sc-fqkvVR iIqyNg"
     />
   </div>
 </DocumentFragment>

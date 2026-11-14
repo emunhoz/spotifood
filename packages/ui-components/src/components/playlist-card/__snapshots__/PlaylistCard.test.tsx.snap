@@ -3,37 +3,37 @@
 exports[`[Component]: PlaylistCard render the component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnxRM kyyTUI"
+    class="sc-aXZVg kgvzpl"
   >
     <figure
-      class="sc-gtsrHT eXboXm"
+      class="sc-gEvEer kGVkG"
     >
       <img
         alt="Rain Sounds"
-        class="sc-dlnjwi jyPlEP"
+        class="sc-eqUAAy cPcfh"
         loading="lazy"
         src="https://i.scdn.co/image/ab67706f00000003aba1f07094bd3e98cd0122de"
       />
     </figure>
     <footer
-      class="sc-hKFxyN ewGuXF"
+      class="sc-fqkvVR jdpZnZ"
     >
       <div
-        class="sc-eCApnc kiEpxo"
+        class="sc-dcJsrY dqMqXb"
       >
         <h6
-          class="sc-jSFjdj bvubMl"
+          class="sc-iGgWBj cnPRgM"
         >
           Rain Sounds
         </h6>
         <small
-          class="sc-gKAaRy kspKWM"
+          class="sc-gsFSXq jSDddn"
         >
           por Spotify
         </small>
       </div>
       <a
-        class="sc-iCoGMd fMFHPI"
+        class="sc-kAyceB cnpMqQ"
         href="https://open.spotify.com/playlist/37i9dQZF1DX8ymr6UES7vc"
         rel="noreferrer"
         target="_blank"
