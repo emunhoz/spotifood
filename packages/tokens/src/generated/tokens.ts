@@ -1,9 +1,11 @@
 // Generated from tokens.json — do not edit
 export const tokens = {
   "palette": {
-    "primary": "#D9122A",
-    "primaryLight": "#E8717F",
-    "primaryDark": "#9E0D1F",
+    "primary": "#C5E34A",
+    "onPrimary": "#141414",
+    "primaryLight": "#DCEE92",
+    "primaryDark": "#90A636",
+    "brand": "#4A2C6E",
     "negative": "#B3261E",
     "lightest": "#FCFCFC",
     "lighter": "#F7F7FC",

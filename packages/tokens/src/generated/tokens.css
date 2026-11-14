@@ -1,8 +1,10 @@
 /* Generated from tokens.json — do not edit */
 :root {
-  --sf-color-primary: #D9122A;
-  --sf-color-primary-light: #E8717F;
-  --sf-color-primary-dark: #9E0D1F;
+  --sf-color-primary: #C5E34A;
+  --sf-color-on-primary: #141414;
+  --sf-color-primary-light: #DCEE92;
+  --sf-color-primary-dark: #90A636;
+  --sf-color-brand: #4A2C6E;
   --sf-color-negative: #B3261E;
   --sf-color-lightest: #FCFCFC;
   --sf-color-lighter: #F7F7FC;
@@ -41,9 +43,11 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --sf-color-primary: #D9122A;
-    --sf-color-primary-light: #E8717F;
-    --sf-color-primary-dark: #9E0D1F;
+    --sf-color-primary: #C5E34A;
+    --sf-color-on-primary: #141414;
+    --sf-color-primary-light: #DCEE92;
+    --sf-color-primary-dark: #90A636;
+    --sf-color-brand: #C9B6F0;
     --sf-color-negative: #FFB4AB;
     --sf-color-lightest: #3E3E3E;
     --sf-color-lighter: #717171;
@@ -55,9 +59,11 @@
   }
 }
 :root[data-theme="dark"] {
-  --sf-color-primary: #D9122A;
-  --sf-color-primary-light: #E8717F;
-  --sf-color-primary-dark: #9E0D1F;
+  --sf-color-primary: #C5E34A;
+  --sf-color-on-primary: #141414;
+  --sf-color-primary-light: #DCEE92;
+  --sf-color-primary-dark: #90A636;
+  --sf-color-brand: #C9B6F0;
   --sf-color-negative: #FFB4AB;
   --sf-color-lightest: #3E3E3E;
   --sf-color-lighter: #717171;

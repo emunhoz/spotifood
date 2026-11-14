@@ -4,6 +4,18 @@
 
 - `core`: typography, radii, shadows, breakpoints
 - `light` / `dark`: color per theme (dark is a placeholder until redesigned in Figma)
+
+### Color roles
+
+Each color has one job, so no color reads as two things (the old red brand also read as "error").
+
+| Token | Role | Rule |
+| --- | --- | --- |
+| `primary` (basil `#C5E34A`) | main action: primary button, active filter | Text on it is always `onPrimary`; white fails contrast (1.45:1) |
+| `primaryDark` / `primaryLight` | hover / soft fill | Derived from `primary` with a Tokens Studio mix (27% black / 40% white); change only `primary` |
+| `onPrimary` (`#141414`) | text and icons on `primary` | 12.7:1 on `primary`, 6.8:1 on `primaryDark` |
+| `brand` (aubergine `#4A2C6E`, lavender `#C9B6F0` in dark) | logo, outline buttons, spinner | 11.2:1 on white |
+| `negative` | errors only | Never used for actions |
 - Build: `bun run build:tokens` (Style Dictionary v4) writes `src/generated/tokens.ts` and `tokens.css`.
   `libbuild` runs it before `tsc`. Commit the generated files; CI fails on drift.
 - TS: default export is the theme object (light values), named export `typography`.

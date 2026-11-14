@@ -6,21 +6,21 @@ const BlockStyle = css`
 `
 
 const NegativeStyle = css`
-  color: ${({ theme }) => theme.palette.primary};
+  color: ${({ theme }) => theme.palette.brand};
   background: ${({ theme }) => theme.palette.lightest};
-  border: 2px solid ${({ theme }) => theme.palette.primary};
+  border: 2px solid ${({ theme }) => theme.palette.brand};
   :hover {
     color: ${({ theme }) => theme.palette.lightest};
-    background: ${({ theme }) => theme.palette.primary};
+    background: ${({ theme }) => theme.palette.brand};
   }
 `
 
 const GhostStyle = css`
-  color: ${({ theme }) => theme.palette.primary};
+  color: ${({ theme }) => theme.palette.brand};
   background: ${({ theme }) => theme.palette.lightest};
   :hover {
     color: ${({ theme }) => theme.palette.lightest};
-    background: ${({ theme }) => theme.palette.primary};
+    background: ${({ theme }) => theme.palette.brand};
   }
 `
 
@@ -44,7 +44,7 @@ export const Button = styled.button<{
   padding: 18px 40px;
   font-size: ${({ theme }) => theme.typography.size.m1}px;
   font-weight: ${({ theme }) => theme.typography.weight.bold};
-  color: ${({ theme }) => theme.palette.lightest};
+  color: ${({ theme }) => theme.palette.onPrimary};
   cursor: pointer;
   background: ${({ theme }) => theme.palette.primary};
   border: none;
