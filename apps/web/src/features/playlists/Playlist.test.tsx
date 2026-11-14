@@ -1,6 +1,5 @@
 import { vi } from 'vitest'
 import { render, screen, fireEvent } from '../../utils/test-utils'
-import { FilterProvider } from './filter-context'
 import type { Playlist as PlaylistItem } from './filter-playlists'
 import Playlist from './Playlist'
 
@@ -13,37 +12,54 @@ function mockFetch (response: Partial<Response>) {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(response))
 }
 
-function renderPage () {
-  return render(<FilterProvider><Playlist /></FilterProvider>)
+function renderLoadedPage () {
+  mockFetch({ ok: true, json: async () => playlists })
+  render(<Playlist />)
+  return screen.findByText('Sunday Brunch')
 }
 
 afterEach(() => vi.unstubAllGlobals())
 
 describe('[Page]: Playlist', () => {
-  test('renders a card per playlist', async () => {
+  test('shows skeletons while loading, then a card per playlist with the count', async () => {
     mockFetch({ ok: true, json: async () => playlists })
-    renderPage()
+    render(<Playlist />)
+    expect(screen.getByText('Finding playlists…')).toBeInTheDocument()
 
     expect(await screen.findByText('Sunday Brunch')).toBeInTheDocument()
     expect(screen.getByText('Pizza Night')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '2 playlists' })).toBeInTheDocument()
   })
 
-  test('search narrows the list and shows an empty state when nothing matches', async () => {
-    mockFetch({ ok: true, json: async () => playlists })
-    renderPage()
-    const searchInput = await screen.findByPlaceholderText(/search playlists/i)
+  test('an occasion chip filters the list and updates the count', async () => {
+    await renderLoadedPage()
 
-    fireEvent.change(searchInput, { target: { value: 'pizza' } })
+    fireEvent.click(screen.getByRole('button', { name: /^Dinner/ }))
+
+    expect(screen.getByRole('button', { name: /^Dinner/ })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.queryByText('Sunday Brunch')).not.toBeInTheDocument()
-    expect(screen.getByText('Pizza Night')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '1 playlist for dinner' })).toBeInTheDocument()
+  })
+
+  test('search matches dishes and the empty state clears every filter', async () => {
+    await renderLoadedPage()
+    const searchInput = screen.getByPlaceholderText(/search playlists/i)
+
+    fireEvent.change(searchInput, { target: { value: 'eggs' } })
+    expect(screen.getByText('Sunday Brunch')).toBeInTheDocument()
+    expect(screen.queryByText('Pizza Night')).not.toBeInTheDocument()
 
     fireEvent.change(searchInput, { target: { value: 'metal' } })
     expect(screen.getByText(/no playlists found/i)).toBeInTheDocument()
+
+    fireEvent.click(screen.getAllByRole('button', { name: 'Clear filters' })[0])
+    expect(screen.getByText('Pizza Night')).toBeInTheDocument()
+    expect(searchInput).toHaveValue('')
   })
 
   test('shows an error state when the request fails', async () => {
     mockFetch({ ok: false, status: 500 })
-    renderPage()
+    render(<Playlist />)
 
     expect(await screen.findByText(/could not load playlists/i)).toBeInTheDocument()
   })
