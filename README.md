@@ -1,127 +1,70 @@
-<h1 align="center"><img src="docs/images/spotifood.svg" alt="Logo Spotifood" /></h1>
+<h1 align="center"><img src="docs/images/spotifood.svg" alt="Spotifood" /></h1>
+
+<p align="center">Playlists to enjoy with your food order. Designed in Figma, built as a small design system plus the app that consumes it.</p>
 
 <p align="center">
-  <a href="https://lerna.js.org/">
-    <img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="Maintained with Lerna" />
-  </a>
-  <a href="http://commitizen.github.io/cz-cli/">
-	  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitzen friendly" />
-  </a>
-  <a href="https://conventionalcommits.org">
-	  <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" />
-  </a>
+  <a href="https://spotifood-ten.vercel.app">Live app</a> ·
+  <a href="https://spotifood-components.vercel.app/?path=/docs/components-button--primary">Storybook</a> ·
+  <a href="https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood">Figma</a>
 </p>
 
+## What it is
 
-## Demo
+I designed the pages, components and design tokens in [Figma](https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood) first, then built them as three packages:
 
-Front end app: https://spotifood-ten.vercel.app/#/
+- [`design-tokens`](./packages/design-tokens): palette, typography, spacing and breakpoints as a typed theme object
+- [`ui-components`](./packages/ui-components): the component library, documented in Storybook
+- [`app`](./packages/app): the playlist browser (search, filter by genre and occasion, applied-filter chips, empty and error states)
 
-Storybook: https://spotifood-components.vercel.app/?path=/story/components-button--primary
+## Design decisions
 
-Figma (Design by me): https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood
+<!-- TODO(author): one line on the hardest design decision and how you resolved it -->
 
-## Features
+- **Decoupled the UI from Spotify.** The app originally logged in with Spotify and listed its featured playlists. In 2024–2025 Spotify removed both the Implicit Grant flow and `featured-playlists` for development-mode apps, and only allowlisted accounts could sign in, so a visitor would see nothing. The UI now reads a versioned JSON through a real `fetch`. Loading, error and empty states behave exactly as they would against an API, and swapping in a real endpoint is a one-line change.
+- **Filters that mean something to the user.** The old filters mirrored Spotify's query params (`locale`, `timestamp`, `offset`). They are now *genre* and *occasion* (Breakfast, Lunch, Dinner, Late night, Party), with options derived from the data so the UI never offers a filter that returns nothing.
+- **Generated covers.** Cover art is a two-color gradient rendered as an inline SVG data URL: no copyrighted artwork and zero image requests.
+- **Native elements for interactions.** Applied-filter chips and "Clear" are real `<button>`s (they were clickable `<div>`s), so they work with the keyboard and screen readers.
 
-- [x] Login page
-- [x] [Spotify Authorization Scopes](https://developer.spotify.com/documentation/general/guides/scopes/)
-- [x] Home page with Spotify featured playlist
-- [x] SWR - HTTP cache invalidation strategy - See more at [SWR](https://swr.vercel.app/)
-- [x] Search input
-- [x] Filter options
-- [x] Private Routes
-- [x] Mobile first
+## 2026 refresh: before / after
 
-## Todo
+| | Before (2021) | After |
+| --- | --- | --- |
+| Build tool | Create React App 4 | Vite 5 |
+| Package manager | Yarn 1 + Lerna | Bun workspaces |
+| Tests | Jest | Vitest + Testing Library |
+| React | 17 | 18 |
+| Runtime deps (app) | axios, swr, react-router, web-vitals, service worker | none beyond React, styled-components, react-hot-toast |
+| Initial JS | 264 kB (84 kB gzip) | 209 kB (69 kB gzip) |
 
-- [ ] Integration tests
-- [ ] e2e tests
+JS sizes are the initial chunks, gzip -9: the "before" figure was measured from the 2021 production deploy.
 
-## About this app
+<details>
+<summary>2021 screens (Spotify login flow)</summary>
 
-I started building this app just following some business rules (#features) and the first thing that I decide to do was build pages, components, design tokens from scratch on Figma. [See the final implementation here](https://www.figma.com/file/OIo3gx7ydjfIOC6oSI9A0a/Spotifood?node-id=0%3A1).
+<img src="docs/previews/login.png" width="240" alt="Login" /><img src="docs/previews/spotify.png" width="240" alt="Spotify consent" /><img src="docs/previews/home.png" width="240" alt="Home" /><img src="docs/previews/filter.png" width="240" alt="Filters" /><img src="docs/previews/applied-filters.png" width="240" alt="Applied filters" />
 
-Everything that I design was thinking in the best way to build a modular code in the front end project.
-
-See design token object theme code here: [Design tokens](./packages/design-tokens)
-
-See components code here: [Componens](./packages/design-tokens)
-
-See pages code here: [Pages](./packages/app/src/pages)
-
-## Preview
-
-<img src="docs/previews/login.png" width="280" alt="Preview" /><img src="docs/previews/spotify.png" width="280" alt="Preview" /><img src="docs/previews/home.png" width="280" alt="Preview" /><img src="docs/previews/filter.png" width="280" alt="Preview" /><img src="docs/previews/applied-filters.png" width="280" alt="Preview" /><img src="docs/previews/signout.png" width="280" alt="Preview" />
-
+</details>
 
 ## Getting started
 
-This is a monorepo repository using [Lerna](https://lerna.js.org/), [Commitzen](http://commitizen.github.io/cz-cli/) and [Conventional Commits](https://conventionalcommits.org) to maintain and manage component versions and for documentation, we use [Storybook](https://storybook.js.org/).
+Requires [Bun](https://bun.sh) 1.3+.
 
-## 🛠 Stack
-
-| ReactJS | Yarn | Lerna |
-| :-: | :-: | :-: |
-| [![React](docs/images/react.png 'React')](https://reactjs.org/) | [![Yarn](docs/images/yarn.png 'Yarn')](https://yarnpkg.com/) | [![Lerna](docs/images/lerna.png 'Lerna')](https://github.com/lerna/lerna) |
-| Jest | Testing Library | Styled Components |
-| [![Jest](docs/images/jestlogo.png 'Jest')](https://jestjs.io/en/) | [![TestingLibrary](docs/images/testinglibrary.png 'Testing library')](https://testing-library.com/) | [![StyledComponents](docs/images/styledcomponents.png 'Styled Components')](https://styled-components.com/) |
-
- ## 🌐 Links
-
-Storybook components: https://spotifood-components.vercel.app/?path=/docs/components-button--primary 
-
-Front end app: https://spotifood-ten.vercel.app
-
-## ⚠️ Requirements
-
- - Node
- - Yarn
- - Lerna
-
-## 🚀 Quick start
-
-In the root folder run following commands _(all the below commands need to run on root folder)_:
-
-Install all dependecies with:
 ```bash
-  yarn 
+bun install        # also builds design-tokens and ui-components
+bun run start      # app at http://127.0.0.1:3000
+bun run storybook  # component docs
 ```
 
-To run the front end application [`@monorepo/cra`](./packages/cra) :
-```bash
-  yarn start
-```
+| Command | Description |
+| --- | --- |
+| `bun run start` | Run the app |
+| `bun run build-app` | Build the app to `packages/app/dist` |
+| `bun run test:ci` | Run all tests with coverage |
+| `bun run lint` / `bun run lint:css` | ESLint / Stylelint |
+| `bun run storybook` | Run Storybook |
+| `bun run build-storybook` | Build Storybook to `packages/ui-components/public` |
+| `bun run watch:tokens` / `bun run watch:components` | Rebuild packages on change |
 
-To run all components with storybook  [`@monorepo/ui-components`](./packages/ui-components) :
-```bash
-  yarn storybook
-```
+## Code standards
 
-## 🗂 Monorepo structure
-
-| Package                                               | Description                                                                            |
-| -------------------------------------------------     | -------------------------------------------------------------------------------------- |
-| [`@monorepo/design-tokens`](./packages/design-tokens) | Design tokens (colors, typography, attributes...)                                      |
-| [`@common/**`](./packages/commons)                    | Common functions, images, lints (eslint, stylelint, prettier) and other generics setup |
-| [`@monorepo/ui-components`](./packages/ui-components) | React library components with [stories](https://storybook.js.org/)                     |
-| [`@monorepo/cra`](./packages/cra)                     | Front end application create with create-react-app                                     |
-
-## 🚨 Code standard
-
-- [JavaScript Standard Style](https://standardjs.com/) - Javascript styleguide
-- [Prettier](https://prettier.io/) - Code formatter
-- [ESLint](https://eslint.org/) - Lint to quickly find problems
-- [Stylelint](https://stylelint.io/) - A mighty, modern linter that helps you avoid errors and enforce conventions in your styles
-
- ## ⌨️ Commands
-
-| Command                        | Description                       |
-| ------------------------------ | --------------------------------- |
-| `yarn`                         | Install all dependencies          |
-| `yarn start`                   | Run frontend app                  |
-| `yarn test:ci`                 | Run all tests                     |
-| `yarn storybook`               | Run storybook doc components      |
-| `yarn watch:tokens`            | Watch design-tokens package       |
-| `yarn watch:components`        | Watch ui-components package       |
-| `yarn build-app`               | Build of front app([`@monorepo/cra`](./packages/cra)) and generate a directory with all assets in the following path: `packages/cra/build`      |
-| `yarn build-storybook`         | Build of storybook with components([`@monorepo/ui-components`](./packages/ui-components)) and generate a directory with all assets in the following path: `packages/ui-components/public`      |
+[JavaScript Standard Style](https://standardjs.com/), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/) and [Conventional Commits](https://conventionalcommits.org), with shared configs in [`packages/commons`](./packages/commons).
