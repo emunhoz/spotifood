@@ -31,9 +31,9 @@ module.exports = plop => {
       {
         type: 'add',
         path:
-          'src/components/{{kebabCase name}}/{{pascalCase name}}.stories.mdx',
+          'src/components/{{kebabCase name}}/{{pascalCase name}}.stories.tsx',
         templateFile:
-          'plop-templates/Component/Component.story.js.hbs'
+          'plop-templates/Component/Component.stories.tsx.hbs'
       }
     ]
   })
