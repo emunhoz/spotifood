@@ -4,6 +4,8 @@
 
 - `core`: typography, radii, shadows, breakpoints
 - `light` / `dark`: color per theme (dark is a placeholder until redesigned in Figma)
+- `primaryDark` / `primaryLight` reference `{color.primary}` with a Tokens Studio mix modifier
+  (27% black / 40% white). Change only `primary`; the shades and the logo follow.
 - Build: `bun run build:tokens` (Style Dictionary v4) writes `src/generated/tokens.ts` and `tokens.css`.
   `libbuild` runs it before `tsc`. Commit the generated files; CI fails on drift.
 - TS: default export is the theme object (light values), named export `typography`.
