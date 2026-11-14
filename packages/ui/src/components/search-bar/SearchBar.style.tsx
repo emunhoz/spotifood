@@ -25,7 +25,7 @@ export const Input = styled.input<{ error?: boolean }>`
   box-sizing: border-box;
   width: 100%;
   height: 52px;
-  padding: 0 18px 0 50px;
+  padding: 0 52px 0 50px;
   margin: 0;
   font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s3}px;
@@ -46,6 +46,52 @@ export const Input = styled.input<{ error?: boolean }>`
   }
 
   ${({ error }) => error && ErrorStyle};
+`
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: ${({ theme }) => theme.palette.textMuted};
+  cursor: pointer;
+  background: ${({ theme }) => theme.palette.light};
+  border: 0;
+  border-radius: 50%;
+  transition: color 0.2s, background-color 0.2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.darkest};
+    background: ${({ theme }) => theme.palette.mediumlight};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.brand};
+    outline-offset: 2px;
+  }
+`
+
+export const Shortcut = styled.kbd`
+  position: absolute;
+  right: 14px;
+  display: none;
+  min-width: 22px;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: ${({ theme }) => theme.typography.size.s1}px;
+  color: ${({ theme }) => theme.palette.textMuted};
+  text-align: center;
+  pointer-events: none;
+  border: 1px solid ${({ theme }) => theme.palette.mediumlight};
+  border-radius: ${({ theme }) => theme.attributes.borderRadius.small}px;
+
+  /* Only where a keyboard is likely: no shortcut hint on touch screens */
+  @media (pointer: fine) {
+    display: block;
+  }
 `
 
 export const Label = styled.span`

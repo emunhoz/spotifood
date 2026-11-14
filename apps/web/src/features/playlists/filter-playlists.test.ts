@@ -1,4 +1,4 @@
-import { filterPlaylists, uniqueValues, type Playlist } from './filter-playlists'
+import { filterPlaylists, uniqueValues, facetCounts, type Playlist } from './filter-playlists'
 
 const playlists: Playlist[] = [
   { id: '1', name: 'Sunday Brunch', owner: 'Spotifood', genre: 'Jazz', occasion: 'Breakfast', tracks: 40, minutes: 100, pairsWith: 'Eggs Benedict', cover: ['#000', '#fff'] },
@@ -39,5 +39,22 @@ describe('filterPlaylists', () => {
 describe('uniqueValues', () => {
   test('returns sorted distinct values for a field', () => {
     expect(uniqueValues(playlists, 'genre')).toEqual(['Electronic', 'Jazz', 'Rock'])
+  })
+})
+
+describe('facetCounts', () => {
+  test('counts every value when nothing else is selected', () => {
+    expect(facetCounts(playlists, noCriteria, 'occasion')).toEqual(new Map([['Breakfast', 1], ['Dinner', 2], ['Lunch', 1]]))
+  })
+
+  test('applies the other criteria but ignores its own field', () => {
+    const counts = facetCounts(playlists, { search: '', genre: 'Jazz', occasion: 'Dinner' }, 'occasion')
+    expect(counts.get('Breakfast')).toBe(1)
+    expect(counts.get('Dinner')).toBe(1)
+    expect(counts.has('Lunch')).toBe(false)
+  })
+
+  test('respects the search term', () => {
+    expect(facetCounts(playlists, { ...noCriteria, search: 'pizza' }, 'genre')).toEqual(new Map([['Rock', 1]]))
   })
 })

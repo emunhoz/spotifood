@@ -21,4 +21,14 @@ describe('[Component]: Chip', () => {
     render(<Chip suggested>Dinner</Chip>)
     expect(screen.getByRole('button', { name: 'Dinner (suggested for now)' })).toBeInTheDocument()
   })
+
+  test('shows the count and disables a chip that would return nothing', () => {
+    render(<Chip count={0}>Party</Chip>)
+    expect(screen.getByRole('button', { name: 'Party 0' })).toBeDisabled()
+  })
+
+  test('keeps an active chip enabled at zero so it can be unset', () => {
+    render(<Chip active count={0}>Party</Chip>)
+    expect(screen.getByRole('button', { name: 'Party 0' })).toBeEnabled()
+  })
 })

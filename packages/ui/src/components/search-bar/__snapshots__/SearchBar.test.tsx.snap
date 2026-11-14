@@ -6,7 +6,7 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
     class="sc-aXZVg deLxUb"
   >
     <span
-      class="sc-fqkvVR hbUBct"
+      class="sc-iGgWBj bNJOhh"
     />
     <div
       class="sc-gEvEer EpBCm"
@@ -19,7 +19,7 @@ exports[`[Component]: SearchBar render component with error style 1`] = `
       />
     </div>
     <input
-      class="sc-eqUAAy kcIKOm"
+      class="sc-eqUAAy heUytg"
       type="text"
       value=""
     />
@@ -33,7 +33,7 @@ exports[`[Component]: SearchBar render the component 1`] = `
     class="sc-aXZVg deLxUb"
   >
     <span
-      class="sc-fqkvVR hbUBct"
+      class="sc-iGgWBj bNJOhh"
     />
     <div
       class="sc-gEvEer EpBCm"
@@ -46,7 +46,7 @@ exports[`[Component]: SearchBar render the component 1`] = `
       />
     </div>
     <input
-      class="sc-eqUAAy glzDSe"
+      class="sc-eqUAAy ibAfEI"
       type="text"
       value=""
     />

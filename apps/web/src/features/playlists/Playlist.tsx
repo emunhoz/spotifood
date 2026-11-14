@@ -1,27 +1,42 @@
-import { useState, type CSSProperties } from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { SearchBar, PlaylistCard, PlaylistCardSkeleton, EmptyState, Chip, Button } from '@monorepo/ui-components'
 import { usePlaylists } from './use-playlists'
-import { filterPlaylists, uniqueValues } from './filter-playlists'
+import { usePlaylistFilters } from './use-playlist-filters'
+import { filterPlaylists, uniqueValues, facetCounts } from './filter-playlists'
 import { OCCASIONS, occasionForHour, greetingForHour, describeSelection } from './time-of-day'
-import { withViewTransition } from './with-view-transition'
 import { coverDataUrl, listenUrl } from './cover'
 import * as S from './Playlist.style'
 
 const SKELETON_COUNT = 8
-const ALL = ''
+const SEARCH_SHORTCUT = '/'
+const TYPING_TARGETS = new Set(['INPUT', 'TEXTAREA', 'SELECT'])
 
 // view-transition-name must be unique per frame, so only the active chip carries it
 function activeName (isActive: boolean, name: string): CSSProperties {
   return { viewTransitionName: isActive ? name : undefined } as CSSProperties
 }
 
+function isTypingTarget (target: EventTarget | null): boolean {
+  return target instanceof HTMLElement && (TYPING_TARGETS.has(target.tagName) || target.isContentEditable)
+}
+
 function Playlist () {
   const [hour] = useState(() => new Date().getHours())
-  const [search, setSearch] = useState('')
-  const [genre, setGenre] = useState(ALL)
-  const [occasion, setOccasion] = useState(ALL)
+  const searchInput = useRef<HTMLInputElement>(null)
+  const filters = usePlaylistFilters()
   const playlistsState = usePlaylists()
   const suggestedOccasion = occasionForHour(hour)
+  const { criteria } = filters
+
+  useEffect(() => {
+    const controller = new AbortController()
+    window.addEventListener('keydown', (event) => {
+      if (event.key !== SEARCH_SHORTCUT || isTypingTarget(event.target)) return
+      event.preventDefault()
+      searchInput.current?.focus()
+    }, { signal: controller.signal })
+    return () => controller.abort()
+  }, [])
 
   if (playlistsState.status === 'error') {
     return <EmptyState title='Could not load playlists' message='Check your connection and refresh the page.' />
@@ -29,51 +44,52 @@ function Playlist () {
 
   const isLoading = playlistsState.status === 'loading'
   const playlists = isLoading ? [] : playlistsState.playlists
-  const visiblePlaylists = filterPlaylists(playlists, { search, genre, occasion })
+  const visiblePlaylists = filterPlaylists(playlists, criteria)
   const genres = uniqueValues(playlists, 'genre')
-  const hasFilters = search !== '' || genre !== ALL || occasion !== ALL
+  const occasionCounts = facetCounts(playlists, criteria, 'occasion')
+  const genreCounts = facetCounts(playlists, criteria, 'genre')
+  const allOccasionsCount = [...occasionCounts.values()].reduce((sum, count) => sum + count, 0)
+  const hasFilters = filters.query !== '' || criteria.genre !== '' || criteria.occasion !== ''
   const hasNoResults = !isLoading && visiblePlaylists.length === 0
-
-  const toggleOccasion = (value: string) => withViewTransition(() => setOccasion(current => current === value ? ALL : value))
-  const toggleGenre = (value: string) => withViewTransition(() => setGenre(current => current === value ? ALL : value))
-  const clearAll = () => withViewTransition(() => {
-    setSearch('')
-    setGenre(ALL)
-    setOccasion(ALL)
-  })
 
   return (
     <S.Wrapper>
       <S.Hero>
         <S.Eyebrow>{greetingForHour(hour)}</S.Eyebrow>
         <S.Count aria-live='polite' style={{ viewTransitionName: 'playlist-count' } as CSSProperties}>
-          {isLoading ? 'Finding playlists…' : describeSelection(visiblePlaylists.length, genre, occasion)}
+          {isLoading ? 'Finding playlists…' : describeSelection(visiblePlaylists.length, criteria.genre, criteria.occasion)}
         </S.Count>
         <S.Subline>Music to go with your food order.</S.Subline>
       </S.Hero>
 
       <SearchBar
-        onChange={(event) => {
-          const { value } = event.target
-          withViewTransition(() => setSearch(value))
-        }}
-        value={search}
+        ref={searchInput}
+        onChange={(event) => filters.setQuery(event.target.value)}
+        onClear={filters.clearSearch}
+        value={filters.query}
         labelName='Search playlists'
         placeholder='Search playlists, people or dishes...'
+        shortcutHint={SEARCH_SHORTCUT}
       />
 
       <S.Filters>
         <S.ChipRow role='group' aria-label='Occasion'>
-          <Chip active={occasion === ALL} onClick={() => withViewTransition(() => setOccasion(ALL))} style={activeName(occasion === ALL, 'occasion-active')}>
+          <Chip
+            active={criteria.occasion === ''}
+            count={isLoading ? undefined : allOccasionsCount}
+            onClick={filters.showAllOccasions}
+            style={activeName(criteria.occasion === '', 'occasion-active')}
+          >
             All
           </Chip>
           {OCCASIONS.map(value => (
             <Chip
               key={value}
-              active={occasion === value}
+              active={criteria.occasion === value}
               suggested={value === suggestedOccasion}
-              onClick={() => toggleOccasion(value)}
-              style={activeName(occasion === value, 'occasion-active')}
+              count={isLoading ? undefined : occasionCounts.get(value) ?? 0}
+              onClick={() => filters.toggleOccasion(value)}
+              style={activeName(criteria.occasion === value, 'occasion-active')}
             >
               {value}
             </Chip>
@@ -81,12 +97,18 @@ function Playlist () {
         </S.ChipRow>
         <S.ChipRow role='group' aria-label='Genre'>
           {genres.map(value => (
-            <Chip key={value} active={genre === value} onClick={() => toggleGenre(value)} style={activeName(genre === value, 'genre-active')}>
+            <Chip
+              key={value}
+              active={criteria.genre === value}
+              count={genreCounts.get(value) ?? 0}
+              onClick={() => filters.toggleGenre(value)}
+              style={activeName(criteria.genre === value, 'genre-active')}
+            >
               {value}
             </Chip>
           ))}
         </S.ChipRow>
-        {hasFilters && <S.ClearButton type='button' onClick={clearAll}>Clear filters</S.ClearButton>}
+        {hasFilters && <S.ClearButton type='button' onClick={filters.clearAll}>Clear filters</S.ClearButton>}
       </S.Filters>
 
       <S.Grid aria-busy={isLoading}>
@@ -110,7 +132,7 @@ function Playlist () {
         <EmptyState
           title='No playlists found'
           message='Try another word or remove a filter.'
-          action={<Button size='small' ghost onClick={clearAll}>Clear filters</Button>}
+          action={<Button size='small' ghost onClick={filters.clearAll}>Clear filters</Button>}
         />
       )}
     </S.Wrapper>

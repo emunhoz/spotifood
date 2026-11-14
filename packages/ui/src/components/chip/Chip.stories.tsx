@@ -25,3 +25,7 @@ export const Active: Story = { args: { active: true } }
 export const Suggested: Story = { args: { suggested: true } }
 
 export const ActiveAndSuggested: Story = { args: { active: true, suggested: true } }
+
+export const WithCount: Story = { args: { count: 6 } }
+
+export const EmptyFacet: Story = { args: { children: 'Party', count: 0 } }

@@ -30,9 +30,22 @@ export const Chip = styled.button<{ $active: boolean }>`
     outline-offset: 2px;
   }
 
+  &:disabled {
+    cursor: default;
+    opacity: 0.45;
+    transform: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
+`
+
+export const Count = styled.span<{ $active: boolean }>`
+  font-size: ${({ theme }) => theme.typography.size.s1}px;
+  font-weight: ${({ theme }) => theme.typography.weight.medium};
+  font-variant-numeric: tabular-nums;
+  opacity: ${({ $active }) => ($active ? 0.75 : 1)};
 `
 
 export const NowDot = styled.span`
