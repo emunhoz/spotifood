@@ -5,7 +5,10 @@ import * as S from './PlaylistCardSkeleton.style'
 export const PlaylistCardSkeleton = () => (
   <S.Skeleton aria-hidden='true'>
     <S.Block $height='auto' $ratio />
-    <S.Block $height='16px' $width='70%' />
-    <S.Block $height='12px' $width='45%' />
+    <S.Lines>
+      <S.Block $height='16px' $width='70%' />
+      <S.Block $height='12px' $width='45%' />
+      <S.Block $height='10px' $width='55%' />
+    </S.Lines>
   </S.Skeleton>
 )

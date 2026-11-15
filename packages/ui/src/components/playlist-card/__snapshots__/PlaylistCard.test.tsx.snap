@@ -12,7 +12,7 @@ exports[`[Component]: PlaylistCard render the component 1`] = `
       <img
         alt=""
         class="sc-eqUAAy fxAvdZ"
-        loading="lazy"
+        loading="eager"
         src="data:image/svg+xml,"
       />
       <span

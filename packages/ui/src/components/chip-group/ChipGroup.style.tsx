@@ -1,11 +1,20 @@
 import styled from 'styled-components'
+import { CHIP_LINE_HEIGHT, CHIP_PADDING_Y } from '../chip/Chip.style'
+
+const ROW_PADDING_TOP = 2
+const ROW_PADDING_BOTTOM = 6
 
 export const Row = styled.div`
   position: relative;
   isolation: isolate;
+  box-sizing: border-box;
   display: flex;
   gap: 8px;
-  padding: 2px 2px 6px;
+  align-items: flex-start;
+
+  /* Reserve one chip's height while the row is still empty (data loading), so it does not push the page */
+  min-height: ${({ theme }) => theme.typography.size.s2 * CHIP_LINE_HEIGHT + CHIP_PADDING_Y * 2 + ROW_PADDING_TOP + ROW_PADDING_BOTTOM}px;
+  padding: ${ROW_PADDING_TOP}px 2px ${ROW_PADDING_BOTTOM}px;
   overflow-x: auto;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
