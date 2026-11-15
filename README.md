@@ -60,8 +60,8 @@ The hard part was layering, found by recording frames at 10× slower speed. Name
 | --- | --- |
 | Unit and component tests | 94 (Vitest, Jest + Testing Library), including the facet counts, URL state, time-of-day rules and generated covers |
 | Browser tests | Playwright on desktop and Pixel 7: filtering, dish search, empty state, the detail dialog with Back and shared links, the `/` shortcut. Screenshots are compared against baselines rendered on CI's Linux runner, with motion reduced and the clock fixed |
-| Lighthouse (CI, median of 3) | Performance 93 · Accessibility 98 · Best practices 100 · SEO 100. The one accessibility issue (heading order) is fixed in this version |
-| Layout shift | CLS 0.06 → 0.004: the skeleton now matches the card's height, empty chip rows reserve their space, and line heights no longer depend on which font has loaded |
+| Lighthouse (CI, median of 3) | Performance 95 · Accessibility 100 · Best practices 100 · SEO 100 |
+| Layout shift | CLS ≈ 0.05 → 0.01 on CI: the skeleton matches the card's height, empty chip rows reserve their space, and line heights no longer depend on which font has loaded |
 | Initial JS | 222 kB (71 kB gzip), with no animation or UI library |
 
 ## Before / after
