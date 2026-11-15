@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
+    /* Explicit, not "normal": a normal line height follows the font's metrics, so the Poppins swap
+       resized every line of text and shifted the layout */
+    line-height: 1.5;
     background: ${createTheme.palette.lightest};
   }
 

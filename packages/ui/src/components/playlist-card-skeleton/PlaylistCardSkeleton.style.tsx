@@ -6,11 +6,15 @@ const pulse = keyframes`
   }
 `
 
+// Mirrors PlaylistCard's box (padding 12, gap 14, square cover, 72px text block), so the grid
+// does not grow when real cards replace it: that growth was the page's layout shift (CLS)
+const CARD_TEXT_HEIGHT = 72
+
 export const Skeleton = styled.div`
   display: flex;
   flex-flow: column;
-  gap: 10px;
-  padding: 12px 12px 18px;
+  gap: 14px;
+  padding: 12px;
   background: ${({ theme }) => theme.palette.surface};
   border-radius: ${({ theme }) => theme.attributes.borderRadius.big}px;
 `
@@ -26,4 +30,13 @@ export const Block = styled.span<{ $height: string, $width?: string, $ratio?: bo
   @media (prefers-reduced-motion: no-preference) {
     animation: ${pulse} 0.9s ease-in-out infinite alternate;
   }
+`
+
+export const Lines = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  height: ${CARD_TEXT_HEIGHT}px;
+  padding: 6px 4px;
 `

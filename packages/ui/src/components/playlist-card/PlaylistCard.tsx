@@ -18,6 +18,8 @@ interface IPlaylistCard {
 }
 
 const MINUTES_PER_HOUR = 60
+// Covers in the first screen load eagerly: lazy-loading them delayed the LCP image
+const EAGER_COVERS = 8
 
 export function formatDuration (minutes: number): string {
   const hours = Math.floor(minutes / MINUTES_PER_HOUR)
@@ -30,7 +32,7 @@ export const PlaylistCard = ({ imgUrl, playlistName, owner, link, minutes, pairs
   <S.PlaylistCard style={{ '--i': index, ...shellStyle } as CSSProperties}>
     <S.Cover>
       {/* The name goes on the image, not the figure, so the duration badge stays in the card */}
-      <S.CoverImg src={imgUrl} alt='' loading='lazy' style={coverStyle} />
+      <S.CoverImg src={imgUrl} alt='' loading={index < EAGER_COVERS ? 'eager' : 'lazy'} style={coverStyle} />
       {minutes !== undefined && <S.Duration>{formatDuration(minutes)}</S.Duration>}
     </S.Cover>
     <S.Body>

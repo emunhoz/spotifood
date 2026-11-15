@@ -76,11 +76,13 @@ export const Toolbar = styled.div`
   }
 `
 
+// Pulled up by the toolbar's bottom padding: genres belong to the same filter block as the meal row
 export const Filters = styled.div`
   display: flex;
   flex-flow: column;
   gap: 12px;
   min-width: 0;
+  margin-top: -12px;
 `
 
 export const ClearButton = styled.button`
@@ -113,4 +115,13 @@ export const Grid = styled.div`
 
 export const CardSlot = styled.div`
   min-width: 0;
+`
+
+export const VisuallyHidden = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 `

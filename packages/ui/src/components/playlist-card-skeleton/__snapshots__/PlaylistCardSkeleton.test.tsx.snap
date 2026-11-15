@@ -4,17 +4,24 @@ exports[`[Component]: PlaylistCardSkeleton render the component hidden from assi
 <DocumentFragment>
   <div
     aria-hidden="true"
-    class="sc-aXZVg boKkqf"
+    class="sc-aXZVg fVpsRV"
   >
     <span
       class="sc-gEvEer ckNCeC"
     />
-    <span
-      class="sc-gEvEer kgRucC"
-    />
-    <span
-      class="sc-gEvEer cwROQE"
-    />
+    <div
+      class="sc-eqUAAy gQiKnJ"
+    >
+      <span
+        class="sc-gEvEer kgRucC"
+      />
+      <span
+        class="sc-gEvEer cwROQE"
+      />
+      <span
+        class="sc-gEvEer bpXonb"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

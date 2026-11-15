@@ -6,15 +6,20 @@ const ping = keyframes`
   }
 `
 
+// A fixed line height keeps the chip's height independent of which font has loaded
+export const CHIP_LINE_HEIGHT = 1.5
+export const CHIP_PADDING_Y = 10
+
 // Same weight active or not: a bolder active label would change the chip width and shove the row
 export const Chip = styled.button<{ $active: boolean }>`
   display: inline-flex;
   flex: none;
   align-items: center;
-  padding: 10px 16px;
+  padding: ${CHIP_PADDING_Y}px 16px;
   font-family: inherit;
   font-size: ${({ theme }) => theme.typography.size.s2}px;
   font-weight: ${({ theme }) => theme.typography.weight.medium};
+  line-height: ${CHIP_LINE_HEIGHT};
   color: ${({ theme, $active }) => ($active ? theme.palette.onPrimary : theme.palette.textMuted)};
   white-space: nowrap;
   cursor: pointer;

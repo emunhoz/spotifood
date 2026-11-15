@@ -128,7 +128,9 @@ function Playlist () {
         {hasFilters && <S.ClearButton type='button' onClick={filters.clearAll}>Clear filters</S.ClearButton>}
       </S.Filters>
 
-      <S.Grid aria-busy={isLoading}>
+      {/* Keeps headings in order (h1 count → h2 → card h3) and names the list for screen readers */}
+      <S.VisuallyHidden as='h2' id='playlists-heading'>Playlists</S.VisuallyHidden>
+      <S.Grid aria-busy={isLoading} aria-labelledby='playlists-heading'>
         {isLoading && Array.from({ length: SKELETON_COUNT }, (_, index) => <PlaylistCardSkeleton key={index} />)}
         {visiblePlaylists.map((playlist, index) => (
           <S.CardSlot key={playlist.id} {...FILTER_ONLY} style={{ viewTransitionName: `card-${playlist.id}` } as CSSProperties}>
